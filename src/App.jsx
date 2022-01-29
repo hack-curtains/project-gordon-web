@@ -4,8 +4,6 @@ import SignIn from './components/SignIn.jsx';
 import NavMenu from './components/NavMenu.jsx';
 import webMenuIcon from '../dist/resources/menu-24.png';
 
-import RecipeTile from "./components/RecipeTile.jsx";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
