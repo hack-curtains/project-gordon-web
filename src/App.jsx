@@ -1,6 +1,8 @@
 import React from "react";
 import axios from 'axios';
 
+import RecipeTile from "./components/RecipeTile.jsx";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="main">
-
+        <RecipeTile />
       </div>
     );
   }
