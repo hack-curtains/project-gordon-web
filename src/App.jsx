@@ -49,6 +49,7 @@ class App extends React.Component {
       <div className="main">
         <button onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button>
         {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
+
         {this.state.showLogin === true ? (<SignIn captureUser={this.captureUser} />) : ''}
 
       </div>
