@@ -31,6 +31,7 @@ class App extends React.Component {
 
         {this.state.currentView === 'login' ? (<SignIn captureUser={this.captureUser} />) : ''}
 
+        <HomeFeedView/>
       </div>
     );
   }

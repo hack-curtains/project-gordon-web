@@ -7,11 +7,31 @@
 }
 
 #homeTopView {
+  width: 100%;
   height: 40%;
 }
 
-button {
-  width: 10%;
+#mainImg {
+  position: relative;
+  background: no-repeat url('https://m.media-amazon.com/images/S/assets.wholefoodsmarket.com//content/fd/f0/6987bab74c46ab76772eac31508e/specialdiets-gluten-free-hero.jpg');
+  background-size: 100%;
+  height: 350px;
+  width: 100%;
+  opacity: 0.8;
+}
+
+#exploreButton {
+  background-color: black;
+  border: 0px solid;
+  border-radius: 5px;
+  color: white;
+  width: 110px;
+  height: 30px;
+  opacity: 1.0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #homeBottomView {
@@ -19,4 +39,31 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+#title-homeBottomView {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+#title {
+  font-size: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#sort {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#sortArrow {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
 }
