@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/hack-curtains/project-gordon-web#readme",
   "dependencies": {
+    "@babel/core": "^7.16.12",
     "axios": "^0.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
