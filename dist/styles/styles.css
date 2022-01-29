@@ -1,5 +1,6 @@
 @import 'RecipeTile.css';
 @import 'HomeView.css';
+@import 'SoloRecipeView.css';
 
 body {
   margin: 0;
