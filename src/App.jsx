@@ -30,8 +30,6 @@ class App extends React.Component {
         {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
 
         {this.state.currentView === 'login' ? (<SignIn captureUser={this.captureUser} />) : ''}
-
-        <HomeFeedView/>
       </div>
     );
   }
