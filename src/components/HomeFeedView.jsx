@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import RecipeTile from './RecipeTile.jsx'
 
 const HomeFeedView = () => {
 
   return (
-    <>
-    </>
+    <div id='homeView'>
+      {/* <div id='navBar'></div> */}
+      <div id='homeTopView'></div>
+      <div>MAIN IMG</div>
+      <button>EXPLORE</button>
+      <div id='homeBottomView'>
+        <div id='title'>Recommend Recipes</div>
+        <RecipeTile/>
+      </div>
+    </div>
   );
 }
 

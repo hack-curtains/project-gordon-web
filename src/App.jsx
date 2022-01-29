@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 
+import HomeFeedView from './components/HomeFeedView.jsx';
 import RecipeTile from "./components/RecipeTile.jsx";
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="main">
+        <HomeFeedView/>
       </div>
     );
   }
