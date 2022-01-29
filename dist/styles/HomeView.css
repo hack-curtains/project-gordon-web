@@ -8,7 +8,7 @@
 
 #homeTopView {
   width: 100%;
-  height: 40%;
+  height: 30%;
 }
 
 #mainImg {
@@ -41,6 +41,7 @@
   align-items: center;
   margin-top: 30px;
   width: 100%;
+  height: 70%;
 }
 
 #title-homeBottomView {
@@ -60,10 +61,24 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-right: 8vw;
+}
+
+#sort, h4 {
+  text-decoration: underline;
 }
 
 #sortArrow {
   width: 20px;
   height: 20px;
   margin-left: 10px;
+}
+
+#receipeBox {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  justify-content: center;
+  height: 450px;
+  overflow: scroll;
 }

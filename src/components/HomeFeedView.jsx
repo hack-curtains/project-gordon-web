@@ -3,7 +3,6 @@ import RecipeTile from './RecipeTile.jsx'
 import arrow from '../../dist/resources/arrow.png';
 
 
-
 const HomeFeedView = () => {
 
   return (
@@ -21,7 +20,14 @@ const HomeFeedView = () => {
             <img id='sortArrow' src={arrow}></img>
           </div>
         </div>
-        <RecipeTile/>
+        <div id='receipeBox'>
+          <RecipeTile/>
+          <RecipeTile/>
+          <RecipeTile/>
+          <RecipeTile/>
+          <RecipeTile/>
+          <RecipeTile/>
+        </div>
       </div>
     </div>
   );
