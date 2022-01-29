@@ -5,6 +5,18 @@ import arrow from '../../dist/resources/arrow.png';
 
 const HomeFeedView = () => {
 
+  const handleSortForMouseEnter = () => {
+    let sortElement = document.getElementById('sortDropDown');
+    sortElement.style.display = 'block';
+  }
+
+  const handleSortForMouseLeave = () => {
+    let sortElement = document.getElementById('sortDropDown');
+    sortElement.style.display = 'none';
+  }
+
+
+
   return (
     <div id='homeView'>
       <div id='homeTopView'>
@@ -16,8 +28,13 @@ const HomeFeedView = () => {
         <div id='title-homeBottomView'>
           <div id='title'>Recommend Recipes</div>
           <div id='sort'>
-            <h4>Sort By</h4>
-            <img id='sortArrow' src={arrow}></img>
+            <h4 onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
+              <div id='sortDropDown'>
+                <p id='sortDropDownPopular'>Most Popular</p>
+                <p id='sortDropDownMeal'>Meal Type</p>
+              </div>
+            </h4>
+            <img id='sortArrow' src={arrow} onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}></img>
           </div>
         </div>
         <div id='receipeBox'>
