@@ -2,7 +2,9 @@ import React from "react";
 import axios from 'axios';
 import SignIn from './components/SignIn.jsx';
 import NavMenu from './components/NavMenu.jsx';
-// import webMenuIcon from '../assets/menu-48.png';
+import webMenuIcon from '../dist/resources/menu-24.png';
+
+import RecipeTile from "./components/RecipeTile.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +14,8 @@ class App extends React.Component {
       showProfile: false,
       showHome: false,
       showFavorites: false,
-      showNav: false
+      showNav: false,
+      showLogin: true
     }
     this.captureUser = this.captureUser.bind(this);
     this.captureNavigation = this.captureNavigation.bind(this);
@@ -21,7 +24,6 @@ class App extends React.Component {
     this.setState({ username: name });
   }
   captureNavigation(e) {
-    console.log([e.target.getAttribute('name')]);
     if (e.target.getAttribute('name') === "showHome") {
       this.setState({
         showHome: true,
@@ -45,9 +47,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="main">
-        <button onClick={e => this.setState({showNav: !this.state.showNav})}>Menu</button>
+        <button onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button>
         {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
-        <SignIn captureUser={this.captureUser} />
+        {this.state.showLogin === true ? (<SignIn captureUser={this.captureUser} />) : ''}
+
       </div>
     );
   }
