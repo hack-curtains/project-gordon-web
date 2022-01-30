@@ -1,5 +1,9 @@
 @import 'RecipeTile.css';
+<<<<<<< HEAD
 @import 'SignIn.css';
+=======
+@import 'SoloRecipeView.css';
+>>>>>>> 0c866972236620a8892ac535c1b3a77b65603445
 
 body {
   margin: 0;
