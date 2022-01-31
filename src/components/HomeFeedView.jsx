@@ -3,7 +3,7 @@ import RecipeTile from './RecipeTile.jsx'
 import arrow from '../../dist/resources/arrow.png';
 
 
-const HomeFeedView = ({toHandleExploreView}) => {
+const HomeFeedView = ({captureNavigation}) => {
 
   const handleSortForMouseEnter = () => {
     let sortElement = document.getElementById('sortDropDown');
@@ -21,7 +21,7 @@ const HomeFeedView = ({toHandleExploreView}) => {
     <div id="homeView">
       <div id="homeTopView">
       <div id="mainImg">
-        <button onClick={toHandleExploreView} id="exploreButton">EXPLORE</button>
+        <button onClick={captureNavigation} name="explore" id="exploreButton">EXPLORE</button>
       </div>
       </div>
       <div id="homeBottomView">
