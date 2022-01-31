@@ -11,6 +11,7 @@ import ProfileView from './components/ProfileView.jsx';
 import RecipeTile from "./components/RecipeTile.jsx";
 import BottomNav from './components/BottomNav.jsx';
 import SignInModal from './components/SignInModal.jsx';
+import SoloRecipeView from './components/SoloRecipeView.jsx';
 import HomeFeedView from './components/HomeFeedView.jsx';
 
 class App extends React.Component {
@@ -47,8 +48,8 @@ class App extends React.Component {
     this.setState({ favorites });
   }
 
-  captureNavigation(e) {
-      this.setState({ currentView: e.target.getAttribute('name')});
+  captureNavigation(newView) {
+      this.setState({ currentView: newView });
   }
 
   handleClose() {
@@ -61,7 +62,7 @@ class App extends React.Component {
       <div className="main">
         <div className="navdiv">
             {window.innerWidth > 800 ? (<div className="topnav">
-            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onClick={e => this.captureNavigation(e)}>Pantry Chef</div>
+            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onClick={e => this.captureNavigation(e.target.getAttribute('name'))}>Pantry Chef</div>
           </div>) : ''}
           {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
         </div>
@@ -87,6 +88,7 @@ class App extends React.Component {
 
         {this.state.currentView === 'home' && <HomeFeedView/>}
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
+
       </div>
     );
   }
