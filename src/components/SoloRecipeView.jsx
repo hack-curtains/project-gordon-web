@@ -24,43 +24,43 @@ const SoloRecipeView = () => {
   ],"tags":[{"id":14,"name":"lunch","category":"dish","frequency":4274},{"id":15,"name":"main course","category":"dish","frequency":4274},{"id":16,"name":"main dish","category":"dish","frequency":4274},{"id":17,"name":"dinner","category":"dish","frequency":4274},{"id":13,"name":"gluten free","category":"diets","frequency":5393},{"id":19,"name":"primal","category":"diets","frequency":937}],"tag_ids":[14,15,16,17,13,19],"ingredient_ids":[168,45,37,169,170,33,4,49,77],"createdAt":"2022-01-31T03:16:59.614Z","updatedAt":"2022-01-31T03:17:12.794Z"}
 
   return (
-    <div className="SoloRecipeViewContainer">
-      <div className="RecipeViewHeader">
-        <img className="BackButton" src={back}/>
-        <div className="RecipeName">{recipe.title}</div>
-        <img className="BackButton" src={emptyHeart}/>
+    <div className="soloRecipeViewContainer">
+      <div className="recipeViewHeader">
+        <img className="backButton" src={back}/>
+        <div className="recipeName">{recipe.title}</div>
+        <img className="backButton" src={emptyHeart}/>
       </div>
-      <div className="RecipeInformation">
-        <img className="RecipeImage" src="https://spoonacular.com/recipeImages/579247-556x370.jpg"/>
-        <div className="RecipeStatsContainer">
-          <div className="RecipeStats">
-            <img className="RecipeStatIcon" src={time}/>
-            <div className="RecipeStat">{recipe.time} minutes</div>
+      <div className="recipeInformation">
+        <img className="recipeImage" src="https://spoonacular.com/recipeImages/579247-556x370.jpg"/>
+        <div className="recipeStatsContainer">
+          <div className="recipeStats">
+            <img className="recipeStatIcon" src={time}/>
+            <div className="recipeStat">{recipe.time} minutes</div>
           </div>
-          <div className="RecipeStats">
-            <img className="RecipeStatIcon" src={cost}/>
-            <div className="RecipeStat">${recipe.price} per serving</div>
+          <div className="recipeStats">
+            <img className="recipeStatIcon" src={cost}/>
+            <div className="recipeStat">${recipe.price} per serving</div>
           </div>
-          <div className="RecipeStats">
-            <img className="RecipeStatIcon" src={fullHeart}/>
-            <div className="RecipeStat">{recipe.likes} {recipe.likes > 1 ? 'users like':'user likes'} this recipe</div>
+          <div className="recipeStats">
+            <img className="recipeStatIcon" src={fullHeart}/>
+            <div className="recipeStat">{recipe.likes} {recipe.likes > 1 ? 'users like':'user likes'} this recipe</div>
           </div>
-          <div className="RecipeTagsContainer">
-            <div className="DietTagsContainer">
+          <div className="recipeTagsContainer">
+            <div className="dietTagsContainer">
               {recipe.tags.map(tag => {
                 if (tag.category === 'diets') {
                   return <div key={tag.id}>{tag.name}</div>
                 }
               })}
             </div>
-            <div className="CuisineTagsContainer">
+            <div className="cuisineTagsContainer">
               {recipe.tags.map(tag => {
                 if (tag.category === 'cuisines') {
                   return <div key={tag.id}>{tag.name}</div>
                 }
               })}
             </div>
-            <div className="DishTagsContainer">
+            <div className="dishTagsContainer">
               {recipe.tags.map(tag => {
                 if (tag.category === 'dish') {
                   return <div key={tag.id}>{tag.name}</div>
@@ -70,26 +70,26 @@ const SoloRecipeView = () => {
           </div>
         </div>
       </div>
-      <div className="RecipeDescription">
+      <div className="recipeDescription">
         {parse(recipe.summary)}
       </div>
-      <div className="RecipeBody">
-        <div className="RecipeIngredientList">
+      <div className="recipeBody">
+        <div className="recipeIngredientList">
           <section>Ingredients List</section>
           {recipe.ingredients.map(ingredient => {
             return (
-              <div className="IngredientListEntry" key={ingredient.id}>
+              <div className="ingredientListEntry" key={ingredient.id}>
                 <img src={check} style={{visibility: pantry.includes(ingredient.id) ? 'visible':'hidden'}}/>
                 <div>{ingredient.name}</div>
               </div>
             );
           })}
         </div>
-        <div className="RecipeInstructions">
-          <section className="InstructionsHeader">Instructions</section>
+        <div className="recipeInstructions">
+          <section className="instructionsHeader">Instructions</section>
           {recipe.instructions.map((instruction, index) => {
             return (
-              <div className="InstructionContainer" key={index}>
+              <div className="instructionContainer" key={index}>
                 <div>{instruction.name}</div>
                 {instruction.steps.map((step, index) => (
                   <div key={index}>{index+1}. {step}</div>

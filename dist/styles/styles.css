@@ -6,6 +6,7 @@
 @import 'HomeView.css';
 @import 'SignIn.css';
 @import 'SoloRecipeView.css';
+@import 'FavoriteView.css';
 
 html {
   height: 100%;

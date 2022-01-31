@@ -3,7 +3,7 @@ import RecipeTile from './RecipeTile.jsx'
 import arrow from '../../dist/resources/arrow.png';
 
 
-const HomeFeedView = () => {
+const HomeFeedView = ({captureNavigation}) => {
 
   const handleSortForMouseEnter = () => {
     let sortElement = document.getElementById('sortDropDown');
@@ -18,26 +18,26 @@ const HomeFeedView = () => {
 
 
   return (
-    <div id='homeView'>
-      <div id='homeTopView'>
-      <div id='mainImg'>
-        <button id='exploreButton'>EXPLORE</button>
+    <div id="homeView">
+      <div id="homeTopView">
+      <div id="mainImg">
+        <button onClick={captureNavigation} name="explore" id="exploreButton">EXPLORE</button>
       </div>
       </div>
-      <div id='homeBottomView'>
-        <div id='title-homeBottomView'>
-          <div id='title'>Recommend Recipes</div>
-          <div id='sort'>
-            <h4 onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
-              <div id='sortDropDown'>
-                <p id='sortDropDownPopular'>Most Popular</p>
-                <p id='sortDropDownMeal'>Meal Type</p>
+      <div id="homeBottomView">
+        <div id="titleHomeBottomView">
+          <div id="title">Recommend Recipes</div>
+          <div id="sort">
+            <h4 id="sortByText" onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
+              <div id="sortDropDown">
+                <p id="sortDropDownPopular">Most Popular</p>
+                <p id="sortDropDownMeal">Meal Type</p>
               </div>
             </h4>
-            <img id='sortArrow' src={arrow} onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}></img>
+            <img id="sortArrow" src={arrow} onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}></img>
           </div>
         </div>
-        <div id='receipeBox'>
+        <div id="receipeBox">
           <RecipeTile/>
           <RecipeTile/>
           <RecipeTile/>
