@@ -9,8 +9,3 @@
 #favoriteTitle {
   font-size: 30px;
 }
-
-#favoriteList {
-  overflow: scroll;
-  height: 500px;
-}
