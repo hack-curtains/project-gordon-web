@@ -6,7 +6,7 @@ import upArrow from '../../dist/resources/homeView/up-arrow.png';
 
 const HomeFeedView = ({captureNavigation}) => {
   const [sortDisplay, updateSortDisplay] = useState(false);
-  const [sortOption, updateSortOption] = useState(false);
+  const [sortOption, updateSortOption] = useState('mostPopular');
 
 
   const handleSortDisplay = () => {
@@ -19,6 +19,22 @@ const HomeFeedView = ({captureNavigation}) => {
       sortElement.style.display = 'none';
     }
   }
+
+  const handleSortOption = (e) => {
+    let selectedSortOption = document.getElementById(sortOption);
+    selectedSortOption.style.color = 'black';
+    selectedSortOption.style.backgroundColor = '#f9f9f9';
+
+    updateSortOption(e.target.id);
+  }
+
+  useEffect (() => {
+    if (sortOption) {
+      let selectedSortOption = document.getElementById(sortOption);
+      selectedSortOption.style.color = '#2C90AA';
+      selectedSortOption.style.backgroundColor = '#EBF6FF';
+    }
+  }, [sortOption])
 
 
   return (
@@ -37,8 +53,8 @@ const HomeFeedView = ({captureNavigation}) => {
             {sortDisplay === false && <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img>}
             {sortDisplay === true && <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
               <div id="sortDropDown">
-                <p id="sortDropDownPopular">Most Popular</p>
-                <p id="sortDropDownMeal">Meal Type</p>
+                <p onClick={handleSortOption} id="mostPopular">Most Popular</p>
+                <p onClick={handleSortOption} id="price">Price</p>
               </div>
           </div>
         </div>
