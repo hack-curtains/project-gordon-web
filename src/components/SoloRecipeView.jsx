@@ -39,7 +39,7 @@ const SoloRecipeView = () => {
           </div>
           <div className="recipeStats">
             <img className="recipeStatIcon" src={cost}/>
-            <div className="recipeStat">${recipe.price} per serving</div>
+            <div className="recipeStat">${Math.trunc(recipe.price)} per serving</div>
           </div>
           <div className="recipeStats">
             <img className="recipeStatIcon" src={fullHeart}/>
