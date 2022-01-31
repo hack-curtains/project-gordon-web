@@ -49,8 +49,8 @@ class App extends React.Component {
     this.setState({ favorites });
   }
 
-  captureNavigation(e) {
-      this.setState({ currentView: e.target.getAttribute('name')});
+  captureNavigation(newView) {
+      this.setState({ currentView: newView });
   }
 
   handleClose() {
@@ -63,7 +63,7 @@ class App extends React.Component {
       <div className="main">
         <div className="navdiv">
             {window.innerWidth > 800 ? (<div className="topnav">
-            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onClick={e => this.captureNavigation(e)}>Pantry Chef</div>
+            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onClick={e => this.captureNavigation('home')}>Pantry Chef</div>
           </div>) : ''}
           {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
         </div>
@@ -75,7 +75,6 @@ class App extends React.Component {
         </SignInModal>
         ) : ''}
 
-        {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
         {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation}/>}
         {this.state.currentView === 'favorites' && <FavoriteView/>}
         {currentView === 'explore' ? (
@@ -91,7 +90,6 @@ class App extends React.Component {
         {currentView === 'profile' ? (<ProfileView captureNavigation={this.captureNavigation} />) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
-
       </div>
     );
   }

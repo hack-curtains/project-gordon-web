@@ -8,12 +8,17 @@
 @import 'SoloRecipeView.css';
 @import 'FavoriteView.css';
 
-body {
+html {
+  height: 100%;
+}
+body, #app {
   margin: 0;
+  height: 100%;
 }
 .main {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .logoBar {
   width: 100%;
@@ -58,7 +63,7 @@ body {
 
 @media only screen and (max-device-width: 800px) {
   .bottomnav {
-    /* order: 10; */
+    order: 10;
     margin-top: auto;
     justify-self: end;
     position: sticky;

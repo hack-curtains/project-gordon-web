@@ -11,7 +11,7 @@ const ProfileView = ({ captureNavigation }) => {
       <div className="profileviewimage"><img src={profile90}></img></div>
       <div className="profileuser">{user.name}</div>
       <div className="profileemail"><strong>Email: </strong>{user.email}</div>
-      <button className="profilefavorites" name="favorites" onClick={e => captureNavigation(e) }>Favorites</button>
+      <button className="profilefavorites" name="favorites" onClick={e => captureNavigation('favorites') }>Favorites</button>
       <button className="profileSignOut">Sign Out</button>
     </div>
   )
