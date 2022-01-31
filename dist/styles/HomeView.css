@@ -76,32 +76,21 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  margin-top: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 6px 8px;
+  padding: 12px 16px;
   z-index: 1;
-  cursor: pointer;
-  border-radius: 20px;
 }
 
-#sortDescription {
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-#sortDescription:hover {
+#sortByText {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 #sortArrow {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
   cursor: pointer;
-}
-
-#price, #mostPopular {
-  display: flex;
-  justify-content: center;
-  border-radius: 20px;
-  padding: 5px;
 }
 
 #receipeBox {

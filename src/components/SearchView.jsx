@@ -25,20 +25,18 @@ const SearchView = ({ ingredients, ingredientsMap, pantry, togglePantry }) => {
   };
 
   return (
-    <div className="searchView">
-      <div className="pantryContainer">
-        <h1>Pantry</h1>
-        <div className="pantry">
-          <div className="addIngredients">
-            <input id="ingredient" list="ingredientsList" value={ingredient} onChange={handleChange}></input>
-            {ingredientDatalist}
-            <button onClick={addIngredient}>Add Ingredient</button>
-          </div>
-          <div>
-            {Object.keys(pantry).map((name, i) => (
-              <p key={i}>{name}</p>
-            ))}
-          </div>
+    <div className="pantryContainer">
+      <h1>Pantry</h1>
+      <div className="pantry">
+        <div className="addIngredients">
+          <input id="ingredient" list="ingredientsList" value={ingredient} onChange={handleChange}></input>
+          {ingredientDatalist}
+          <button onClick={addIngredient}>Add Ingredient</button>
+        </div>
+        <div>
+          {Object.keys(pantry).map((name, i) => (
+            <p key={i}>{name}</p>
+          ))}
         </div>
       </div>
     </div>

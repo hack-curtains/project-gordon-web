@@ -86,7 +86,6 @@ class App extends React.Component {
             captureNavigation={this.captureNavigation}
           />
         ) : ''}
-        {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation}/>}
 
         {currentView === 'profile' ? (<ProfileView captureNavigation={this.captureNavigation} />) : ''}
 
