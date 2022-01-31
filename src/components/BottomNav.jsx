@@ -10,13 +10,13 @@ const BottomNav = ({ captureNavigation }) => {
 
   return (
       <div className="bottomnav">
-        <div className="bottomnavitem" name="explore" onClick={e => captureNavigation(e.target.getAttribute('name'))}><img src={pantry} name="explore" onClick={e => captureNavigation(e.target.getAttribute('name'))}></img></div>
+        <div className="bottomnavitem" name="explore" onClick={e => captureNavigation('explore')}><img src={pantry} name="explore" onClick={e => captureNavigation('explore')}></img></div>
 
-        <div className="bottomnavitem" name="home" onClick={e => captureNavigation(e.target.getAttribute('name'))}><img src={home}   name="home" onClick={e => captureNavigation(e.target.getAttribute('name'))}></img></div>
+        <div className="bottomnavitem" name="home" onClick={e => captureNavigation('home')}><img src={home}   name="home" onClick={e => captureNavigation('home')}></img></div>
 
-        <div className="bottomnavitem" name="favorites" onClick={e => captureNavigation(e.target.getAttribute('name'))}><img src={heart} name="favorites" onClick={e => captureNavigation(e.target.getAttribute('name'))}></img></div>
+        <div className="bottomnavitem" name="favorites" onClick={e => captureNavigation('favorites')}><img src={heart} name="favorites" onClick={e => captureNavigation('favorites')}></img></div>
 
-        <div className="bottomnavitem" name="profile" onClick={e => captureNavigation(e.target.getAttribute('name'))}><img src={user} name="profile" onClick={e => captureNavigation(e.target.getAttribute('name'))}></img></div>
+        <div className="bottomnavitem" name="profile" onClick={e => captureNavigation('profile')}><img src={user} name="profile" onClick={e => captureNavigation('profile')}></img></div>
       </div>
   )
 }

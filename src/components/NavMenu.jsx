@@ -7,10 +7,10 @@ const NavMenu = ({ captureNavigation }) => {
 
   return (
       <div className="navmenu">
-        <div className="navmenuitem" name="home" onClick={e => captureNavigation(e.target.getAttribute('name'))}>Home</div>
-        <div className="navmenuitem" name="explore" onClick={e => captureNavigation(e.target.getAttribute('name'))}>Explore</div>
-        <div className="navmenuitem" name="profile" onClick={e => captureNavigation(e.target.getAttribute('name'))}>Profile</div>
-        <div className="navmenuitem" name="favorites" onClick={e => captureNavigation(e.target.getAttribute('name'))}>Favorites</div>
+        <div className="navmenuitem" name="home" onClick={e => captureNavigation('home')}>Home</div>
+        <div className="navmenuitem" name="explore" onClick={e => captureNavigation('explore')}>Explore</div>
+        <div className="navmenuitem" name="profile" onClick={e => captureNavigation('profile')}>Profile</div>
+        <div className="navmenuitem" name="favorites" onClick={e => captureNavigation('favorites')}>Favorites</div>
       </div>
   )
 }
