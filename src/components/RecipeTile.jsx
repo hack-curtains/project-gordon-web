@@ -25,7 +25,7 @@ const RecipeTile = () => {
           <img className="recipeTileTimeIcon" src={time} />
           <div className="recipeTileTime">{recipe.time} mins</div>
           <img className="recipeTileCostIcon" src={cost} />
-          <div className="recipeTileCost">${recipe.price}/serving</div>
+          <div className="recipeTileCost">${Math.trunc(recipe.price)}/serving</div>
           <img className="recipeTileRatingIcon" src={emptyHeart} />
           <div className="recipeTileRating">{recipe.likes} {recipe.likes === 1 ? 'like':'likes'}</div>
         </div>
