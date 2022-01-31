@@ -52,7 +52,7 @@
   height: auto;
 }
 
-#title-homeBottomView {
+#titleHomeBottomView {
   display: flex;
   flex-direction: column;
   width: 80%;

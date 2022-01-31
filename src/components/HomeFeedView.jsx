@@ -25,7 +25,7 @@ const HomeFeedView = ({toHandleCurrentView}) => {
       </div>
       </div>
       <div id="homeBottomView">
-        <div id="title-homeBottomView">
+        <div id="titleHomeBottomView">
           <div id="title">Recommend Recipes</div>
           <div id="sort">
             <h4 id="sortByText" onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
