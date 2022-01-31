@@ -7,9 +7,7 @@ import ProfileView from './components/ProfileView.jsx';
 import RecipeTile from "./components/RecipeTile.jsx";
 import BottomNav from './components/BottomNav.jsx';
 import SignInModal from './components/SignInModal.jsx';
-
 import HomeFeedView from './components/HomeFeedView.jsx';
-import RecipeTile from "./components/RecipeTile.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -52,6 +50,7 @@ class App extends React.Component {
         {this.state.currentView === 'profile' ? (<ProfileView captureNavigation={this.captureNavigation} />) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
+        {this.state.currentView === 'home' && <HomeFeedView/>}
       </div>
     );
   }
