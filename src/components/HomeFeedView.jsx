@@ -18,26 +18,26 @@ const HomeFeedView = ({toHandleCurrentView}) => {
 
 
   return (
-    <div id='homeView'>
-      <div id='homeTopView'>
-      <div id='mainImg'>
-        <button onClick={toHandleCurrentView} id='exploreButton'>EXPLORE</button>
+    <div id="homeView">
+      <div id="homeTopView">
+      <div id="mainImg">
+        <button onClick={toHandleCurrentView} id="exploreButton">EXPLORE</button>
       </div>
       </div>
-      <div id='homeBottomView'>
-        <div id='title-homeBottomView'>
-          <div id='title'>Recommend Recipes</div>
-          <div id='sort'>
-            <h4 id='sortByText' onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
-              <div id='sortDropDown'>
-                <p id='sortDropDownPopular'>Most Popular</p>
-                <p id='sortDropDownMeal'>Meal Type</p>
+      <div id="homeBottomView">
+        <div id="title-homeBottomView">
+          <div id="title">Recommend Recipes</div>
+          <div id="sort">
+            <h4 id="sortByText" onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
+              <div id="sortDropDown">
+                <p id="sortDropDownPopular">Most Popular</p>
+                <p id="sortDropDownMeal">Meal Type</p>
               </div>
             </h4>
-            <img id='sortArrow' src={arrow} onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}></img>
+            <img id="sortArrow" src={arrow} onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}></img>
           </div>
         </div>
-        <div id='receipeBox'>
+        <div id="receipeBox">
           <RecipeTile/>
           <RecipeTile/>
           <RecipeTile/>
