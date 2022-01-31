@@ -13,8 +13,14 @@
   font-size: 300%;
 }
 
-.recipeViewHeader img {
+.backButton {
   height: max-content;
+  margin-right: 50px;
+}
+
+.favoriteButton {
+  height: max-content;
+  margin-left: 50px;
 }
 
 .recipeInformation {
@@ -110,7 +116,6 @@
 .recipeIngredientList {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 20%;
   padding: 10px;
   margin: 30px 20px;
@@ -119,6 +124,7 @@
 }
 
 .recipeIngredientList section {
+  align-self: center;
   font-size: 150%;
   margin-bottom: 10px;
 }

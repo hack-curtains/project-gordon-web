@@ -38,12 +38,12 @@ const HomeFeedView = ({captureNavigation}) => {
           </div>
         </div>
         <div id="receipeBox">
-          <RecipeTile/>
-          <RecipeTile/>
-          <RecipeTile/>
-          <RecipeTile/>
-          <RecipeTile/>
-          <RecipeTile/>
+          <RecipeTile captureNavigation={captureNavigation}/>
+          <RecipeTile captureNavigation={captureNavigation}/>
+          <RecipeTile captureNavigation={captureNavigation}/>
+          <RecipeTile captureNavigation={captureNavigation}/>
+          <RecipeTile captureNavigation={captureNavigation}/>
+          <RecipeTile captureNavigation={captureNavigation}/>
         </div>
       </div>
     </div>
