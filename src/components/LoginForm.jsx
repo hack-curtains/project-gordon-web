@@ -25,7 +25,7 @@ const LoginForm = ({ Login, error, handleClose }) => {
               <label htmlFor="password">Password: </label><br></br>
               <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
             </div><br></br>
-            <input type="submit" value="Login" />
+            <input type="submit" className="loginsubmit" value="Login" />
           </div>
         </form>
       </div> <div>
@@ -48,7 +48,7 @@ const LoginForm = ({ Login, error, handleClose }) => {
               <label htmlFor="password">Password: </label><br></br>
               <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
             </div>
-            <input type="submit" value="Sign Up" />
+            <input type="submit" className="signupsubmit" value="Sign Up" />
           </div>
         </form>
       </div></>)}

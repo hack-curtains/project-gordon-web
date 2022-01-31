@@ -1,9 +1,7 @@
 @import 'RecipeTile.css';
-<<<<<<< HEAD
 @import 'SignIn.css';
-=======
 @import 'SoloRecipeView.css';
->>>>>>> 0c866972236620a8892ac535c1b3a77b65603445
+@import 'ProfileView.css';
 
 body {
   margin: 0;
@@ -61,6 +59,7 @@ body {
     background-color: beige;
     width: 100%;
     height: 5%;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
   }
 }
