@@ -10,6 +10,7 @@
   max-height: 185px;
   border-radius: 10px;
   margin-right: 15px;
+  cursor: pointer;
 }
 
 .recipeTileInformationContainer {
@@ -26,6 +27,12 @@
 
 .recipeTileName {
   margin-right: 30px;
+  cursor: pointer;
+}
+
+.recipeTileName:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 5%;
 }
 
 .recipeTileFavoriteIcon {
