@@ -1,12 +1,11 @@
 @import 'RecipeTile.css';
-@import 'SignIn.css';
-@import 'SoloRecipeView.css';
+
 @import 'ProfileView.css';
 
+@import 'SearchResultsView.css';
 @import 'HomeView.css';
 @import 'SignIn.css';
 @import 'SoloRecipeView.css';
-
 
 body {
   margin: 0;
