@@ -12,8 +12,8 @@ const LoginForm = ({ Login, error, handleClose }) => {
   }
   return (
     <>
-      {newUser === false ? (<><div>
-        <form onSubmit={submitHandler}>
+      {newUser === false ? (<>
+        <form className="signinform" onSubmit={submitHandler}>
           <div className="form-inner">
             <h2>Login</h2>
             {(error !==  "") ? (<div className="error">{error}</div>) : ""}
@@ -25,14 +25,14 @@ const LoginForm = ({ Login, error, handleClose }) => {
               <label htmlFor="password">Password: </label><br></br>
               <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
             </div><br></br>
-            <input type="submit" value="Login" />
+            <input type="submit" className="loginsubmit" value="Login" />
           </div>
         </form>
-      </div> <div>
+      <div>
       <br></br>
         <button onClick={e => setNewUser(true)} className="signinbutton" >Sign Up</button>
-      </div></>) : (<><div>
-        <form onSubmit={submitHandler}>
+      </div></>) : (<>
+        <form  className="signinform" onSubmit={submitHandler}>
           <div className="form-inner">
             <h2>Sign Up</h2>
             {(error !==  "") ? (<div className="error">{error}</div>) : ""}
@@ -48,10 +48,11 @@ const LoginForm = ({ Login, error, handleClose }) => {
               <label htmlFor="password">Password: </label><br></br>
               <input type="password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
             </div>
-            <input type="submit" value="Sign Up" />
+            <br></br>
+            <input type="submit" className="signupsubmit" value="Sign Up" />
           </div>
         </form>
-      </div></>)}
+      </>)}
     </>
   )
 }

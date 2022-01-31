@@ -85,8 +85,9 @@ class App extends React.Component {
 
         {currentView === 'profile' ? (<ProfileView captureNavigation={this.captureNavigation} />) : ''}
 
+        {this.state.currentView === 'home' && <HomeFeedView/>}
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
-        {currentView === 'home' && <HomeFeedView/>}
+
       </div>
     );
   }

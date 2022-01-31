@@ -12,7 +12,7 @@ const BottomNav = ({ captureNavigation }) => {
       <div className="bottomnav">
         <div className="bottomnavitem" name="explore" onClick={e => captureNavigation(e)}><img src={pantry} name="explore" onClick={e => captureNavigation(e)}></img></div>
 
-        <div className="bottomnavitem" name="home" onClick={e => captureNavigation(e)} name="home" onClick={e => captureNavigation(e)}><img src={home}></img></div>
+        <div className="bottomnavitem" name="home" onClick={e => captureNavigation(e)}><img src={home}   name="home" onClick={e => captureNavigation(e)}></img></div>
 
         <div className="bottomnavitem" name="favorites" onClick={e => captureNavigation(e)}><img src={heart} name="favorites" onClick={e => captureNavigation(e)}></img></div>
 
