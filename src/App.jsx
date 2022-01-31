@@ -7,6 +7,7 @@ import ProfileView from './components/ProfileView.jsx';
 import RecipeTile from "./components/RecipeTile.jsx";
 import BottomNav from './components/BottomNav.jsx';
 import SignInModal from './components/SignInModal.jsx';
+import SoloRecipeView from './components/SoloRecipeView.jsx';
 
 class App extends React.Component {
   constructor(props) {

@@ -93,10 +93,13 @@
 }
 
 .RecipeDescription {
-  display: flex;
   width: 80%;
   margin: 30px 10px;
   font-size: 110%;
+}
+
+.RecipeDescription a {
+  color: rgb(0, 6, 185);
 }
 
 .RecipeBody {
