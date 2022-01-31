@@ -11,6 +11,7 @@ import ProfileView from './components/ProfileView.jsx';
 import RecipeTile from "./components/RecipeTile.jsx";
 import BottomNav from './components/BottomNav.jsx';
 import SignInModal from './components/SignInModal.jsx';
+import SoloRecipeView from './components/SoloRecipeView.jsx';
 import HomeFeedView from './components/HomeFeedView.jsx';
 
 class App extends React.Component {
