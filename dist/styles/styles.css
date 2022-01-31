@@ -3,6 +3,11 @@
 @import 'SoloRecipeView.css';
 @import 'ProfileView.css';
 
+@import 'SignIn.css';
+
+@import 'SoloRecipeView.css';
+
+
 body {
   margin: 0;
 }
