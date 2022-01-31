@@ -63,7 +63,7 @@ body, #app {
 
 @media only screen and (max-device-width: 800px) {
   .bottomnav {
-    order: 10;
+    /* order: 100; */
     margin-top: auto;
     justify-self: end;
     position: sticky;
