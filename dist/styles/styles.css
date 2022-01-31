@@ -1,7 +1,65 @@
 @import 'RecipeTile.css';
 @import 'HomeView.css';
+@import 'SignIn.css';
 @import 'SoloRecipeView.css';
+
 
 body {
   margin: 0;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.logoBar {
+  width: 100%;
+  background-color: beige;
+  text-align: center;
+}
+
+.navdiv {
+  display: flex;
+  flex-direction: column;
+}
+.topnav {
+  display: flex;
+  flex-direction: row;
+}
+
+.navmenu {
+  border-style: solid;
+  border-width: 1px;
+  background-color: beige;
+  border-top-width: 0px;
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navmenuitem:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.navButton:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-device-width: 800px) {
+  .bottomnav {
+    order: 10;
+    margin-top: auto;
+    justify-self: end;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: beige;
+    width: 100%;
+    height: 5%;
+
+  }
 }

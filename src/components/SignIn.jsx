@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoginForm from './LoginForm.jsx';
 
-const SignIn = ({ captureUser }) => {
+const SignIn = ({ captureUser, handleClose }) => {
 
   const adminUser = {
     email: 'admin@admin.com',
@@ -34,16 +34,13 @@ const SignIn = ({ captureUser }) => {
   }
 
   return (
-    <>
-      {(user.email !== "") ? (
-        <div className="welcome">
-          <h2>Welcome, <span>{user.name}</span></h2>
-          <button onClick={Logout}>Logout</button>
-        </div>
-      ) : (
-        <LoginForm Login={Login} error={error}/>
-      )}
-    </>
+    <div className="signinview">
+      <div className="signindiv">
+        {(user.email === "") ? (
+          <LoginForm Login={Login} handleClose={handleClose} error={error}/>
+        ): ''}
+      </div>
+    </div>
   )
 }
 
