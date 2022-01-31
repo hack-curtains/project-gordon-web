@@ -1,0 +1,16 @@
+#favoriteMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#favoriteTitle {
+  font-size: 30px;
+}
+
+#favoriteList {
+  overflow: scroll;
+  height: 500px;
+}

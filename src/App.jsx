@@ -8,6 +8,7 @@ import RecipeTile from "./components/RecipeTile.jsx";
 import BottomNav from './components/BottomNav.jsx';
 import SignInModal from './components/SignInModal.jsx';
 import HomeFeedView from './components/HomeFeedView.jsx';
+import FavoriteView from './components/FavoriteView.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class App extends React.Component {
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
         {this.state.currentView === 'home' && <HomeFeedView/>}
+        {this.state.currentView === 'favorites' && <FavoriteView/>}
       </div>
     );
   }
