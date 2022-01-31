@@ -4,12 +4,16 @@
   width: 50%;
   align-self: center;
   align-items: center;
+  justify-self: center;
   height: 350px;
   justify-content: space-between;
   border-style: solid;
   border-radius: 10px;
   border-width: 0px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  position: 50%;
+  padding-top: 33px;
+  margin-top: 45px
 }
 
 .profileviewimage {
@@ -37,6 +41,22 @@
 
 }
 
+.profileSignIn {
+  margin-bottom: 20px;
+  border-width: 0px;
+  width: 40%;
+  height: 35px;
+  border-radius: 10px;
+  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+}
+
+.profileSignIn:hover {
+  background-color: lightskyblue;
+  color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+
+}
 .profilefavorites {
   margin-bottom: 10px;
   border-width: 0px;
@@ -57,4 +77,14 @@
 .profileuser {
   font-size: x-large;
   font-weight: bold;
+  text-align: center;
+}
+.profileemail {
+  text-align: center;
+}
+
+@media only screen and (max-device-width: 450px) {
+  .profileview {
+    width: 75%;
+  }
 }

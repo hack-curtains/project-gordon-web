@@ -125,3 +125,17 @@
     padding: 5%;
   }
 }
+
+.closeModalButton {
+  border-width: 0px;
+  width: 75px;
+  border-radius: 10px;
+
+}
+
+.closeModalButton:hover {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
