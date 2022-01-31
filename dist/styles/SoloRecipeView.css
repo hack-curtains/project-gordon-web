@@ -1,11 +1,11 @@
-.SoloRecipeViewContainer {
+.soloRecipeViewContainer {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
 }
 
-.RecipeViewHeader {
+.recipeViewHeader {
   display: flex;
   justify-content: space-between;
   width: 60%;
@@ -13,52 +13,52 @@
   font-size: 300%;
 }
 
-.RecipeViewHeader img {
+.recipeViewHeader img {
   height: max-content;
 }
 
-.RecipeInformation {
+.recipeInformation {
   display: flex;
   justify-content: center;
   width: 80%;
   margin: 30px 10px;
 }
 
-.RecipeImage {
+.recipeImage {
   border-radius: 15px;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6);
 }
 
-.RecipeStatsContainer {
+.recipeStatsContainer {
   display: flex;
   flex-direction: column;
   margin: 0 30px;
 }
 
-.RecipeStats {
+.recipeStats {
   display: flex;
   align-items: center;
   margin: 10px 0;
   font-size: 150%;
 }
 
-.RecipeStats div {
+.recipeStats div {
   margin-left: 15px;
 }
 
-.RecipeTagsContainer {
+.recipeTagsContainer {
   color: white;
   display: flex;
   flex-direction: column;
   font-size: 110%;
 }
 
-.DietTagsContainer {
+.dietTagsContainer {
   display: flex;
   margin: 10px 10px;
 }
 
-.DietTagsContainer div {
+.dietTagsContainer div {
   background: rgb(8, 129, 0);
   margin-right: 10px;
   padding: 5px 10px;
@@ -66,12 +66,12 @@
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.6);
 }
 
-.CuisineTagsContainer {
+.cuisineTagsContainer {
   display: flex;
   margin: 10px 10px;
 }
 
-.CuisineTagsContainer div {
+.cuisineTagsContainer div {
   background: rgb(159, 3, 3);
   margin-right: 10px;
   padding: 5px 10px;
@@ -79,12 +79,12 @@
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.6);
 }
 
-.DishTagsContainer {
+.dishTagsContainer {
   display: flex;
   margin: 10px 10px;
 }
 
-.DishTagsContainer div {
+.dishTagsContainer div {
   background: rgb(86, 0, 201);
   margin-right: 10px;
   padding: 5px 10px;
@@ -92,22 +92,22 @@
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.6);
 }
 
-.RecipeDescription {
+.recipeDescription {
   width: 80%;
   margin: 30px 10px;
   font-size: 110%;
 }
 
-.RecipeDescription a {
+.recipeDescription a {
   color: rgb(0, 6, 185);
 }
 
-.RecipeBody {
+.recipeBody {
   display: flex;
   width: 80%
 }
 
-.RecipeIngredientList {
+.recipeIngredientList {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,26 +118,26 @@
   box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.6);
 }
 
-.RecipeIngredientList section {
+.recipeIngredientList section {
   font-size: 150%;
   margin-bottom: 10px;
 }
 
-.IngredientListEntry {
+.ingredientListEntry {
   display: flex;
   margin-bottom: 10px;
 }
 
-.IngredientListEntry div {
+.ingredientListEntry div {
   font-size: 130%;
 }
 
-.IngredientListEntry img {
+.ingredientListEntry img {
   height: max-content;
 }
 
 
-.RecipeInstructions {
+.recipeInstructions {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,12 +146,12 @@
   margin: 10px 20px;
 }
 
-.RecipeInstructions section {
+.recipeInstructions section {
   font-size: 200%;
   margin-bottom: 10px;
 }
 
-.RecipeInstructions div {
+.recipeInstructions div {
   margin-bottom: 30px;
   font-size: 110%;
 }
