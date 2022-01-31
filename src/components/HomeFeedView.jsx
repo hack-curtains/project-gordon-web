@@ -28,7 +28,7 @@ const HomeFeedView = () => {
         <div id='title-homeBottomView'>
           <div id='title'>Recommend Recipes</div>
           <div id='sort'>
-            <h4 onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
+            <h4 id='sortByText' onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
               <div id='sortDropDown'>
                 <p id='sortDropDownPopular'>Most Popular</p>
                 <p id='sortDropDownMeal'>Meal Type</p>
