@@ -3,8 +3,8 @@
 @import 'SoloRecipeView.css';
 @import 'ProfileView.css';
 
+@import 'HomeView.css';
 @import 'SignIn.css';
-
 @import 'SoloRecipeView.css';
 
 
@@ -21,9 +21,15 @@ body {
   text-align: center;
 }
 
+.logoBar:hover {
+  cursor: pointer;
+}
+
 .navdiv {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 999999;
 }
 .topnav {
   display: flex;
@@ -52,10 +58,10 @@ body {
 
 @media only screen and (max-device-width: 800px) {
   .bottomnav {
-    order: 10;
+    /* order: 10; */
     margin-top: auto;
     justify-self: end;
-    position: absolute;
+    position: sticky;
     bottom: 0px;
     display: flex;
     flex-direction: row;

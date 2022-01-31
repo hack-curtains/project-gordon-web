@@ -1,7 +1,7 @@
 .signindiv {
   margin: 0;
   padding: 0;
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,13 +28,11 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 999999;
 }
 
 .modalClose {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  width: 100%;
+  max-width: 100%;
 
 }
 
@@ -48,28 +46,62 @@
 .modal-main {
   position: fixed;
   background: white;
-  width: 60%;
+  width: 30%;
   max-height: 75%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
   padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .signupsubmit {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
   border-width: 0px;
+  width: 75px;
+  border-radius: 10px;
 }
 
 .signinbutton {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
   border-width: 0px;
+  width: 75px;
+  border-radius: 10px;
 }
 
 .loginsubmit {
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
   border-width: 0px;
+  width: 75px;
+  border-radius: 10px;
+}
+
+
+.loginsubmit:hover {
+  background-color: lightskyblue;
+  color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+
+}
+
+.signinbutton:hover {
+  background-color: lightskyblue;
+  color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+
+}
+
+.signupsubmit:hover {
+  background-color: lightskyblue;
+  color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  cursor: pointer;
+
 }
 
 .signinform {
@@ -77,4 +109,19 @@
 }
 .formgroup {
   width: 80%;
+  height: 100%;
+}
+
+@media only screen and (max-device-width: 800px) {
+  .modal-main {
+    position: fixed;
+    background: white;
+    width: 60%;
+    max-height: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    padding: 5%;
+  }
 }
