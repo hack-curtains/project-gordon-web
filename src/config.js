@@ -1,0 +1,1 @@
+export const API_ADDR = 'http://ec2-54-160-170-164.compute-1.amazonaws.com:3000';
