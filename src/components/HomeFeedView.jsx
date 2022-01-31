@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import RecipeTile from './RecipeTile.jsx'
 import downArrow from '../../dist/resources/homeView/down-arrow.png';
 import upArrow from '../../dist/resources/homeView/up-arrow.png';
+import { API_ADDR } from '../config';
 
 
 const HomeFeedView = ({captureNavigation}) => {
   const [sortDisplay, updateSortDisplay] = useState(false);
   const [sortOption, updateSortOption] = useState('mostPopular');
+  const [sortedData, updateSortedData] = useState([]);
 
 
   const handleSortDisplay = () => {
@@ -26,13 +29,38 @@ const HomeFeedView = ({captureNavigation}) => {
     selectedSortOption.style.backgroundColor = '#f9f9f9';
 
     updateSortOption(e.target.id);
+    let sortElement = document.getElementById('sortDropDown');
+    sortElement.style.display = 'none';
+    handleSortDisplay();
+  }
+
+  const handleMostPopularRecipe = () => {
+    axios.get(`${API_ADDR}/recipes?sort=likes&direction=desc`)
+      .then ((res) => {
+        updateSortedData(res.data.rows);
+      })
+  }
+
+  const handleMostExpensive = () => {
+    axios.get(`${API_ADDR}/recipes?sort=price&direction=desc`)
+      .then ((res) => {
+        updateSortedData(res.data.rows);
+      })
   }
 
   useEffect (() => {
-    if (sortOption) {
+    if (sortOption === 'mostPopular') {
       let selectedSortOption = document.getElementById(sortOption);
       selectedSortOption.style.color = '#2C90AA';
       selectedSortOption.style.backgroundColor = '#EBF6FF';
+
+      handleMostPopularRecipe();
+    } else if (sortOption === 'price') {
+      let selectedSortOption = document.getElementById(sortOption);
+      selectedSortOption.style.color = '#2C90AA';
+      selectedSortOption.style.backgroundColor = '#EBF6FF';
+
+      handleMostExpensive();
     }
   }, [sortOption])
 
@@ -49,22 +77,22 @@ const HomeFeedView = ({captureNavigation}) => {
           <div id="title">Recommend Recipes</div>
           <div id="sort">
             <div id="sortByText">Sort:</div>
-            <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4>
+            {sortOption === 'mostPopular' && <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4>}
+            {sortOption === 'price' && <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4>}
             {sortDisplay === false && <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img>}
             {sortDisplay === true && <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
               <div id="sortDropDown">
                 <p onClick={handleSortOption} id="mostPopular">Most Popular</p>
-                <p onClick={handleSortOption} id="price">Price</p>
+                <p onClick={handleSortOption} id="price">Price: High-Low</p>
               </div>
           </div>
         </div>
         <div id="receipeBox">
-          <RecipeTile captureNavigation={captureNavigation}/>
-          <RecipeTile captureNavigation={captureNavigation}/>
-          <RecipeTile captureNavigation={captureNavigation}/>
-          <RecipeTile captureNavigation={captureNavigation}/>
-          <RecipeTile captureNavigation={captureNavigation}/>
-          <RecipeTile captureNavigation={captureNavigation}/>
+          {sortedData[0] && (
+            sortedData.map((recipe) => {
+              return <RecipeTile recipe={recipe} captureNavigation={captureNavigation}/>
+            })
+          )}
         </div>
       </div>
     </div>

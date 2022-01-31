@@ -21,7 +21,7 @@ const RecipeTile = ({ captureNavigation }) => {
           <img className="recipeTileFavoriteIcon" src={emptyStar} />
         </div>
 
-        <div className="recipeTileStats"> 
+        <div className="recipeTileStats">
           <img className="recipeTileTimeIcon" src={time} />
           <div className="recipeTileTime">{recipe.time} mins</div>
           <img className="recipeTileCostIcon" src={cost} />
@@ -31,11 +31,11 @@ const RecipeTile = ({ captureNavigation }) => {
         </div>
 
         <div className="recipeTileTags">
-        {recipe.tags.find(r => r.category === 'diets') && 
+        {recipe.tags.find(r => r.category === 'diets') &&
           <div className="dietsTag">{recipe.tags.find(r => r.category === 'diets').name}</div>}
-          {recipe.tags.find(r => r.category === 'cuisines') && 
+          {recipe.tags.find(r => r.category === 'cuisines') &&
           <div className="cuisinesTag">{recipe.tags.find(r => r.category === 'cuisines').name}</div>}
-          {recipe.tags.find(r => r.category === 'dish') && 
+          {recipe.tags.find(r => r.category === 'dish') &&
           <div className="dishTag">{recipe.tags.find(r => r.category === 'dish').name}</div>}
         </div>
       </div>
