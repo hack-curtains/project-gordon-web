@@ -32,7 +32,7 @@ class App extends React.Component {
     this.captureFavorites = this.captureFavorites.bind(this);
     this.captureNavigation = this.captureNavigation.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.toHandleCurrentView = this.toHandleCurrentView.bind(this);
+    this.toHandleExploreView = this.toHandleExploreView.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -57,7 +57,7 @@ class App extends React.Component {
   handleClose() {
     this.setState({showLogin: false});
   }
-  toHandleCurrentView () {
+  toHandleExploreView () {
     this.setState({currentView: 'explore'})
   }
 
@@ -80,7 +80,7 @@ class App extends React.Component {
         ) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
-        {this.state.currentView === 'home' && <HomeFeedView toHandleCurrentView = {this.toHandleCurrentView}/>}
+        {this.state.currentView === 'home' && <HomeFeedView toHandleExploreView = {this.toHandleExploreView}/>}
         {this.state.currentView === 'favorites' && <FavoriteView/>}
         {currentView === 'explore' ? (
           <SearchResultsView
