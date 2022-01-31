@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import RecipeTile from './RecipeTile.jsx'
-import arrow from '../../dist/resources/arrow.png';
+import downArrow from '../../dist/resources/homeView/down-arrow.png';
+import upArrow from '../../dist/resources/homeView/up-arrow.png';
 
 
 const HomeFeedView = ({captureNavigation}) => {
+  const [sortDisplay, updateSortDisplay] = useState(false);
+  const [sortOption, updateSortOption] = useState(false);
 
-  const handleSortForMouseEnter = () => {
+
+  const handleSortDisplay = () => {
     let sortElement = document.getElementById('sortDropDown');
-    sortElement.style.display = 'block';
+    if (sortDisplay === false) {
+      updateSortDisplay(true);
+      sortElement.style.display = 'block';
+    } else {
+      updateSortDisplay(false);
+      sortElement.style.display = 'none';
+    }
   }
-
-  const handleSortForMouseLeave = () => {
-    let sortElement = document.getElementById('sortDropDown');
-    sortElement.style.display = 'none';
-  }
-
 
 
   return (
@@ -28,13 +32,14 @@ const HomeFeedView = ({captureNavigation}) => {
         <div id="titleHomeBottomView">
           <div id="title">Recommend Recipes</div>
           <div id="sort">
-            <h4 id="sortByText" onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}>Sort By
+            <div id="sortByText">Sort:</div>
+            <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4>
+            {sortDisplay === false && <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img>}
+            {sortDisplay === true && <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
               <div id="sortDropDown">
                 <p id="sortDropDownPopular">Most Popular</p>
                 <p id="sortDropDownMeal">Meal Type</p>
               </div>
-            </h4>
-            <img id="sortArrow" src={arrow} onMouseLeave={handleSortForMouseLeave} onMouseEnter={handleSortForMouseEnter}></img>
           </div>
         </div>
         <div id="receipeBox">
