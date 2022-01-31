@@ -21,7 +21,7 @@ const HomeFeedView = ({captureNavigation}) => {
     <div id="homeView">
       <div id="homeTopView">
       <div id="mainImg">
-        <button onClick={captureNavigation} name="explore" id="exploreButton">EXPLORE</button>
+        <button onClick={(e) => captureNavigation('explore')} name="explore" id="exploreButton">EXPLORE</button>
       </div>
       </div>
       <div id="homeBottomView">
