@@ -13,6 +13,7 @@ import BottomNav from './components/BottomNav.jsx';
 import SignInModal from './components/SignInModal.jsx';
 import SoloRecipeView from './components/SoloRecipeView.jsx';
 import HomeFeedView from './components/HomeFeedView.jsx';
+import FavoriteView from './components/FavoriteView.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -74,6 +75,9 @@ class App extends React.Component {
         </SignInModal>
         ) : ''}
 
+        {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
+        {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation}/>}
+        {this.state.currentView === 'favorites' && <FavoriteView/>}
         {currentView === 'explore' ? (
           <SearchResultsView
             user={user}
@@ -86,7 +90,6 @@ class App extends React.Component {
 
         {currentView === 'profile' ? (<ProfileView captureNavigation={this.captureNavigation} />) : ''}
 
-        {this.state.currentView === 'home' && <HomeFeedView/>}
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
 
       </div>
