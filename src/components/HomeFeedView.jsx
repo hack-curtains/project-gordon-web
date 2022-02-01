@@ -6,7 +6,7 @@ import upArrow from '../../dist/resources/homeView/up-arrow.png';
 import { API_ADDR } from '../config';
 
 
-const HomeFeedView = ({captureNavigation}) => {
+const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
   const [sortDisplay, updateSortDisplay] = useState(false);
   const [sortOption, updateSortOption] = useState('mostPopular');
   const [sortedData, updateSortedData] = useState([]);
@@ -90,7 +90,7 @@ const HomeFeedView = ({captureNavigation}) => {
         <div id="receipeBox">
           {sortedData[0] && (
             sortedData.map((recipe) => {
-              return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation}/>
+              return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId}/>
             })
           )}
         </div>

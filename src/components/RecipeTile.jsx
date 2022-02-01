@@ -7,15 +7,21 @@ import cost from '../../dist/resources/RecipeTile/cost.png';
 import emptyStar from '../../dist/resources/RecipeTile/emptyStar.png';
 import fullStar from '../../dist/resources/RecipeTile/fullStar.png';
 
-const RecipeTile = ({ captureNavigation, recipe }) => {
+const RecipeTile = ({ captureNavigation, recipe, captureRecipeId }) => {
 
   return (
     <div className="recipeTileContainer">
-      <img className="recipeTileImage" src={recipe.image} onClick={(e) => captureNavigation('recipe')} />
+      <img className="recipeTileImage" src={recipe.image} onClick={(e) => {
+        captureRecipeId(recipe.id);
+        captureNavigation('recipe');
+        }} />
 
       <div className="recipeTileInformationContainer">
         <div className="recipeTileHeader">
-          <div className="recipeTileName" onClick={(e) => captureNavigation('recipe')}>{recipe.title}</div>
+          <div className="recipeTileName" onClick={(e) => {
+            captureRecipeId(recipe.id);
+            captureNavigation('recipe')
+          }}>{recipe.title}</div>
           <img className="recipeTileFavoriteIcon" src={emptyStar} />
         </div>
 
