@@ -34,7 +34,11 @@ body, #app {
 
 }
 
-.logoBar:hover {
+.logoTitle:hover {
+  cursor: pointer;
+
+}
+.logoIcon:hover {
   cursor: pointer;
 
 }

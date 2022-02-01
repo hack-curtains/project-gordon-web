@@ -39,7 +39,7 @@ const SignIn = ({ captureUser, handleClose }) => {
   //       console.error('user login error:', error);
   //     })
   // }
-  const SignUp = details => {
+  const signUp = details => {
 
     let newUserObj = {};
     axios.post('/users/new', newUserObj)
@@ -73,7 +73,7 @@ const SignIn = ({ captureUser, handleClose }) => {
     <div className="signinview">
       <div className="signindiv">
         {(user.email === "") ? (
-          <LoginForm Login={Login} handleClose={handleClose} SignUp={SignUp} error={error}/>
+          <LoginForm Login={Login} handleClose={handleClose} signUp={signUp} error={error}/>
         ): ''}
       </div>
     </div>

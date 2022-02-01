@@ -13,7 +13,7 @@ const ProfileView = ({ captureNavigation, openLogin }) => {
       <div className="profileuser">{user.name}</div>
       <div className="profileemail"><strong>Email: </strong>{user.email}</div>
       <button className="profilefavorites" name="favorites" onClick={e => captureNavigation('favorites') }>Favorites</button>
-      {showSignIn === false ? (<button onClick={e => setShowSignIn(true)} className="profileSignOut">Sign Out</button>) : (<button onClick={e => openLogin()} className="profileSignIn">Sign In</button>) }
+      {showSignIn === false ? (<button onClick={e => { setShowSignIn(true); setUser({ name: '', email: ''}); }} className="profileSignOut">Sign Out</button>) : (<button onClick={e => openLogin()} className="profileSignIn">Sign In</button>) }
 
     </div>
   )
