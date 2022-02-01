@@ -9,7 +9,7 @@
 
 #homeTopView {
   height: 30%;
-  width: 95%;
+  width: 100%;
 }
 
 #mainImg {
@@ -18,7 +18,7 @@
   height: 350px;
   width: 100%;
   opacity: 0.73;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 #exploreButton {
@@ -85,7 +85,7 @@
   padding: 6px 8px;
   z-index: 1;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #sortDescription {
@@ -99,6 +99,8 @@
 
 #sortArrow {
   cursor: pointer;
+  width: 15px;
+  height: 15px;
 }
 
 #price, #mostPopular {
