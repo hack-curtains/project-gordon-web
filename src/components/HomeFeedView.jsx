@@ -4,12 +4,16 @@ import RecipeTile from './RecipeTile.jsx'
 import downArrow from '../../dist/resources/homeView/down-arrow.png';
 import upArrow from '../../dist/resources/homeView/up-arrow.png';
 import { API_ADDR } from '../config';
+import one from '../../dist/resources/homeView/one.png';
+import two from '../../dist/resources/homeView/2.png';
+import three from '../../dist/resources/homeView/3.png';
 
 
 const HomeFeedView = ({captureNavigation}) => {
   const [sortDisplay, updateSortDisplay] = useState(false);
   const [sortOption, updateSortOption] = useState('mostPopular');
   const [sortedData, updateSortedData] = useState([]);
+  const [randomBackground, updaterandomBackground] = useState('');
 
 
   const handleSortDisplay = () => {
@@ -64,11 +68,16 @@ const HomeFeedView = ({captureNavigation}) => {
     }
   }, [sortOption])
 
+  useEffect (() => {
+    updaterandomBackground([one,two,three][Math.floor(Math.random()*3)]);
+  }, [randomBackground])
+
 
   return (
     <div id="homeView">
       <div id="homeTopView">
-      <div id="mainImg">
+      <div id="homeTopViewMain">
+        <img src={randomBackground} id='mainImg'></img>
         <button onClick={(e) => captureNavigation('explore')} name="explore" id="exploreButton">EXPLORE</button>
       </div>
       </div>
