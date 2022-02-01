@@ -26,6 +26,7 @@ class App extends React.Component {
       },
       favorites: [],
       currentView: 'home',
+      previousView: '',
       showLogin: false
     }
     this.captureUser = this.captureUser.bind(this);
@@ -51,7 +52,9 @@ class App extends React.Component {
   }
 
   captureNavigation(newView) {
-      this.setState({ currentView: newView });
+    this.setState(prevState => ({ previousView: prevState.currentView }))
+    this.setState({ currentView: newView });
+
   }
 
   openLogin() {
@@ -91,7 +94,7 @@ class App extends React.Component {
             captureNavigation={this.captureNavigation}
           />
         ) : ''}
-        {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation}/>}
+        {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation} previousView={this.state.previousView}/>}
 
         {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
 
