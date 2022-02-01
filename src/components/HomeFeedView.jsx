@@ -10,7 +10,7 @@ import imageThree from '../../dist/resources/homeView/3.png';
 import imageFour from '../../dist/resources/homeView/4.png';
 
 
-const HomeFeedView = ({captureNavigation}) => {
+const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
   const [sortDisplay, updateSortDisplay] = useState(false);
   const [sortOption, updateSortOption] = useState('mostPopular');
   const [sortedData, updateSortedData] = useState([]);
@@ -100,7 +100,7 @@ const HomeFeedView = ({captureNavigation}) => {
         <div id="receipeBox">
           {sortedData[0] && (
             sortedData.map((recipe) => {
-              return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation}/>
+              return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId}/>
             })
           )}
         </div>
