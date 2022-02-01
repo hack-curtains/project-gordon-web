@@ -26,7 +26,7 @@ class App extends React.Component {
         pantry: [],
       },
       favorites: [],
-      currentView: 'explore',
+      currentView: 'home',
       previousView: '',
       showLogin: false,
       currentRecipeId: ''
@@ -91,7 +91,7 @@ class App extends React.Component {
         ) : ''}
 
         {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId}/>}
-        {this.state.currentView === 'favorites' && <FavoriteView/>}
+        {this.state.currentView === 'favorites' && <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} user={this.state.user.name}/>}
         {currentView === 'explore' ? (
           <SearchResultsView
             user={user}
