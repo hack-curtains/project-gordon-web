@@ -27,13 +27,15 @@ class App extends React.Component {
       favorites: [],
       currentView: 'home',
       previousView: '',
-      showLogin: false
+      showLogin: false,
+      currentRecipeId: ''
     }
     this.captureUser = this.captureUser.bind(this);
     this.captureFavorites = this.captureFavorites.bind(this);
     this.captureNavigation = this.captureNavigation.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.openLogin = this.openLogin.bind(this);
+    this.captureRecipeId = this.captureRecipeId.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -57,6 +59,10 @@ class App extends React.Component {
 
   }
 
+  captureRecipeId(recipeId) {
+    this.setState({ currentRecipeId: recipeId});
+  }
+
   openLogin() {
     this.setState({showLogin: true});
   }
@@ -66,7 +72,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { user, favorites, currentView, showLogin } = this.state;
+    const { user, favorites, currentView, showLogin, currentRecipeId } = this.state;
     return (
       <div className="main">
         <div className="navdiv">
@@ -83,7 +89,7 @@ class App extends React.Component {
         </SignInModal>
         ) : ''}
 
-        {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation}/>}
+        {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId}/>}
         {this.state.currentView === 'favorites' && <FavoriteView/>}
         {currentView === 'explore' ? (
           <SearchResultsView
@@ -94,7 +100,7 @@ class App extends React.Component {
             captureNavigation={this.captureNavigation}
           />
         ) : ''}
-        {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation} previousView={this.state.previousView}/>}
+        {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={this.state.previousView}/>}
 
         {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
 
