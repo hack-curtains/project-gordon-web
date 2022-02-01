@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import emptyHeart from "../../dist/resources/RecipeTile/emptyHeart.png";
-import fullHeart from "../../dist/resources/RecipeTile/fullHeart.png";
-import time from "../../dist/resources/RecipeTile/time.png";
-import cost from "../../dist/resources/RecipeTile/cost.png";
-import emptyStar from "../../dist/resources/RecipeTile/emptyStar.png";
-import fullStar from "../../dist/resources/RecipeTile/fullStar.png";
+import emptyHeart from '../../dist/resources/RecipeTile/emptyHeart.png';
+import fullHeart from '../../dist/resources/RecipeTile/fullHeart.png';
+import time from '../../dist/resources/RecipeTile/time.png';
+import cost from '../../dist/resources/RecipeTile/cost.png';
+import emptyStar from '../../dist/resources/RecipeTile/emptyStar.png';
+import fullStar from '../../dist/resources/RecipeTile/fullStar.png';
 
 const RecipeTile = ({ captureNavigation, recipe, captureRecipeId }) => {
   const numberWithCommas = (x) => {
