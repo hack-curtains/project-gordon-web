@@ -1,9 +1,10 @@
-.searchView {
-  display: flex;
+.searchResultsView {
+  display: grid;
 }
 
 .pantryContainer {
-  width: 30%;
+  grid-column: 1 / 1;
+  width: auto;
 }
 
 .pantry {
@@ -21,7 +22,13 @@
 }
 
 .resultsContainer {
-  width: 70%;
+  grid-column: 2 / 2;
+}
+
+@media only screen and (max-width: 1000px) {
+  .resultsContainer {
+    grid-column: 1 / 1;
+  }
 }
 
 .results {

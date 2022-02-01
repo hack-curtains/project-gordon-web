@@ -3,6 +3,7 @@ import axios from 'axios';
 import { API_ADDR } from '../config';
 
 import SearchView from './SearchView.jsx';
+import ResultsView from './ResultsView.jsx';
 
 const SearchResultsView = ({ user, favorites, currentView, captureFavorites, captureNavigation }) => {
 
@@ -33,8 +34,9 @@ const SearchResultsView = ({ user, favorites, currentView, captureFavorites, cap
   };
 
   return (
-    <div>
+    <div className='searchResultsView'>
       <SearchView ingredients={ingredients} ingredientsMap={ingredientsMap} pantry={pantry} togglePantry={togglePantry} />
+      <ResultsView />
     </div>
   )
 }
