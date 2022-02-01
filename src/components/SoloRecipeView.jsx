@@ -12,7 +12,8 @@ import check from '../../dist/resources/SoloRecipeView/check.png';
 import emptyStar from '../../dist/resources/SoloRecipeView/emptyStar.png';
 import fullStar from '../../dist/resources/SoloRecipeView/fullStar.png';
 
-const SoloRecipeView = ({ captureNavigation, recipeId }) => {
+
+const SoloRecipeView = ({ captureNavigation, recipeId, previousView }) => {
   const [recipe, updateRecipe] = useState('');
   const pantry = [1, 2, 3, 4, 45];
   const getRecipe = (id) => {
@@ -32,7 +33,7 @@ const SoloRecipeView = ({ captureNavigation, recipeId }) => {
   return (
     <div className="soloRecipeViewContainer">
       <div className="recipeViewHeader">
-        <img className="backButton" src={back} onClick={(e) => captureNavigation('explore')}/>
+        <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>
         <div className="recipeName">{recipe.title}</div>
         <img className="favoriteButton" src={emptyStar}/>
       </div>
