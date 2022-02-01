@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RecipeTile from './RecipeTile.jsx';
 
-const ResultsView = ({ results, captureNavigation }) => {
+const ResultsView = ({ results, captureNavigation, captureRecipeId }) => {
 
 
 
@@ -12,7 +12,7 @@ const ResultsView = ({ results, captureNavigation }) => {
       <div className="results">
         <div>
           {results.map((recipe, i) => (
-            <RecipeTile key={i} recipe={recipe} captureNavigation={captureNavigation} />
+            <RecipeTile key={i} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId} />
           ))}
         </div>
       </div>
