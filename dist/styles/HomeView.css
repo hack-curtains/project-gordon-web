@@ -35,6 +35,7 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
+  font-family: system-ui;
 }
 
 #exploreButton:hover {
@@ -67,6 +68,7 @@
   justify-content: center;
   color: #D32323;
   font-weight: bold;
+  font-family: system-ui;
 }
 
 #sort {
@@ -74,6 +76,7 @@
   justify-content: flex-end;
   align-items: center;
   margin-right: 8vw;
+  font-family: system-ui;
 }
 
 #sortDropDown {
@@ -91,6 +94,7 @@
 #sortDescription {
   margin-left: 5px;
   cursor: pointer;
+  font-family: system-ui;
 }
 
 #sortDescription:hover {
