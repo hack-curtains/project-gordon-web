@@ -6,7 +6,7 @@ const USER_ID_TODO = 1; // FIX ME
 import SearchView from './SearchView.jsx';
 import ResultsView from './ResultsView.jsx';
 
-const SearchResultsView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId }) => {
+const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId }) => {
 
   const [ingredients, setIngredients] = useState([]);
   const [ingredientsMap, setIngredientsMap] = useState({});
@@ -85,4 +85,4 @@ const SearchResultsView = ({ user, favorites, currentView, captureFavorites, cap
   )
 }
 
-export default SearchResultsView;
+export default ExploreView;
