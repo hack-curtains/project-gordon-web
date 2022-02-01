@@ -3,6 +3,7 @@ import axios from 'axios';
 import { API_ADDR } from "./config";
 
 import webMenuIcon from '../dist/resources/menu-24.png';
+import chef from '../dist/resources/chef.png';
 
 import NavMenu from './components/NavMenu.jsx';
 import SignIn from './components/SignIn.jsx';
@@ -77,7 +78,7 @@ class App extends React.Component {
       <div className="main">
         <div className="navdiv">
             {window.innerWidth > 800 ? (<div className="topnav">
-            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onClick={e => this.captureNavigation('home')}>Pantry Chef</div>
+            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onClick={e => this.captureNavigation('home')}><img src={chef} onClick={e => this.captureNavigation('home')}></img><span className="logoTitle"> Pantry Chef</span> </div>
           </div>) : ''}
           {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
         </div>
