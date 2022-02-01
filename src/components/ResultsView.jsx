@@ -9,6 +9,10 @@ const ResultsView = ({ results, captureNavigation, captureRecipeId }) => {
   return (
     <div className="resultsContainer">
       <h1>Recipes</h1>
+      <div className="inputBar">
+        <input id="searchResults" placeholder="Find..."></input>
+        <button>Search</button>
+      </div>
       <div className="results">
         <div>
           {results.map((recipe, i) => (

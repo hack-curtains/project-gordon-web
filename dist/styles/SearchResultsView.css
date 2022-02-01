@@ -17,27 +17,47 @@
 }
 
 .pantryContainer {
-  /* grid-column: 1 / 1; */
+  display: flex;
+  flex-direction: column;
   width: auto;
 }
 
 .pantry {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 10px;
-  min-width: 285px;
+  width: 285px;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.6);
 }
 
-.addIngredients {
+.pantryItem {
+  background-color: #bdc3c7;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin: 4px;
+  display: inline-block;
+}
+
+.pantryItem.active {
+  background-color: rgb(69, 165, 32);
+  color: whitesmoke;
+}
+
+.inputBar {
   align-self: center;
 }
 
 .resultsContainer {
-  /* grid-column: 2 / 2; */
+  display: flex;
+  flex-direction: column;
   width: 100%;
+}
+
+#searchResults {
+  width: 50vw;
 }
 
 .results {
