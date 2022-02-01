@@ -90,7 +90,7 @@ const HomeFeedView = ({captureNavigation}) => {
         <div id="receipeBox">
           {sortedData[0] && (
             sortedData.map((recipe) => {
-              return <RecipeTile recipe={recipe} captureNavigation={captureNavigation}/>
+              return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation}/>
             })
           )}
         </div>
