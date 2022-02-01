@@ -1,9 +1,24 @@
-.searchView {
+.searchResultsView {
+  margin-top: 30px;
   display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 1000px) {
+  .searchResultsView {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.searchResultsView h1 {
+  margin: 10px;
+  text-align: center;
 }
 
 .pantryContainer {
-  width: 30%;
+  /* grid-column: 1 / 1; */
+  width: auto;
 }
 
 .pantry {
@@ -21,7 +36,8 @@
 }
 
 .resultsContainer {
-  width: 70%;
+  /* grid-column: 2 / 2; */
+  width: 100%;
 }
 
 .results {
