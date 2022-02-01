@@ -130,4 +130,8 @@
   #homeView {
     margin-top: 0;
   }
+
+  #receipeBox {
+    width: 90%;
+  }
 }
