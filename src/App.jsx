@@ -21,6 +21,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       user: {
+        userId: null,
         name: null,
         email: null,
         pantry: [],
@@ -50,8 +51,24 @@ class App extends React.Component {
     this.setState({ user: { name, email, pantry } });
   }
 
-  captureFavorites(favorites) {
-    this.setState({ favorites });
+  captureFavorites(recipeId = '', modify = false) {
+    if (modify) {
+      let action;
+      if (this.state.favorites.includes(recipeId)) {
+        action = 'remove';
+      } else {
+        action = 'add';
+      }
+      axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
+      .then(res => {
+        this.setState({favorites: res.data});
+      })
+    } else {
+      axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
+      .then(res => {
+        this.setState({favorites: res.data});
+      })
+    }
   }
 
   captureNavigation(newView) {
@@ -73,7 +90,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { user, favorites, currentView, showLogin, currentRecipeId } = this.state;
+    const { user, favorites, currentView, showLogin, currentRecipeId, previousView } = this.state;
     return (
       <div className="main">
         <div className="navdiv">
@@ -102,7 +119,7 @@ class App extends React.Component {
             captureRecipeId={this.captureRecipeId}
           />
         ) : ''}
-        {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={this.state.previousView}/> : ''}
+        {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={previousView} favorites={favorites}/> : ''}
 
         {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
 
