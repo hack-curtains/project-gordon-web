@@ -4,10 +4,10 @@ import RecipeTile from './RecipeTile.jsx'
 import downArrow from '../../dist/resources/homeView/down-arrow.png';
 import upArrow from '../../dist/resources/homeView/up-arrow.png';
 import { API_ADDR } from '../config';
-import one from '../../dist/resources/homeView/1.png';
-import two from '../../dist/resources/homeView/2.png';
-import three from '../../dist/resources/homeView/3.png';
-import four from '../../dist/resources/homeView/4.png';
+import imageOne from '../../dist/resources/homeView/1.png';
+import imageTwo from '../../dist/resources/homeView/2.png';
+import imageThree from '../../dist/resources/homeView/3.png';
+import imageFour from '../../dist/resources/homeView/4.png';
 
 
 const HomeFeedView = ({captureNavigation}) => {
@@ -70,7 +70,7 @@ const HomeFeedView = ({captureNavigation}) => {
   }, [sortOption])
 
   useEffect (() => {
-    updaterandomBackground([one,two,three,four][Math.floor(Math.random()*4)]);
+    updaterandomBackground([imageOne,imageTwo,imageThree,imageFour][Math.floor(Math.random()*4)]);
   }, [randomBackground])
 
 
