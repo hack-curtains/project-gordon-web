@@ -53,6 +53,13 @@ const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
       })
   }
 
+  const handleCheapest = () => {
+    axios.get(`${API_ADDR}/recipes?sort=price&direction=asc`)
+      .then ((res) => {
+        updateSortedData(res.data.rows);
+      })
+  }
+
   useEffect (() => {
     if (sortOption === 'mostPopular') {
       let selectedSortOption = document.getElementById(sortOption);
@@ -60,12 +67,18 @@ const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
       selectedSortOption.style.backgroundColor = '#EBF6FF';
 
       handleMostPopularRecipe();
-    } else if (sortOption === 'price') {
+    } else if (sortOption === 'highPrice') {
       let selectedSortOption = document.getElementById(sortOption);
       selectedSortOption.style.color = '#2C90AA';
       selectedSortOption.style.backgroundColor = '#EBF6FF';
 
       handleMostExpensive();
+    } else if (sortOption === 'lowPrice') {
+      let selectedSortOption = document.getElementById(sortOption);
+      selectedSortOption.style.color = '#2C90AA';
+      selectedSortOption.style.backgroundColor = '#EBF6FF';
+
+      handleCheapest();
     }
   }, [sortOption])
 
@@ -88,12 +101,14 @@ const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
           <div id="sort">
             <div id="sortByText">Sort:</div>
             {sortOption === 'mostPopular' && <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4>}
-            {sortOption === 'price' && <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4>}
+            {sortOption === 'highPrice' && <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4>}
+            {sortOption === 'lowPrice' && <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4>}
             {sortDisplay === false && <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img>}
             {sortDisplay === true && <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
               <div id="sortDropDown">
                 <p onClick={handleSortOption} id="mostPopular">Most Popular</p>
-                <p onClick={handleSortOption} id="price">Price: High-Low</p>
+                <p onClick={handleSortOption} id="highPrice">Price: High-Low</p>
+                <p onClick={handleSortOption} id="lowPrice">Price: Low-High</p>
               </div>
           </div>
         </div>

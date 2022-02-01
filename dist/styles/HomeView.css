@@ -9,6 +9,7 @@
 #homeTopView {
   height: 30%;
   width: 100%;
+  margin-top: 60px;
 }
 
 #homeTopViewMain {
@@ -108,9 +109,10 @@
   cursor: pointer;
   width: 15px;
   height: 15px;
+  margin-left: 4px;
 }
 
-#price, #mostPopular {
+#highPrice, #lowPrice, #mostPopular {
   display: flex;
   justify-content: center;
   border-radius: 5px;
