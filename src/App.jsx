@@ -32,6 +32,7 @@ class App extends React.Component {
     this.captureFavorites = this.captureFavorites.bind(this);
     this.captureNavigation = this.captureNavigation.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.openLogin = this.openLogin.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -53,6 +54,10 @@ class App extends React.Component {
       this.setState({ currentView: newView });
   }
 
+  openLogin() {
+    this.setState({showLogin: true});
+  }
+
   handleClose() {
     this.setState({showLogin: false});
   }
@@ -67,7 +72,7 @@ class App extends React.Component {
           </div>) : ''}
           {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
         </div>
-        <button onClick={e => this.setState({showLogin: true})}>Show Sign In</button>
+
 
         {showLogin === true ? (
         <SignInModal showLogin={this.state.showLogin} handleClose={this.handleClose}>
@@ -88,7 +93,7 @@ class App extends React.Component {
         ) : ''}
         {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation}/>}
 
-        {currentView === 'profile' ? (<ProfileView captureNavigation={this.captureNavigation} />) : ''}
+        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
       </div>

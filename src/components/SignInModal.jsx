@@ -13,7 +13,7 @@ const SignInModal = ({ handleClose, showLogin, children, name }) => {
 
         </div>
         <div className="modalClose">
-          <button type="button" name={name} onClick={handleClose}> Close
+          <button type="button" className="closeModalButton" name={name} onClick={handleClose}> Close
 
           </button>
         </div>

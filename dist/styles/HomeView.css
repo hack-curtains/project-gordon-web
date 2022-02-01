@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 29px;
 }
 
 #homeTopView {
@@ -117,4 +118,10 @@
 
 #sortDropDownMeal:hover {
   background: rgba(128, 128, 128, 0.377);
+}
+
+@media only screen and (max-device-width: 800px) {
+  #homeView {
+    margin-top: 0;
+  }
 }
