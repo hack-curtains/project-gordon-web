@@ -24,6 +24,31 @@ const SignIn = ({ captureUser, handleClose }) => {
       console.error('Details do not match!')
       setError('Details do not match!')
     }
+
+
+
+  }
+  // const Login = details => {
+
+  //   let userObj = {};
+  //   axios.post('/users/login', userObj)
+  //     .then((response) => {
+  //       console.log(response)
+  //     })
+  //     .catch((error) => {
+  //       console.error('user login error:', error);
+  //     })
+  // }
+  const SignUp = details => {
+
+    let newUserObj = {};
+    axios.post('/users/new', newUserObj)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.error('new user sign up error:', error);
+      })
   }
 
   const Logout = () => {
@@ -33,11 +58,22 @@ const SignIn = ({ captureUser, handleClose }) => {
     })
   }
 
+  // const Logout = () => {
+
+  //   let logoutObj = {};
+  //   axios.put('/users/logout', logoutObj)
+  //     .then((response) => {
+  //       console.log(response)
+  //     })
+  //     .catch((error) => {
+  //       console.error('user logout error:', error);
+  //     })
+  // }
   return (
     <div className="signinview">
       <div className="signindiv">
         {(user.email === "") ? (
-          <LoginForm Login={Login} handleClose={handleClose} error={error}/>
+          <LoginForm Login={Login} handleClose={handleClose} SignUp={SignUp} error={error}/>
         ): ''}
       </div>
     </div>
