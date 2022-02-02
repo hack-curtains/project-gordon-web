@@ -86,7 +86,7 @@ class App extends React.Component {
       <div className="main">
         <div className="navdiv">
             {window.innerWidth > 800 ? (<div className="topnav">
-            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})} ><img src={webMenuIcon}></img></button><div className="logoBar" name="home"><img className="logoIcon" src={chef} onClick={e => this.captureNavigation('home')}></img><span className="logoTitle" onClick={e => this.captureNavigation('home')}> Pantry Chef</span> <img className="profileIcon" src={profile30} onClick={e => this.captureNavigation('profile')}></img></div>
+            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})} ><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onMouseOver={e => {this.closeNav();}}><img className="logoIcon" src={chef} onClick={e => this.captureNavigation('home')}></img><span className="logoTitle" onClick={e => this.captureNavigation('home')}> Pantry Chef</span> <img className="profileIcon" src={profile30} onClick={e => this.captureNavigation('profile')}></img></div>
           </div>) : ''}
           {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} closeNav={this.closeNav} />) : ''}
         </div>
