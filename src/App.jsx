@@ -118,8 +118,8 @@ class App extends React.Component {
         </SignInModal>
         ) : ''}
 
-        {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} favorites={favorites} captureFavorites={this.captureFavorites}/>}
-        {this.state.currentView === 'favorites' && <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} user={this.state.user.name}/>}
+        {this.state.currentView === 'home' ? <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
+        {this.state.currentView === 'favorites' ? <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} user={this.state.user.name}/> : ''}
         {currentView === 'explore' ? (
           <ExploreView
             user={user}
