@@ -1,5 +1,5 @@
 .searchResultsView {
-  margin-top: 30px;
+  margin-top: 70px;
   display: flex;
   flex-direction: row;
 }
@@ -46,6 +46,12 @@
   color: whitesmoke;
 }
 
+.pantryCategory {
+  margin: 5px 0;
+  border-radius: 15px;
+  width: 100%;
+}
+
 .inputBar {
   align-self: center;
 }
@@ -62,6 +68,7 @@
 
 .results {
   display: flex;
+  flex-direction: column;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;

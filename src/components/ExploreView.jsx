@@ -6,7 +6,7 @@ const USER_ID_TODO = 1; // FIX ME
 import SearchView from './SearchView.jsx';
 import ResultsView from './ResultsView.jsx';
 
-const SearchResultsView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId }) => {
+const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId }) => {
 
   const [ingredients, setIngredients] = useState([]);
   const [ingredientsMap, setIngredientsMap] = useState({});
@@ -61,14 +61,16 @@ const SearchResultsView = ({ user, favorites, currentView, captureFavorites, cap
       });
   };
 
-  const togglePantry = (ingredient) => {
+  const togglePantry = (ingredientNames) => {
     const newPantry = {...pantry};
-    if (newPantry[ingredient]) {
-      newPantry[ingredient] = false;
-      axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
-    } else {
-      newPantry[ingredient] = true;
-      axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
+    for (let ingredient of ingredientNames) {
+      if (newPantry[ingredient]) {
+        newPantry[ingredient] = false;
+        axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
+      } else {
+        newPantry[ingredient] = true;
+        axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
+      }
     }
     setPantry(newPantry);
   };
@@ -85,4 +87,4 @@ const SearchResultsView = ({ user, favorites, currentView, captureFavorites, cap
   )
 }
 
-export default SearchResultsView;
+export default ExploreView;
