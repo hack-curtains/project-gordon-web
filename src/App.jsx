@@ -102,7 +102,7 @@ class App extends React.Component {
             captureRecipeId={this.captureRecipeId}
           />
         ) : ''}
-        {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={this.state.previousView}/>}
+        {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={this.state.previousView}/> : ''}
 
         {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
 
