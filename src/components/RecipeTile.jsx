@@ -7,7 +7,7 @@ import cost from '../../dist/resources/RecipeTile/cost.png';
 import emptyStar from '../../dist/resources/RecipeTile/emptyStar.png';
 import fullStar from '../../dist/resources/RecipeTile/fullStar.png';
 
-const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, captureFavorites }) => {
+const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, captureFavorites, liked, captureLikes }) => {
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -47,7 +47,15 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
           <div className="recipeTileCost">
             {window.innerWidth > 800 ? `$${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} / serving`: `$${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))}`}
           </div>
-          <img className="recipeTileRatingIcon" src={emptyHeart} />
+          <img 
+              id="likeButton"
+              className="recipeTileRatingIcon" 
+              src={liked.includes(recipe.id) ? fullHeart : emptyHeart} 
+              onClick={(e) => {
+                liked.includes(recipe.id) ? recipe.likes-- : recipe.likes++;
+                captureLikes(recipe.id)
+              }}
+            />
           <div className="recipeTileRating">
             {window.innerWidth > 800 ? `${numberWithCommas(recipe.likes)} ${recipe.likes === 1 ? "like" : "likes"}`: recipe.likes > 999 ? `${Math.trunc(recipe.likes/1000)}k`: recipe.likes}
           </div>

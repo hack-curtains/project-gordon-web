@@ -3,7 +3,7 @@ import RecipeTile from './RecipeTile.jsx'
 import axios from 'axios';
 import { API_ADDR } from '../config';
 
-const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorites, favorites }) => {
+const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorites, favorites, liked, captureLikes }) => {
   const [userFavoriteList, updateUserFavoriteList] = useState([]);
 
 
@@ -38,6 +38,8 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
         captureNavigation={captureNavigation}
         captureFavorites={captureFavorites}
         favorites={favorites}
+        liked={liked}
+        captureLikes={captureLikes}
         />
       }) : ''}
       </div>

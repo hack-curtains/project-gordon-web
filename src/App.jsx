@@ -30,6 +30,7 @@ class App extends React.Component {
         usePantry: true,
       },
       favorites: [],
+      liked: [],
       currentView: 'home',
       previousView: '',
       showLogin: false,
@@ -38,6 +39,7 @@ class App extends React.Component {
     }
     this.captureUser = this.captureUser.bind(this);
     this.captureFavorites = this.captureFavorites.bind(this);
+    this.captureLikes = this.captureLikes.bind(this);
     this.captureNavigation = this.captureNavigation.bind(this);
     this.captureRecipeId = this.captureRecipeId.bind(this);
     this.captureUsePantry = this.captureUsePantry.bind(this);
@@ -59,6 +61,14 @@ class App extends React.Component {
         });
     }
     this.setState({ user: { name, email, pantry } });
+  }
+
+  captureLikes(recipeId) {
+    if (this.state.liked.includes(recipeId)) {
+      this.setState(prevState => ({liked: prevState.liked.filter(id => id !== recipeId)}));
+    } else {
+      this.setState(prevState => ({liked: [...prevState.liked, recipeId]}));
+    }
   }
 
   captureFavorites(recipeId = '', modify = false) {
@@ -214,7 +224,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { user, favorites, currentView, showLogin, currentRecipeId, previousView } = this.state;
+    const { user, favorites, currentView, showLogin, currentRecipeId, previousView, liked } = this.state;
     return (
       <div className="main">
         <div className="navdiv">
@@ -231,8 +241,26 @@ class App extends React.Component {
         </SignInModal>
         ) : ''}
 
-        {this.state.currentView === 'home' ? <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
-        {this.state.currentView === 'favorites' ? <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} captureFavorites={this.captureFavorites} favorites={favorites} user={this.state.user.name}/> : ''}
+        {currentView === 'home' ? (
+          <HomeFeedView 
+            captureNavigation = {this.captureNavigation} 
+            captureRecipeId={this.captureRecipeId} 
+            favorites={favorites} 
+            captureFavorites={this.captureFavorites}
+            liked={liked}
+            captureLikes={this.captureLikes}
+          />
+        ) : ''}
+        {currentView === 'favorites' ? (
+          <FavoriteView 
+            captureNavigation = {this.captureNavigation} 
+            captureRecipeId={this.captureRecipeId} 
+            captureFavorites={this.captureFavorites} 
+            favorites={favorites} user={this.state.user.name}
+            liked={liked}
+            captureLikes={this.captureLikes}
+          />
+        ) : ''}
         {currentView === 'explore' || currentView === 'search' || currentView === 'pantry' ? (
           <ExploreView
             user={user}
@@ -242,9 +270,21 @@ class App extends React.Component {
             captureNavigation={this.captureNavigation}
             captureRecipeId={this.captureRecipeId}
             captureUsePantry={this.captureUsePantry}
+            liked={liked}
+            captureLikes={this.captureLikes}
           />
         ) : ''}
-        {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={previousView} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
+        {currentView === 'recipe' ? (
+          <SoloRecipeView 
+            captureNavigation = {this.captureNavigation}
+            recipeId={currentRecipeId} 
+            previousView={previousView} 
+            favorites={favorites} 
+            captureFavorites={this.captureFavorites}
+            liked={liked}
+            captureLikes={this.captureLikes}
+          />
+        ) : ''}
 
         {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} changedLoggedIn={this.changedLoggedIn} userEmail={this.state.user.email} loggedIn={this.state.loggedIn}  clearUser={this.clearUser}/>) : ''}
 
