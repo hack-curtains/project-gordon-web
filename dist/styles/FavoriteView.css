@@ -11,3 +11,8 @@
   color: #E86D4D;
   font-weight: bold;
 }
+
+#favoriteList {
+  display: flex;
+  flex-direction: column;
+}
