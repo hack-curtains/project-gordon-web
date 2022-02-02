@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import RecipeTile from './RecipeTile.jsx'
 
 
-const FavoriteView = ({ captureNavigation, captureRecipeId, user }) => {
+const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorites }) => {
+
 
   return (
     <div id="favoriteMain">
