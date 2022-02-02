@@ -26,13 +26,16 @@ const SearchView = ({ ingredients, ingredientsMap, pantry, togglePantry }) => {
   };
 
   const categoriesToRender = {};
+  const categoryActiveMap = {};
   for (let name in pantry) {
     const i = ingredientsMap[name];
     const category = ingredients[i].category;
     if (!categoriesToRender[category]) {
       categoriesToRender[category] = [];
+      categoryActiveMap[category] = false;
     }
     categoriesToRender[category].push(name);
+    categoryActiveMap[category] = pantry[name] || categoryActiveMap[category];
   }
 
   return (
@@ -45,10 +48,12 @@ const SearchView = ({ ingredients, ingredientsMap, pantry, togglePantry }) => {
       </div>
       <div className="pantry">
         {Object.keys(categoriesToRender).map((category, i) => (
-          <fieldset className="pantryCategory" key={i} onClick={() => {
-            togglePantry(categoriesToRender[category]);
-          }}>
-            <legend className="unselectable">{category}</legend>
+          <fieldset className="pantryCategory" key={i}>
+            <legend className={
+              `unselectable ${categoryActiveMap[category] ? 'active' : ''}`
+            } onClick={() => {
+            togglePantry(categoriesToRender[category], true);
+          }}>{category}</legend>
             {categoriesToRender[category].map((name, j) => (
               <PantryItem key={j} name={name} togglePantry={togglePantry} isActive={pantry[name]} />
             ))}
