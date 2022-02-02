@@ -102,6 +102,7 @@ body, #app {
   border-width: 0;
   background-color: #D6CFC9;
   z-index: 10;
+  width: 60px;
 
 }
 .navButton:hover {
