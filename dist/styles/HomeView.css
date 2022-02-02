@@ -135,7 +135,7 @@
 }
 
 @media only screen and (max-device-width: 800px) {
-  #homeView {
+  #homeTopView {
     margin-top: 0;
   }
 
