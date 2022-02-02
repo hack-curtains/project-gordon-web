@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RecipeTile from './RecipeTile.jsx';
 
-const ResultsView = ({ results, captureNavigation, captureRecipeId, favorites, captureFavorites }) => {
+const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favorites, captureFavorites }) => {
 
   return (
     <div className="resultsContainer">
@@ -11,7 +11,7 @@ const ResultsView = ({ results, captureNavigation, captureRecipeId, favorites, c
         <input id="searchResults" placeholder="Find..."></input>
         <button>Search</button>
       </div>
-      <div className="results">
+      <div className={`results ${mobile ? '' : 'shadowBox'}`}>
         {results.map((recipe, i) => (
           <RecipeTile
             key={i}

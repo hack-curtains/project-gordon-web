@@ -88,12 +88,13 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   }, [pantry, user.usePantry])
 
   return (
-    <div className='searchResultsView'>
+    <div className="searchResultsView">
       {currentView === 'explore' || currentView === 'pantry' ? (
         <SearchView
           ingredients={ingredients}
           ingredientsMap={ingredientsMap}
           pantry={pantry}
+          mobile={currentView !== 'explore'}
           usePantry={user.usePantry}
           togglePantry={captureUsePantry}
           togglePantryItem={togglePantryItem}
@@ -104,6 +105,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
         <ResultsView
           results={results}
           favorites={favorites}
+          mobile={currentView !== 'explore'}
           captureFavorites={captureFavorites}
           captureNavigation={captureNavigation}
           captureRecipeId={captureRecipeId}
