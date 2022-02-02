@@ -82,7 +82,7 @@ const SortOption = ({ captureNavigation, captureRecipeId, favorites, captureFavo
         <div id="sortByText">Sort:</div>
         {sortOption === 'mostPopular' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4> : ''}
         {sortOption === 'highPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4> : ''}
-        {sortOption === 'lowPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4> : ''}
+        {sortOption === 'lowPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: Low-High</h4> : ''}
         {sortDisplay === false ?
         <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img> :
         <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
