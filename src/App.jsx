@@ -21,7 +21,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       user: {
-        userId: null,
         name: null,
         email: null,
         pantry: [],
@@ -59,15 +58,27 @@ class App extends React.Component {
       } else {
         action = 'add';
       }
-      axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
-      .then(res => {
-        this.setState({favorites: res.data});
-      })
+      if (action === 'add') {
+        this.setState(prevState => ({favorites: [...prevState.favorites, recipeId]}), () => {
+        })
+      }
+
+      if (action === 'remove') {
+        this.setState(prevState => ({favorites: prevState.favorites.filter(id => id !== recipeId)}))
+      }
+      // // Uncomment when userId works
+      // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
+      // .then(res => {
+      //   this.setState({favorites: res.data});
+      // })
     } else {
-      axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
-      .then(res => {
-        this.setState({favorites: res.data});
-      })
+      return this.state.favorites;
+
+      // // Uncomment when userId works
+      // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
+      // .then(res => {
+      //   this.setState({favorites: res.data});
+      // })
     }
   }
 
@@ -107,7 +118,7 @@ class App extends React.Component {
         </SignInModal>
         ) : ''}
 
-        {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId}/>}
+        {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} favorites={favorites} captureFavorites={this.captureFavorites}/>}
         {this.state.currentView === 'favorites' && <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} user={this.state.user.name}/>}
         {currentView === 'explore' ? (
           <ExploreView
@@ -119,7 +130,7 @@ class App extends React.Component {
             captureRecipeId={this.captureRecipeId}
           />
         ) : ''}
-        {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={previousView} favorites={favorites}/> : ''}
+        {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={previousView} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
 
         {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
 
