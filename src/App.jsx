@@ -33,7 +33,8 @@ class App extends React.Component {
       currentView: 'home',
       previousView: '',
       showLogin: false,
-      currentRecipeId: ''
+      currentRecipeId: '',
+      loggedIn: false
     }
     this.captureUser = this.captureUser.bind(this);
     this.captureFavorites = this.captureFavorites.bind(this);
@@ -43,6 +44,9 @@ class App extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.openLogin = this.openLogin.bind(this);
     this.closeNav = this.closeNav.bind(this);
+    this.login = this.login.bind(this);
+    this.signUp = this.signUp.bind(this);
+    this.changedLoggedIn = this.changedLoggedIn.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -111,6 +115,66 @@ class App extends React.Component {
     // }
   }
 
+  signUp(details) {
+
+    let newUserObj = {
+      username: details.name,
+      email: details.email,
+      password: details.password
+    };
+
+    let options = {
+
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+    let that = this;
+    axios.post(`http://ec2-3-225-116-189.compute-1.amazonaws.com:3000/users/new`, newUserObj, options)
+      .then((response) => {
+        console.log(response)
+        that.setState({ user: {
+          email: response.data.userID,
+        }})
+      })
+      .catch((error) => {
+        console.error('new user sign up error:', error);
+      })
+
+  }
+
+  login(details) {
+    let userObj = {
+      email: details.email,
+      password: details.password
+    };
+
+    let options = {
+      credentials: 'include',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'X-XSRF-TOKEN': 'getCookie("XSRF-TOKEN")'
+      }
+    }
+    let that = this;
+    axios.post(`http://ec2-3-225-116-189.compute-1.amazonaws.com:3000/users/login`, userObj, options)
+      .then((response) => {
+        console.log(response)
+        that.setState({ user: {
+          email: response.userID,
+        }})
+        console.log('this is document:', window)
+      })
+      .catch((error) => {
+        console.error('user login error:', error);
+      })
+  }
+
+
+
   captureNavigation(newView) {
     this.setState(prevState => ({ previousView: prevState.currentView }))
     this.setState({ currentView: newView });
@@ -139,6 +203,10 @@ class App extends React.Component {
     this.setState({showNav: false});
   }
 
+  changedLoggedIn() {
+    this.setState({ loggedIn: !this.state.loggedIn});
+  }
+
   render() {
     const { user, favorites, currentView, showLogin, currentRecipeId, previousView } = this.state;
     return (
@@ -153,7 +221,7 @@ class App extends React.Component {
 
         {showLogin === true ? (
         <SignInModal showLogin={this.state.showLogin} handleClose={this.handleClose}>
-          <SignIn captureUser={this.captureUser} handleClose={this.handleClose}/>
+          <SignIn captureUser={this.captureUser} login={this.login} signUp={this.signUp} handleClose={this.handleClose} changedLoggedIn={this.changedLoggedIn}/>
         </SignInModal>
         ) : ''}
 
@@ -172,7 +240,7 @@ class App extends React.Component {
         ) : ''}
         {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={previousView} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
 
-        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
+        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation}  loggedIn={this.state.loggedIn}/>) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
       </div>
