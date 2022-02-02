@@ -61,14 +61,16 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
       });
   };
 
-  const togglePantry = (ingredient) => {
+  const togglePantry = (ingredientNames) => {
     const newPantry = {...pantry};
-    if (newPantry[ingredient]) {
-      newPantry[ingredient] = false;
-      axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
-    } else {
-      newPantry[ingredient] = true;
-      axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
+    for (let ingredient of ingredientNames) {
+      if (newPantry[ingredient]) {
+        newPantry[ingredient] = false;
+        axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
+      } else {
+        newPantry[ingredient] = true;
+        axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
+      }
     }
     setPantry(newPantry);
   };

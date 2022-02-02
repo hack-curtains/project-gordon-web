@@ -8,6 +8,10 @@
 @import 'SoloRecipeView.css';
 @import 'FavoriteView.css';
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
   width: 100%;

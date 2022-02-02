@@ -26,7 +26,7 @@ class App extends React.Component {
         pantry: [],
       },
       favorites: [],
-      currentView: 'home',
+      currentView: 'explore',
       previousView: '',
       showLogin: false,
       currentRecipeId: ''
