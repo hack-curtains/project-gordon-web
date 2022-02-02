@@ -125,9 +125,13 @@ class App extends React.Component {
     };
 
     let options = {
-
+      credentials: 'include',
+      mode: 'cors',
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'X-XSRF-TOKEN': 'getCookie("XSRF-TOKEN")'
       }
     }
     let that = this;
