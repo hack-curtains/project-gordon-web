@@ -1,9 +1,12 @@
 import React, { useImperativeHandle } from "react";
+import ReactDOM from 'react-dom';
+
 import axios from 'axios';
 import { API_ADDR } from "./config";
 
 import webMenuIcon from '../dist/resources/menu-24.png';
 import chef from '../dist/resources/chef.png';
+import profile30 from '../dist/resources/BottomNav/user.png';
 
 import NavMenu from './components/NavMenu.jsx';
 import SignIn from './components/SignIn.jsx';
@@ -37,6 +40,7 @@ class App extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.openLogin = this.openLogin.bind(this);
     this.captureRecipeId = this.captureRecipeId.bind(this);
+    this.closeNav = this.closeNav.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -72,15 +76,19 @@ class App extends React.Component {
     this.setState({showLogin: false});
   }
 
+  closeNav() {
+    this.setState({showNav: false});
+  }
+
   render() {
     const { user, favorites, currentView, showLogin, currentRecipeId } = this.state;
     return (
       <div className="main">
         <div className="navdiv">
             {window.innerWidth > 800 ? (<div className="topnav">
-            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})}><img src={webMenuIcon}></img></button><div className="logoBar" name="home"><img className="logoIcon" src={chef} onClick={e => this.captureNavigation('home')}></img><span className="logoTitle" onClick={e => this.captureNavigation('home')}> Pantry Chef</span> </div>
+            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})} ><img src={webMenuIcon}></img></button><div className="logoBar" name="home"><img className="logoIcon" src={chef} onClick={e => this.captureNavigation('home')}></img><span className="logoTitle" onClick={e => this.captureNavigation('home')}> Pantry Chef</span> <img className="profileIcon" src={profile30} onClick={e => this.captureNavigation('profile')}></img></div>
           </div>) : ''}
-          {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} />) : ''}
+          {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} closeNav={this.closeNav} />) : ''}
         </div>
 
 
