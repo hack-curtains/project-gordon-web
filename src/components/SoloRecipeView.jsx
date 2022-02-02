@@ -53,7 +53,7 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
           </div>
           <div className="recipeStats">
             <img className="recipeStatIcon" src={cost}/>
-            <div className="recipeStat">${Math.trunc(recipe.price)} per serving</div>
+            <div className="recipeStat">${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} per serving</div>
           </div>
           <div className="recipeStats">
             <img className="recipeStatIcon" src={fullHeart}/>

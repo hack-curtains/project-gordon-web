@@ -44,7 +44,7 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
           </div>
           <img className="recipeTileCostIcon" src={cost} />
           <div className="recipeTileCost">
-            {window.innerWidth > 800 ? `$${numberWithCommas(Math.trunc(recipe.price))}/serving`: `$${numberWithCommas(Math.trunc(recipe.price))}`}
+            {window.innerWidth > 800 ? `$${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} / serving`: `$${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))}`}
           </div>
           <img className="recipeTileRatingIcon" src={emptyHeart} />
           <div className="recipeTileRating">
