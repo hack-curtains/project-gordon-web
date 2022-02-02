@@ -97,7 +97,7 @@ const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
       </div>
       <div id="homeBottomView">
         <div id="titleHomeBottomView">
-          <div id="title">Recommend Recipes</div>
+          <div id="title">Recommended Recipes</div>
           <div id="sort">
             <div id="sortByText">Sort:</div>
             {sortOption === 'mostPopular' && <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4>}
