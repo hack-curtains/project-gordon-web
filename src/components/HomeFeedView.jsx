@@ -63,20 +63,20 @@ const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
   useEffect (() => {
     if (sortOption === 'mostPopular') {
       let selectedSortOption = document.getElementById(sortOption);
-      selectedSortOption.style.color = '#2C90AA';
-      selectedSortOption.style.backgroundColor = '#EBF6FF';
+      selectedSortOption.style.color = 'white';
+      selectedSortOption.style.backgroundColor = '#E86D4D';
 
       handleMostPopularRecipe();
     } else if (sortOption === 'highPrice') {
       let selectedSortOption = document.getElementById(sortOption);
-      selectedSortOption.style.color = '#2C90AA';
-      selectedSortOption.style.backgroundColor = '#EBF6FF';
+      selectedSortOption.style.color = 'white';
+      selectedSortOption.style.backgroundColor = '#E86D4D';
 
       handleMostExpensive();
     } else if (sortOption === 'lowPrice') {
       let selectedSortOption = document.getElementById(sortOption);
-      selectedSortOption.style.color = '#2C90AA';
-      selectedSortOption.style.backgroundColor = '#EBF6FF';
+      selectedSortOption.style.color = 'white';
+      selectedSortOption.style.backgroundColor = '#E86D4D';
 
       handleCheapest();
     }
