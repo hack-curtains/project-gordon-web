@@ -26,7 +26,7 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
         <div className="recipeTileHeader">
           <div
             className="recipeTileName"
-            style={{fontSize: recipe.title.length > 30 ? '70%':'100%'}}
+            style={{fontSize: recipe.title.length > 30 ? '80%':'100%'}}
             onClick={(e) => {
               captureRecipeId(recipe.id);
               captureNavigation("recipe");
@@ -44,7 +44,7 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
           </div>
           <img className="recipeTileCostIcon" src={cost} />
           <div className="recipeTileCost">
-            {window.innerWidth > 800 ? `$${numberWithCommas(Math.trunc(recipe.price))}/serving`: `$${numberWithCommas(Math.trunc(recipe.price))}`}
+            {window.innerWidth > 800 ? `$${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} / serving`: `$${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))}`}
           </div>
           <img className="recipeTileRatingIcon" src={emptyHeart} />
           <div className="recipeTileRating">
