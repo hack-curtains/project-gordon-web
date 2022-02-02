@@ -26,7 +26,7 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
         <div className="recipeTileHeader">
           <div
             className="recipeTileName"
-            style={{fontSize: recipe.title.length > 30 ? '70%':'100%'}}
+            style={{fontSize: recipe.title.length > 30 ? '80%':'100%'}}
             onClick={(e) => {
               captureRecipeId(recipe.id);
               captureNavigation("recipe");

@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 70px;
   align-items: center;
 }
 
@@ -11,7 +11,7 @@
   justify-content: space-between;
   width: 60%;
   margin: 30px 10px;
-  font-size: 300%;
+  font-size: 3em;
 }
 
 .backButton {
@@ -54,7 +54,7 @@
   display: flex;
   align-items: center;
   margin: 10px 0;
-  font-size: 150%;
+  font-size: 1.5em;
 }
 
 .recipeStats div {
@@ -65,7 +65,7 @@
   color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
-  font-size: 110%;
+  font-size: 1.1em;
 }
 
 .dietTagsContainer {
@@ -113,7 +113,7 @@
 .recipeDescription {
   width: 80%;
   margin: 30px 10px;
-  font-size: 110%;
+  font-size: 1.1em;
   text-align: justify;
 }
 
@@ -139,7 +139,7 @@
 
 .recipeIngredientList section {
   align-self: center;
-  font-size: 150%;
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
@@ -149,7 +149,7 @@
 }
 
 .ingredientListEntry div {
-  font-size: 130%;
+  font-size: 1.3em;
 }
 
 .ingredientListEntry img {
@@ -167,13 +167,13 @@
 }
 
 .recipeInstructions section {
-  font-size: 200%;
+  font-size: 2em;
   margin-bottom: 10px;
 }
 
 .recipeInstructions div {
   margin-bottom: 30px;
-  font-size: 110%;
+  font-size: 1.1em;
 }
 
 @media only screen and (max-device-width: 800px) {
