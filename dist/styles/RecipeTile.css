@@ -40,6 +40,7 @@
 .recipeTileFavoriteIcon {
   margin-left: auto;
   align-self: flex-start;
+  cursor: pointer;
 }
 
 .recipeTileFavoriteIcon:hover {
