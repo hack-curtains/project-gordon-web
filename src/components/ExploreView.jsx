@@ -61,13 +61,15 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
       });
   };
 
-  const togglePantry = (ingredientNames) => {
+  const togglePantry = (ingredientNames, categoryMode=false) => {
     const newPantry = {...pantry};
+    let categoryModeIsAllFalse = !categoryMode || !ingredientNames.reduce((acc, name) => (acc || newPantry[name]), false);
+    console.log(categoryModeIsAllFalse);
     for (let ingredient of ingredientNames) {
       if (newPantry[ingredient]) {
         newPantry[ingredient] = false;
         axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
-      } else {
+      } else if (!categoryMode || categoryModeIsAllFalse) {
         newPantry[ingredient] = true;
         axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
       }
@@ -82,7 +84,13 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   return (
     <div className='searchResultsView'>
       <SearchView ingredients={ingredients} ingredientsMap={ingredientsMap} pantry={pantry} togglePantry={togglePantry} />
-      <ResultsView results={results} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId} />
+      <ResultsView
+        results={results}
+        favorites={favorites}
+        captureFavorites={captureFavorites}
+        captureNavigation={captureNavigation}
+        captureRecipeId={captureRecipeId}
+      />
     </div>
   )
 }
