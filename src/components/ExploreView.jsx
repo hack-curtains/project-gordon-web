@@ -84,7 +84,13 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   return (
     <div className='searchResultsView'>
       <SearchView ingredients={ingredients} ingredientsMap={ingredientsMap} pantry={pantry} togglePantry={togglePantry} />
-      <ResultsView results={results} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId} />
+      <ResultsView
+        results={results}
+        favorites={favorites}
+        captureFavorites={captureFavorites}
+        captureNavigation={captureNavigation}
+        captureRecipeId={captureRecipeId}
+      />
     </div>
   )
 }
