@@ -2,11 +2,15 @@
 
 @import 'ProfileView.css';
 
-@import 'SearchResultsView.css';
+@import 'ExploreView.css';
 @import 'HomeView.css';
 @import 'SignIn.css';
 @import 'SoloRecipeView.css';
 @import 'FavoriteView.css';
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   height: 100%;
@@ -115,4 +119,11 @@ body, #app {
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
   }
+}
+
+.unselectable {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
 }

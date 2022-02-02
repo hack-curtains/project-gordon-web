@@ -7,7 +7,7 @@ import chef from '../dist/resources/chef.png';
 
 import NavMenu from './components/NavMenu.jsx';
 import SignIn from './components/SignIn.jsx';
-import SearchResultsView from "./components/SearchResultsView.jsx";
+import ExploreView from "./components/ExploreView.jsx";
 import ProfileView from './components/ProfileView.jsx';
 import RecipeTile from "./components/RecipeTile.jsx";
 import BottomNav from './components/BottomNav.jsx';
@@ -26,7 +26,7 @@ class App extends React.Component {
         pantry: [],
       },
       favorites: [],
-      currentView: 'explore',
+      currentView: 'home',
       previousView: '',
       showLogin: false,
       currentRecipeId: ''
@@ -93,7 +93,7 @@ class App extends React.Component {
         {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId}/>}
         {this.state.currentView === 'favorites' && <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} user={this.state.user.name}/>}
         {currentView === 'explore' ? (
-          <SearchResultsView
+          <ExploreView
             user={user}
             favorites={favorites}
             currentView={currentView}

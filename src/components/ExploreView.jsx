@@ -6,7 +6,7 @@ const USER_ID_TODO = 1; // FIX ME
 import SearchView from './SearchView.jsx';
 import ResultsView from './ResultsView.jsx';
 
-const SearchResultsView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId }) => {
+const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId }) => {
 
   const [ingredients, setIngredients] = useState([]);
   const [ingredientsMap, setIngredientsMap] = useState({});
@@ -28,34 +28,49 @@ const SearchResultsView = ({ user, favorites, currentView, captureFavorites, cap
   if (Object.keys(ingredientsMap).length !== 0 && Object.keys(pantry).length === 0) {
     axios.get(`${API_ADDR}/users/${USER_ID_TODO}/ingredients`)
       .then((response) => {
-        let newPantry = {};
-        for (let i = 0; i < response.data.length; i++) {
-          let ingredient = response.data[i];
-          newPantry[ingredient.name] = true;
+        let newPantry;
+        if (response.data.length === 0) {
+          newPantry = {
+            'water': true
+          };
+        } else {
+          newPantry = {};
+          for (let i = 0; i < response.data.length; i++) {
+            let ingredient = response.data[i];
+            newPantry[ingredient.name] = true;
+          }
         }
-        console.log(response);
         setPantry(newPantry);
       });
   }
 
   const fetchResults = () => {
-    const idString = Object.keys(pantry).map((name) => (
-      ingredients[ingredientsMap[name]].id
-    )).join(',');
+    const idString = Object.keys(pantry)
+      .filter((name) => (
+        pantry[name]
+      ))
+      .map((name) => (
+        ingredients[ingredientsMap[name]].id
+      ))
+      .join(',');
+
+    if (!idString) return;
     axios.get(`${API_ADDR}/search/ingredients?ids=${idString}`)
       .then((response) => {
         setResults(response.data.rows);
       });
   };
 
-  const togglePantry = (ingredient) => {
+  const togglePantry = (ingredientNames) => {
     const newPantry = {...pantry};
-    if (newPantry[ingredient]) {
-      delete newPantry[ingredient];
-      axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
-    } else {
-      newPantry[ingredient] = true;
-      axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
+    for (let ingredient of ingredientNames) {
+      if (newPantry[ingredient]) {
+        newPantry[ingredient] = false;
+        axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
+      } else {
+        newPantry[ingredient] = true;
+        axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
+      }
     }
     setPantry(newPantry);
   };
@@ -72,4 +87,4 @@ const SearchResultsView = ({ user, favorites, currentView, captureFavorites, cap
   )
 }
 
-export default SearchResultsView;
+export default ExploreView;

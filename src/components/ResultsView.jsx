@@ -8,13 +8,15 @@ const ResultsView = ({ results, captureNavigation, captureRecipeId }) => {
 
   return (
     <div className="resultsContainer">
-      <h1>Recipes</h1>
+      <h1 className="unselectable">Recipes</h1>
+      <div className="inputBar">
+        <input id="searchResults" placeholder="Find..."></input>
+        <button>Search</button>
+      </div>
       <div className="results">
-        <div>
-          {results.map((recipe, i) => (
-            <RecipeTile key={i} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId} />
-          ))}
-        </div>
+        {results.map((recipe, i) => (
+          <RecipeTile key={i} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId} />
+        ))}
       </div>
     </div>
   )
