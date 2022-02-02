@@ -49,6 +49,7 @@ class App extends React.Component {
     this.login = this.login.bind(this);
     this.signUp = this.signUp.bind(this);
     this.changedLoggedIn = this.changedLoggedIn.bind(this);
+    this.clearUser = this.clearUser.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -142,7 +143,7 @@ class App extends React.Component {
     let that = this;
     axios.post(`http://ec2-3-225-116-189.compute-1.amazonaws.com:3000/users/new`, newUserObj, options)
       .then((response) => {
-        console.log(response)
+        console.log(response.data.userID)
         that.setState({ user: {
           email: response.data.userID,
         }})
@@ -174,7 +175,7 @@ class App extends React.Component {
       .then((response) => {
         console.log(response)
         that.setState({ user: {
-          email: response.userID,
+          email: response.data.userID,
         }})
         console.log('this is document:', window)
       })
@@ -201,6 +202,11 @@ class App extends React.Component {
     this.setState({ user });
   };
 
+  clearUser() {
+    this.setState({user: {
+      email: '',
+    }})
+  }
   openLogin() {
     this.setState({showLogin: true});
   }
@@ -280,7 +286,7 @@ class App extends React.Component {
           />
         ) : ''}
 
-        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation}  loggedIn={this.state.loggedIn}/>) : ''}
+        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} changedLoggedIn={this.changedLoggedIn} userEmail={this.state.user.email} loggedIn={this.state.loggedIn}  clearUser={this.clearUser}/>) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
       </div>

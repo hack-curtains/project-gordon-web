@@ -11,8 +11,9 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
     let userFavorite = captureFavorites();
     console.log(userFavorite);
     updateUserFavoriteList(userFavorite);
-  }, [])
+  }, [favorites])
 
+  // -- this will be used when the user data setup. --
   // const handleRequestRecipes = (favoriteList) => {
   //   const userFavoriteListStorage = [];
 
@@ -29,7 +30,7 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
     <div id="favoriteMain">
       <div id="favoriteTitle">Favorite Recipes</div>
       <div id="favoriteList">
-      {userFavoriteList[0] !== undefined && userFavoriteList.map((recipe, index) => {
+      {userFavoriteList[0] !== undefined ? userFavoriteList.map((recipe, index) => {
         return <RecipeTile
         key={index}
         recipe={recipe}
@@ -40,7 +41,7 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
         liked={liked}
         captureLikes={captureLikes}
         />
-      })}
+      }) : ''}
       </div>
     </div>
   );
