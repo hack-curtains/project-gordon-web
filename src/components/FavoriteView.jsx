@@ -7,10 +7,11 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
   const [userFavoriteList, updateUserFavoriteList] = useState([]);
 
 
-  // useEffect (() => {
-  //   let userFavorite = captureFavorites();
-  //   handleRequestRecipes(userFavorite);
-  // }, [])
+  useEffect (() => {
+    let userFavorite = captureFavorites();
+    console.log(userFavorite);
+    updateUserFavoriteList(userFavorite);
+  }, [])
 
   // const handleRequestRecipes = (favoriteList) => {
   //   const userFavoriteListStorage = [];
@@ -28,7 +29,7 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
     <div id="favoriteMain">
       <div id="favoriteTitle">Favorite Recipes</div>
       <div id="favoriteList">
-      {/* {userFavoriteList[0] !== undefined && userFavoriteList.map((recipe, index) => {
+      {userFavoriteList[0] !== undefined && userFavoriteList.map((recipe, index) => {
         return <RecipeTile
         key={index}
         recipe={recipe}
@@ -37,7 +38,7 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
         captureFavorites={captureFavorites}
         favorites={favorites}
         />
-      })} */}
+      })}
       </div>
     </div>
   );
