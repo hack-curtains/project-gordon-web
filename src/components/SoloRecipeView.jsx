@@ -38,7 +38,7 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
       <div className="recipeViewHeader">
         {window.innerWidth <= 800 && <div className="mobileBackFavorite">
           <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>
-          <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/>
+          <img className="favoriteButton" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)}/>
         </div>}
         {window.innerWidth > 800 && <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>}
         <div className="recipeName">{recipe.title}</div>
