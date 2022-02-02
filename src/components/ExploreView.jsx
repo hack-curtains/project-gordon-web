@@ -89,21 +89,26 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
 
   return (
     <div className='searchResultsView'>
-      <SearchView
-        ingredients={ingredients}
-        ingredientsMap={ingredientsMap}
-        pantry={pantry}
-        usePantry={user.usePantry}
-        togglePantry={captureUsePantry}
-        togglePantryItem={togglePantryItem}
-      />
-      <ResultsView
-        results={results}
-        favorites={favorites}
-        captureFavorites={captureFavorites}
-        captureNavigation={captureNavigation}
-        captureRecipeId={captureRecipeId}
-      />
+      {currentView === 'explore' || currentView === 'pantry' ? (
+        <SearchView
+          ingredients={ingredients}
+          ingredientsMap={ingredientsMap}
+          pantry={pantry}
+          usePantry={user.usePantry}
+          togglePantry={captureUsePantry}
+          togglePantryItem={togglePantryItem}
+        />
+      ) : ''}
+
+      {currentView === 'explore' || currentView === 'search' ? (
+        <ResultsView
+          results={results}
+          favorites={favorites}
+          captureFavorites={captureFavorites}
+          captureNavigation={captureNavigation}
+          captureRecipeId={captureRecipeId}
+        />
+      ) : ''}
     </div>
   )
 }

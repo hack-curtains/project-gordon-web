@@ -64,7 +64,7 @@ class App extends React.Component {
     // Tweak for fast favorites rendering
     let stringState = JSON.stringify(this.state.favorites);
     let stringRecipe = JSON.stringify(recipeId);
-    
+
     if (modify) {
       let action;
       if (stringState.includes(stringRecipe)) {
@@ -227,7 +227,7 @@ class App extends React.Component {
 
         {this.state.currentView === 'home' ? <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
         {this.state.currentView === 'favorites' ? <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} captureFavorites={this.captureFavorites} favorites={favorites} user={this.state.user.name}/> : ''}
-        {currentView === 'explore' ? (
+        {currentView === 'explore' || currentView === 'search' || currentView === 'pantry' ? (
           <ExploreView
             user={user}
             favorites={favorites}
