@@ -62,7 +62,7 @@
 }
 
 .recipeTagsContainer {
-  color: white;
+  color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   font-size: 110%;
@@ -74,11 +74,12 @@
 }
 
 .dietTagsContainer div {
-  background: rgb(8, 129, 0);
+  background: #ffeec7;
+  text-align: center;
   margin-right: 10px;
   padding: 5px 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.6);
+  border-radius: 25px;
+  box-shadow: 0px 0px 1px 1px rgba(56, 55, 55, 0.199);
 }
 
 .cuisineTagsContainer {
@@ -87,11 +88,12 @@
 }
 
 .cuisineTagsContainer div {
-  background: rgb(159, 3, 3);
+  background: #DFEFFF;
+  text-align: center;
   margin-right: 10px;
   padding: 5px 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.6);
+  border-radius: 25px;
+  box-shadow: 0px 0px 1px 1px rgba(56, 55, 55, 0.199);
 }
 
 .dishTagsContainer {
@@ -100,17 +102,19 @@
 }
 
 .dishTagsContainer div {
-  background: rgb(86, 0, 201);
+  background: #E4DCFF;
+  text-align: center;
   margin-right: 10px;
   padding: 5px 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.6);
+  border-radius: 25px;
+  box-shadow: 0px 0px 1px 1px rgba(56, 55, 55, 0.199);
 }
 
 .recipeDescription {
   width: 80%;
   margin: 30px 10px;
   font-size: 110%;
+  text-align: justify;
 }
 
 .recipeDescription a {
@@ -170,4 +174,38 @@
 .recipeInstructions div {
   margin-bottom: 30px;
   font-size: 110%;
+}
+
+@media only screen and (max-device-width: 800px) {
+  .soloRecipeViewContainer {
+    margin: 0;
+  }
+
+  .recipeViewHeader {
+    flex-direction: column;
+    width: 90%;
+    text-align: center;
+  }
+
+  .mobileBackFavorite {
+    display: flex;
+    justify-content: space-between;
+  }
+  .recipeImage {
+    max-height: 259px;
+    max-width: 390px;
+  }
+
+  .recipeInformation {
+    flex-direction: column;
+  }
+
+  .recipeBody {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recipeIngredientList {
+    width: 100%;
+  }
 }

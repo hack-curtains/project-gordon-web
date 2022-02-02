@@ -78,7 +78,7 @@
   font-size: 100%;
   padding: 5px 10px;
   border-radius: 25px;
-  box-shadow: 0px 0px 1x 1px rgba(56, 55, 55, 0.199);
+  box-shadow: 0px 0px 1px 1px rgba(56, 55, 55, 0.199);
 }
 
 .dietsTag {
@@ -99,7 +99,7 @@
   }
 
   .recipeTileFavoriteIcon {
-    height: 60%;
+    height: 24px;
   }
   .recipeTileImage {
     width: 30%;
