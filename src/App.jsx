@@ -30,7 +30,7 @@ class App extends React.Component {
         usePantry: true,
       },
       favorites: [],
-      currentView: 'explore',
+      currentView: 'home',
       previousView: '',
       showLogin: false,
       currentRecipeId: ''
