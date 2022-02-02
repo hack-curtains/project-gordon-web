@@ -96,6 +96,7 @@
 
 @media only screen and (max-device-width: 800px) {
   .recipeTileContainer {
+    margin: 10px 0;
     font-size: 0.7em;
   }
 

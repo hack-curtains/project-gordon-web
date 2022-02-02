@@ -152,4 +152,8 @@
     width: 100%;
     margin-bottom: 10%;
   }
+
+  #sortedList {
+    width: 100%;
+  }
 }
