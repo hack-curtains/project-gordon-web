@@ -90,8 +90,8 @@ class App extends React.Component {
         </SignInModal>
         ) : ''}
 
-        {this.state.currentView === 'home' && <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId}/>}
-        {this.state.currentView === 'favorites' && <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} user={this.state.user.name}/>}
+        {this.state.currentView === 'home' ? <HomeFeedView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId}/> : ''}
+        {this.state.currentView === 'favorites' ? <FavoriteView captureNavigation = {this.captureNavigation} captureRecipeId={this.captureRecipeId} user={this.state.user.name}/> : ''}
         {currentView === 'explore' ? (
           <ExploreView
             user={user}
@@ -102,7 +102,7 @@ class App extends React.Component {
             captureRecipeId={this.captureRecipeId}
           />
         ) : ''}
-        {currentView === 'recipe' && <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={this.state.previousView}/>}
+        {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={this.state.previousView}/> : ''}
 
         {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
 

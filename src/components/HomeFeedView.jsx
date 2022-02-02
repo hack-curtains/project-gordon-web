@@ -100,11 +100,12 @@ const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
           <div id="title">Recommended Recipes</div>
           <div id="sort">
             <div id="sortByText">Sort:</div>
-            {sortOption === 'mostPopular' && <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4>}
-            {sortOption === 'highPrice' && <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4>}
-            {sortOption === 'lowPrice' && <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4>}
-            {sortDisplay === false && <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img>}
-            {sortDisplay === true && <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
+            {sortOption === 'mostPopular' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4> : ''}
+            {sortOption === 'highPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4> : ''}
+            {sortOption === 'lowPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4> : ''}
+            {sortDisplay === false ?
+            <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img> :
+            <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
               <div id="sortDropDown">
                 <p onClick={handleSortOption} id="mostPopular">Most Popular</p>
                 <p onClick={handleSortOption} id="highPrice">Price: High-Low</p>
@@ -113,11 +114,11 @@ const HomeFeedView = ({captureNavigation, captureRecipeId}) => {
           </div>
         </div>
         <div id="receipeBox">
-          {sortedData[0] && (
+          {sortedData[0] ? (
             sortedData.map((recipe) => {
               return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId}/>
             })
-          )}
+          ) : ''}
         </div>
       </div>
     </div>
