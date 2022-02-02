@@ -13,7 +13,7 @@ import emptyStar from '../../dist/resources/SoloRecipeView/emptyStar.png';
 import fullStar from '../../dist/resources/SoloRecipeView/fullStar.png';
 
 
-const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, captureFavorites }) => {
+const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, captureFavorites, liked, captureLikes }) => {
   const [recipe, updateRecipe] = useState('');
   const pantry = [1, 2, 3, 4, 45];
   const getRecipe = (id) => {
@@ -38,7 +38,7 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
       <div className="recipeViewHeader">
         {window.innerWidth <= 800 && <div className="mobileBackFavorite">
           <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>
-          <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/>
+          <img className="favoriteButton" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)}/>
         </div>}
         {window.innerWidth > 800 && <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>}
         <div className="recipeName">{recipe.title}</div>
@@ -57,7 +57,15 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
             <div className="recipeStat">${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} per serving</div>
           </div>
           <div className="recipeStats">
-            <img className="recipeStatIcon" src={fullHeart}/>
+            <img 
+              id="likeButton"
+              className="recipeStatIcon" 
+              src={liked.includes(recipeId) ? fullHeart : emptyHeart} 
+              onClick={(e) => {
+                liked.includes(recipeId) ? recipe.likes-- : recipe.likes++;
+                captureLikes(recipeId)
+              }}
+            />
             <div className="recipeStat">{numberWithCommas(recipe.likes)} {recipe.likes > 1 ? 'users like':'user likes'} this recipe</div>
           </div>
           <div className="recipeTagsContainer">

@@ -3,8 +3,8 @@ import axios from 'axios';
 import RecipeTile from './RecipeTile.jsx';
 import PantryItem from './PantryItem.jsx';
 
-const ResultsView = ({ ingredients, results, mobile, searchTerms, captureNavigation,
-                       captureRecipeId, favorites, captureFavorites, setSearchTerm }) => {
+const ResultsView = ({ ingredients, results, mobile, searchTerms, captureNavigation, captureRecipeId,
+                       favorites, captureFavorites, setSearchTerm, liked, captureLikes }) => {
 
   const [term, setTerm] = useState('');
 
@@ -46,6 +46,8 @@ const ResultsView = ({ ingredients, results, mobile, searchTerms, captureNavigat
             captureFavorites={captureFavorites}
             captureNavigation={captureNavigation}
             captureRecipeId={captureRecipeId}
+            liked={liked}
+            captureLikes={captureLikes}
           />
         ))}
       </div>
