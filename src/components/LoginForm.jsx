@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const LoginForm = ({ Login, error, SignUp, handleClose }) => {
+const LoginForm = ({ Login, error, signUp, handleClose }) => {
   const [details, setDetails] = useState({name: '', email: '', password: ''});
   const [newUser, setNewUser] = useState(false);
 

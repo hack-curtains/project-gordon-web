@@ -5,13 +5,18 @@ import home from '../../dist/resources/BottomNav/home.png';
 import pantry from '../../dist/resources/BottomNav/pantry.png';
 import user from '../../dist/resources/BottomNav/user.png';
 import star from '../../dist/resources/BottomNav/star.png';
+import search from '../../dist/resources/BottomNav/search.png';
 
 const BottomNav = ({ captureNavigation }) => {
 
 
+  // for adding ingredients - name pantry
+  // for searching results - name search
   return (
       <div className="bottomnav">
-        <div className="bottomnavitem" name="explore" onClick={e => captureNavigation('explore')}><img src={pantry} name="explore" onClick={e => captureNavigation('explore')}></img></div>
+        <div className="bottomnavitem" name="pantry" onClick={e => captureNavigation('pantry')}><img src={pantry} name="pantry" onClick={e => captureNavigation('pantry')}></img></div>
+
+        <div className="bottomnavitem" name="search" onClick={e => captureNavigation('search')}><img src={search}onClick={e => captureNavigation('search')}></img></div>
 
         <div className="bottomnavitem" name="home" onClick={e => captureNavigation('home')}><img src={home}   name="home" onClick={e => captureNavigation('home')}></img></div>
 
