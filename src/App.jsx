@@ -27,6 +27,7 @@ class App extends React.Component {
         name: null,
         email: null,
         pantry: [],
+        usePantry: true,
       },
       favorites: [],
       currentView: 'home',
@@ -37,9 +38,10 @@ class App extends React.Component {
     this.captureUser = this.captureUser.bind(this);
     this.captureFavorites = this.captureFavorites.bind(this);
     this.captureNavigation = this.captureNavigation.bind(this);
+    this.captureRecipeId = this.captureRecipeId.bind(this);
+    this.captureUsePantry = this.captureUsePantry.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.openLogin = this.openLogin.bind(this);
-    this.captureRecipeId = this.captureRecipeId.bind(this);
     this.closeNav = this.closeNav.bind(this);
   }
 
@@ -96,6 +98,12 @@ class App extends React.Component {
     this.setState({ currentRecipeId: recipeId});
   }
 
+  captureUsePantry() {
+    const { user } = this.state;
+    user.usePantry = !user.usePantry;
+    this.setState({ user });
+  };
+
   openLogin() {
     this.setState({showLogin: true});
   }
@@ -136,6 +144,7 @@ class App extends React.Component {
             captureFavorites={this.captureFavorites}
             captureNavigation={this.captureNavigation}
             captureRecipeId={this.captureRecipeId}
+            captureUsePantry={this.captureUsePantry}
           />
         ) : ''}
         {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={previousView} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
