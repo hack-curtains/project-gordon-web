@@ -60,7 +60,9 @@
 #titleHomeBottomView {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -73,11 +75,18 @@
   font-weight: bold;
 }
 
+#sortedList {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+}
+
 #sort {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 8vw;
+  margin-left: 40%;
   font-family: system-ui;
 }
 
