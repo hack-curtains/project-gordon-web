@@ -39,7 +39,6 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 20px;
-  font-family: system-ui;
 }
 
 #exploreButton:hover {
@@ -72,7 +71,6 @@
   justify-content: center;
   color: #E86D4D;
   font-weight: bold;
-  font-family: system-ui;
 }
 
 #sort {
