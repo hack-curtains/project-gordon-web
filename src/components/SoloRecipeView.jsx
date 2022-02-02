@@ -13,7 +13,7 @@ import emptyStar from '../../dist/resources/SoloRecipeView/emptyStar.png';
 import fullStar from '../../dist/resources/SoloRecipeView/fullStar.png';
 
 
-const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, captureFavorites }) => {
+const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, captureFavorites, liked, captureLikes }) => {
   const [recipe, updateRecipe] = useState('');
   const pantry = [1, 2, 3, 4, 45];
   const getRecipe = (id) => {
@@ -57,7 +57,15 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
             <div className="recipeStat">${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} per serving</div>
           </div>
           <div className="recipeStats">
-            <img className="recipeStatIcon" src={fullHeart}/>
+            <img 
+              id="likeButton"
+              className="recipeStatIcon" 
+              src={liked.includes(recipeId) ? fullHeart : emptyHeart} 
+              onClick={(e) => {
+                liked.includes(recipeId) ? recipe.likes-- : recipe.likes++;
+                captureLikes(recipeId)
+              }}
+            />
             <div className="recipeStat">{numberWithCommas(recipe.likes)} {recipe.likes > 1 ? 'users like':'user likes'} this recipe</div>
           </div>
           <div className="recipeTagsContainer">

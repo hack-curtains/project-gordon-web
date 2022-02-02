@@ -6,7 +6,7 @@ import { API_ADDR } from '../config';
 import RecipeTile from './RecipeTile.jsx';
 
 
-const SortOption = ({ captureNavigation, captureRecipeId, favorites, captureFavorites  }) => {
+const SortOption = ({ captureNavigation, captureRecipeId, favorites, captureFavorites, liked, captureLikes  }) => {
   const [sortDisplay, updateSortDisplay] = useState(false);
   const [sortOption, updateSortOption] = useState('mostPopular');
   const [sortedData, updateSortedData] = useState([]);
@@ -95,7 +95,7 @@ const SortOption = ({ captureNavigation, captureRecipeId, favorites, captureFavo
       <div id="receipeBox">
       {sortedData[0] ? (
         sortedData.map((recipe) => {
-          return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId} favorites={favorites} captureFavorites={captureFavorites}/>
+          return <RecipeTile key={recipe.id} recipe={recipe} captureNavigation={captureNavigation} captureRecipeId={captureRecipeId} favorites={favorites} captureFavorites={captureFavorites} liked={liked} captureLikes={captureLikes}/>
         })
       ) : ''}
       </div>

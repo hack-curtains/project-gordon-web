@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RecipeTile from './RecipeTile.jsx';
 
-const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favorites, captureFavorites }) => {
+const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favorites, captureFavorites, liked, captureLikes }) => {
 
   return (
     <div className="resultsContainer">
@@ -20,6 +20,8 @@ const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favo
             captureFavorites={captureFavorites}
             captureNavigation={captureNavigation}
             captureRecipeId={captureRecipeId}
+            liked={liked}
+            captureLikes={captureLikes}
           />
         ))}
       </div>
