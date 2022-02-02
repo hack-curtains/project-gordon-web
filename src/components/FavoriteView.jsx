@@ -11,7 +11,7 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
     let userFavorite = captureFavorites();
     console.log(userFavorite);
     updateUserFavoriteList(userFavorite);
-  }, [])
+  }, [favorites])
 
   // const handleRequestRecipes = (favoriteList) => {
   //   const userFavoriteListStorage = [];
