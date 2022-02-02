@@ -75,6 +75,7 @@
 
 .dietTagsContainer div {
   background: #ffeec7;
+  height: max-content;
   text-align: center;
   margin-right: 10px;
   padding: 5px 10px;
@@ -89,6 +90,7 @@
 
 .cuisineTagsContainer div {
   background: #DFEFFF;
+  height: max-content;
   text-align: center;
   margin-right: 10px;
   padding: 5px 10px;
@@ -103,6 +105,7 @@
 
 .dishTagsContainer div {
   background: #E4DCFF;
+  height: max-content;
   text-align: center;
   margin-right: 10px;
   padding: 5px 10px;
