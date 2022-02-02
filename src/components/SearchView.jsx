@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PantryItem from './PantryItem.jsx';
 
-const SearchView = ({ ingredients, ingredientsMap, pantry, usePantry, togglePantry, togglePantryItem }) => {
+const SearchView = ({ ingredients, ingredientsMap, pantry, mobile, usePantry, togglePantry, togglePantryItem }) => {
 
   const [ingredient, setIngredient] = useState('');
 
@@ -46,7 +46,7 @@ const SearchView = ({ ingredients, ingredientsMap, pantry, usePantry, togglePant
         {ingredientDatalist}
         <button onClick={addIngredient}>Add Ingredient</button>
       </div>
-      <div className="pantry">
+      <div className={`pantry ${mobile ? '' : 'shadowBox'}`}>
         <label className="switch">
           <input type="checkbox" checked={usePantry} onChange={togglePantry}></input>
           <span className="slider"></span>

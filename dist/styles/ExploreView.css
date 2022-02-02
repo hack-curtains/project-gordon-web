@@ -1,5 +1,11 @@
+.shadowBox {
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.6);
+  padding: 10px;
+}
+
 .searchResultsView {
-  margin-top: 70px;
+  margin-top: 83px;
   display: flex;
   flex-direction: row;
 }
@@ -28,9 +34,6 @@
   flex-wrap: wrap;
   margin: 10px;
   width: 285px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.6);
 }
 
 .pantryItem {
@@ -81,9 +84,6 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.6);
 }
 
 
