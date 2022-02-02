@@ -56,27 +56,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background-color: #E86D4D;
+  color: white; */
 }
 
 .signupsubmit {
 
   border-width: 0px;
-  width: 75px;
+  width: 120px;
+  height: 30px;
   border-radius: 10px;
 }
 
 .signinbutton {
 
   border-width: 0px;
-  width: 75px;
+  width: 120px;
   border-radius: 10px;
+  height: 30px;
 }
 
 .loginsubmit {
 
   border-width: 0px;
-  width: 75px;
+  width: 120px;
   border-radius: 10px;
+  height: 30px;
 }
 
 
@@ -138,4 +143,16 @@
   cursor: pointer;
   background-color: black;
   color: white;
+}
+
+input#email {
+  border-color: lightgray;
+}
+
+input#password {
+  border-color: lightgray;
+}
+
+input#name {
+  border-color: lightgray;
 }

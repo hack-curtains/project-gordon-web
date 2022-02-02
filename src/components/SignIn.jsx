@@ -7,7 +7,7 @@ const signInURL = 'http://ec2-3-225-116-189.compute-1.amazonaws.com:3000';
 const SignIn = ({ captureUser, handleClose, login, signUp, changedLoggedIn }) => {
 
   const [user, setUser] = useState({name: '', email: ''});
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
 
   // const Login = details => {
   //   console.log(details);
@@ -92,7 +92,7 @@ const SignIn = ({ captureUser, handleClose, login, signUp, changedLoggedIn }) =>
     <div className="signinview">
       <div className="signindiv">
         {(user.email === "") ? (
-          <LoginForm login={login} changedLoggedIn={changedLoggedIn} handleClose={handleClose} signUp={signUp} error={error}/>
+          <LoginForm login={login} changedLoggedIn={changedLoggedIn} handleClose={handleClose} signUp={signUp}/>
         ): ''}
       </div>
     </div>
