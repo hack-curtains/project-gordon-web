@@ -6,7 +6,7 @@ const USER_ID_TODO = 1; // FIX ME
 import SearchView from './SearchView.jsx';
 import ResultsView from './ResultsView.jsx';
 
-const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId }) => {
+const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNavigation, captureRecipeId, captureUsePantry }) => {
 
   const [ingredients, setIngredients] = useState([]);
   const [ingredientsMap, setIngredientsMap] = useState({});
@@ -55,16 +55,22 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
       .join(',');
 
     if (!idString) return;
-    axios.get(`${API_ADDR}/search/ingredients?ids=${idString}`)
-      .then((response) => {
-        setResults(response.data.rows);
-      });
+    if (user.usePantry) {
+      axios.get(`${API_ADDR}/match/ingredients?ids=${idString}`)
+        .then((response) => {
+          setResults(response.data.rows);
+        });
+    } else {
+      axios.get(`${API_ADDR}/search/ingredients?ids=2`)
+        .then((response) => {
+          setResults(response.data.rows);
+        });
+    }
   };
 
-  const togglePantry = (ingredientNames, categoryMode=false) => {
+  const togglePantryItem = (ingredientNames, categoryMode=false) => {
     const newPantry = {...pantry};
     let categoryModeIsAllFalse = !categoryMode || !ingredientNames.reduce((acc, name) => (acc || newPantry[name]), false);
-    console.log(categoryModeIsAllFalse);
     for (let ingredient of ingredientNames) {
       if (newPantry[ingredient]) {
         newPantry[ingredient] = false;
@@ -79,11 +85,18 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
 
   useEffect(() => {
     fetchResults();
-  }, [pantry])
+  }, [pantry, user.usePantry])
 
   return (
     <div className='searchResultsView'>
-      <SearchView ingredients={ingredients} ingredientsMap={ingredientsMap} pantry={pantry} togglePantry={togglePantry} />
+      <SearchView
+        ingredients={ingredients}
+        ingredientsMap={ingredientsMap}
+        pantry={pantry}
+        usePantry={user.usePantry}
+        togglePantry={captureUsePantry}
+        togglePantryItem={togglePantryItem}
+      />
       <ResultsView
         results={results}
         favorites={favorites}
