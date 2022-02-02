@@ -2,36 +2,44 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoginForm from './LoginForm.jsx';
 
-const SignIn = ({ captureUser, handleClose }) => {
+const signInURL = 'http://ec2-3-225-116-189.compute-1.amazonaws.com:3000';
 
-  const adminUser = {
-    email: 'admin@admin.com',
-    password: 'admin123'
-  }
+const SignIn = ({ captureUser, handleClose, login, signUp, changedLoggedIn }) => {
+
   const [user, setUser] = useState({name: '', email: ''});
   const [error, setError] = useState('');
 
-  const Login = details => {
-    console.log(details);
-    if (details.email === adminUser.email && details.password === adminUser.password) {
-      console.log('Logged in');
-      setUser({
-        name: details.name,
-        email: details.email
-      });
-      captureUser(details);
-    } else {
-      console.error('Details do not match!')
-      setError('Details do not match!')
-    }
+  // const Login = details => {
+  //   console.log(details);
+  //   if (details.email === adminUser.email && details.password === adminUser.password) {
+  //     console.log('Logged in');
+  //     setUser({
+  //       name: details.name,
+  //       email: details.email
+  //     });
+  //     captureUser(details);
+  //   } else {
+  //     console.error('Details do not match!')
+  //     setError('Details do not match!')
+  //   }
 
 
 
-  }
+  // }
   // const Login = details => {
 
-  //   let userObj = {};
-  //   axios.post('/users/login', userObj)
+  //   let userObj = {
+  //     email: details.email,
+  //     password: details.password
+  //   };
+
+  //   let options = {
+
+  //     headers: {
+  //       'Access-Control-Allow-Origin': '*'
+  //     }
+  //   }
+  //   axios.post(`${signInURL}/users/login`, userObj, options)
   //     .then((response) => {
   //       console.log(response)
   //     })
@@ -39,17 +47,28 @@ const SignIn = ({ captureUser, handleClose }) => {
   //       console.error('user login error:', error);
   //     })
   // }
-  const signUp = details => {
+  // const signUp = details => {
 
-    let newUserObj = {};
-    axios.post('/users/new', newUserObj)
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((error) => {
-        console.error('new user sign up error:', error);
-      })
-  }
+  //   let newUserObj = {
+  //     username: details.name,
+  //     email: details.email,
+  //     password: details.password
+  //   };
+
+  //   let options = {
+
+  //     headers: {
+  //       'Access-Control-Allow-Origin': '*'
+  //     }
+  //   }
+  //   axios.post(`${signInURL}/users/new`, newUserObj, options)
+  //     .then((response) => {
+  //       console.log(response)
+  //     })
+  //     .catch((error) => {
+  //       console.error('new user sign up error:', error);
+  //     })
+  // }
 
   const Logout = () => {
     setUser({
@@ -73,7 +92,7 @@ const SignIn = ({ captureUser, handleClose }) => {
     <div className="signinview">
       <div className="signindiv">
         {(user.email === "") ? (
-          <LoginForm Login={Login} handleClose={handleClose} signUp={signUp} error={error}/>
+          <LoginForm login={login} changedLoggedIn={changedLoggedIn} handleClose={handleClose} signUp={signUp} error={error}/>
         ): ''}
       </div>
     </div>

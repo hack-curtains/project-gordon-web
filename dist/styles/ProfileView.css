@@ -82,9 +82,24 @@
 .profileemail {
   text-align: center;
 }
+.profileComment {
+  margin-right: 30px;
+  margin-left: 30px;
+  text-align: center;
+}
 
 @media only screen and (max-device-width: 450px) {
   .profileview {
     width: 75%;
+  }
+  .profileComment {
+    padding-right: 30px;
+    padding-left: 30px;
+    text-align: center;
+  }
+  .profileemail {
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
   }
 }

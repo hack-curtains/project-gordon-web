@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const LoginForm = ({ Login, error, signUp, handleClose }) => {
+const LoginForm = ({ login, error, signUp, handleClose, changedLoggedIn }) => {
   const [details, setDetails] = useState({name: '', email: '', password: ''});
   const [newUser, setNewUser] = useState(false);
 
-  const submitHandler = e => {
+  const submitLogin = e => {
     e.preventDefault();
-    Login(details);
+    login(details);
     handleClose();
+    changedLoggedIn();
+  }
+
+  const submitSignUp = e => {
+    e.preventDefault();
+    signUp(details);
+    handleClose();
+    changedLoggedIn();
   }
   return (
     <>
       {newUser === false ? (<>
-        <form className="signinform" onSubmit={submitHandler}>
+        <form className="signinform" onSubmit={submitLogin}>
           <div className="form-inner">
             <h2>Login</h2>
             {(error !==  "") ? (<div className="error">{error}</div>) : ""}
@@ -32,7 +40,7 @@ const LoginForm = ({ Login, error, signUp, handleClose }) => {
       <br></br>
         <button onClick={e => setNewUser(true)} className="signinbutton" >Sign Up</button>
       </div></>) : (<>
-        <form  className="signinform" onSubmit={submitHandler}>
+        <form  className="signinform" onSubmit={submitSignUp}>
           <div className="form-inner">
             <h2>Sign Up</h2>
             {(error !==  "") ? (<div className="error">{error}</div>) : ""}
