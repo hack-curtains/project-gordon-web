@@ -42,6 +42,14 @@
   align-self: flex-start;
 }
 
+.recipeTileFavoriteIcon:hover {
+  transform: scale(1.05);
+}
+
+.recipeTileFavoriteIcon:active {
+  transform: scale(0.95);
+}
+
 
 .recipeTileStats {
   display: flex;

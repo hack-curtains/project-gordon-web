@@ -7,7 +7,7 @@ import cost from '../../dist/resources/RecipeTile/cost.png';
 import emptyStar from '../../dist/resources/RecipeTile/emptyStar.png';
 import fullStar from '../../dist/resources/RecipeTile/fullStar.png';
 
-const RecipeTile = ({ captureNavigation, recipe, captureRecipeId }) => {
+const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, captureFavorites }) => {
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -34,7 +34,7 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId }) => {
           >
             {recipe.title}
           </div>
-          <img className="recipeTileFavoriteIcon" src={emptyStar} />
+          <img className="recipeTileFavoriteIcon" src={favorites.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} />
         </div>
 
         <div className="recipeTileStats">
