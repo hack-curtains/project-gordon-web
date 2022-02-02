@@ -35,7 +35,8 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
       <div className="recipeViewHeader">
         <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>
         <div className="recipeName">{recipe.title}</div>
-        <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/>
+        {/* <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/> */}
+        <img className="favoriteButton" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)}/>
       </div>
       <div className="recipeInformation">
         <img className="recipeImage" src={recipe.image}/>

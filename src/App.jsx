@@ -55,35 +55,58 @@ class App extends React.Component {
   }
 
   captureFavorites(recipeId = '', modify = false) {
+    // Tweak for fast favorites rendering
+    let stringState = JSON.stringify(this.state.favorites);
+    let stringRecipe = JSON.stringify(recipeId);
+    
     if (modify) {
       let action;
-      if (this.state.favorites.includes(recipeId)) {
+      if (stringState.includes(stringRecipe)) {
         action = 'remove';
       } else {
         action = 'add';
       }
       if (action === 'add') {
-        this.setState(prevState => ({favorites: [...prevState.favorites, recipeId]}), () => {
+        this.setState(prevState => ({favorites: [...JSON.parse(JSON.stringify(prevState.favorites)), recipeId]}), () => {
         })
       }
 
       if (action === 'remove') {
-        this.setState(prevState => ({favorites: prevState.favorites.filter(id => id !== recipeId)}))
+        this.setState(prevState => ({favorites: prevState.favorites.filter(recipe => JSON.stringify(recipe) !== JSON.stringify(recipeId))}))
       }
-      // // Uncomment when userId works
-      // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
-      // .then(res => {
-      //   this.setState({favorites: res.data});
-      // })
     } else {
       return this.state.favorites;
-
-      // // Uncomment when userId works
-      // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
-      // .then(res => {
-      //   this.setState({favorites: res.data});
-      // })
     }
+
+    // if (modify) {
+    //   let action;
+    //   if (this.state.favorites.includes(recipeId)) {
+    //     action = 'remove';
+    //   } else {
+    //     action = 'add';
+    //   }
+    //   if (action === 'add') {
+    //     this.setState(prevState => ({favorites: [...prevState.favorites, recipeId]}), () => {
+    //     })
+    //   }
+
+    //   if (action === 'remove') {
+    //     this.setState(prevState => ({favorites: prevState.favorites.filter(id => id !== recipeId)}))
+    //   }
+    //   // // Uncomment when userId works
+    //   // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
+    //   // .then(res => {
+    //   //   this.setState({favorites: res.data});
+    //   // })
+    // } else {
+    //   return this.state.favorites;
+
+    //   // // Uncomment when userId works
+    //   // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
+    //   // .then(res => {
+    //   //   this.setState({favorites: res.data});
+    //   // })
+    // }
   }
 
   captureNavigation(newView) {

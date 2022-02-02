@@ -34,7 +34,8 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
           >
             {recipe.title}
           </div>
-          <img className="recipeTileFavoriteIcon" src={favorites.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} />
+          {/* <img className="recipeTileFavoriteIcon" src={favorites.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} /> */}
+          <img className="recipeTileFavoriteIcon" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)} />
         </div>
 
         <div className="recipeTileStats">
