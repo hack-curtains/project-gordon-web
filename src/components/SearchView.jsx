@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PantryItem from './PantryItem.jsx';
 
-const SearchView = ({ ingredients, ingredientsMap, pantry, togglePantry }) => {
+const SearchView = ({ ingredients, ingredientsMap, pantry, usePantry, togglePantry, togglePantryItem }) => {
 
   const [ingredient, setIngredient] = useState('');
 
@@ -19,7 +19,7 @@ const SearchView = ({ ingredients, ingredientsMap, pantry, togglePantry }) => {
   const addIngredient = () => {
     if (ingredient in ingredientsMap) {
       if (!pantry[ingredient]) {
-        togglePantry([ingredient]);
+        togglePantryItem([ingredient]);
         setIngredient('');
       }
     }
@@ -47,15 +47,19 @@ const SearchView = ({ ingredients, ingredientsMap, pantry, togglePantry }) => {
         <button onClick={addIngredient}>Add Ingredient</button>
       </div>
       <div className="pantry">
+        <label className="switch">
+          <input type="checkbox" checked={usePantry} onChange={togglePantry}></input>
+          <span className="slider"></span>
+        </label>
         {Object.keys(categoriesToRender).map((category, i) => (
           <fieldset className="pantryCategory" key={i}>
             <legend className={
-              `unselectable ${categoryActiveMap[category] ? 'active' : ''}`
+              `unselectable ${categoryActiveMap[category] && usePantry ? 'active' : ''}`
             } onClick={() => {
-            togglePantry(categoriesToRender[category], true);
+              if (usePantry) togglePantryItem(categoriesToRender[category], true);
           }}>{category}</legend>
             {categoriesToRender[category].map((name, j) => (
-              <PantryItem key={j} name={name} togglePantry={togglePantry} isActive={pantry[name]} />
+              <PantryItem key={j} name={name} togglePantryItem={togglePantryItem} isActive={pantry[name]} usePantry={usePantry} />
             ))}
           </fieldset>
         ))}

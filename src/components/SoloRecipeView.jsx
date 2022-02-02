@@ -22,6 +22,9 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
         updateRecipe(res.data);
       })
   }
+  const numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
   useEffect(() => {
     getRecipe(recipeId);
   }, [recipeId])
@@ -33,10 +36,14 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
   return (
     <div className="soloRecipeViewContainer">
       <div className="recipeViewHeader">
-        <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>
+        {window.innerWidth <= 800 && <div className="mobileBackFavorite">
+          <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>
+          <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/>
+        </div>}
+        {window.innerWidth > 800 && <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>}
         <div className="recipeName">{recipe.title}</div>
         {/* <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/> */}
-        <img className="favoriteButton" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)}/>
+        {window.innerWidth > 800 && <img className="favoriteButton" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)}/>}
       </div>
       <div className="recipeInformation">
         <img className="recipeImage" src={recipe.image}/>
@@ -47,11 +54,11 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
           </div>
           <div className="recipeStats">
             <img className="recipeStatIcon" src={cost}/>
-            <div className="recipeStat">${Math.trunc(recipe.price)} per serving</div>
+            <div className="recipeStat">${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} per serving</div>
           </div>
           <div className="recipeStats">
             <img className="recipeStatIcon" src={fullHeart}/>
-            <div className="recipeStat">{recipe.likes} {recipe.likes > 1 ? 'users like':'user likes'} this recipe</div>
+            <div className="recipeStat">{numberWithCommas(recipe.likes)} {recipe.likes > 1 ? 'users like':'user likes'} this recipe</div>
           </div>
           <div className="recipeTagsContainer">
             <div className="dietTagsContainer">
