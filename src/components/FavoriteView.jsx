@@ -9,7 +9,6 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
 
   useEffect (() => {
     let userFavorite = captureFavorites();
-    console.log(userFavorite);
     updateUserFavoriteList(userFavorite);
   }, [favorites])
 
