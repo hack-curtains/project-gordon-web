@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const PantryItem = ({ name, togglePantry, isActive }) => {
+const PantryItem = ({ name, togglePantryItem, isActive, usePantry }) => {
 
 
 
   return (
-    <div className={`pantryItem ${isActive ? 'active' : ''} unselectable`} onClick={() => togglePantry([name])}>
+    <div className={`pantryItem ${isActive && usePantry ? 'active' : ''} unselectable`} onClick={() => {
+      if (usePantry) togglePantryItem([name]);
+    }}>
       <span>{name}</span>
     </div>
   )

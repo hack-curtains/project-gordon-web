@@ -135,11 +135,12 @@
 }
 
 @media only screen and (max-device-width: 800px) {
-  #homeView {
+  #homeTopView {
     margin-top: 0;
   }
 
   #receipeBox {
-    width: 90%;
+    width: 100%;
+    margin-bottom: 10%;
   }
 }

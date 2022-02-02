@@ -27,20 +27,26 @@ class App extends React.Component {
         name: null,
         email: null,
         pantry: [],
+        usePantry: true,
       },
       favorites: [],
       currentView: 'home',
       previousView: '',
       showLogin: false,
-      currentRecipeId: ''
+      currentRecipeId: '',
+      loggedIn: false
     }
     this.captureUser = this.captureUser.bind(this);
     this.captureFavorites = this.captureFavorites.bind(this);
     this.captureNavigation = this.captureNavigation.bind(this);
+    this.captureRecipeId = this.captureRecipeId.bind(this);
+    this.captureUsePantry = this.captureUsePantry.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.openLogin = this.openLogin.bind(this);
-    this.captureRecipeId = this.captureRecipeId.bind(this);
     this.closeNav = this.closeNav.bind(this);
+    this.login = this.login.bind(this);
+    this.signUp = this.signUp.bind(this);
+    this.changedLoggedIn = this.changedLoggedIn.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -55,36 +61,119 @@ class App extends React.Component {
   }
 
   captureFavorites(recipeId = '', modify = false) {
+    // Tweak for fast favorites rendering
+    let stringState = JSON.stringify(this.state.favorites);
+    let stringRecipe = JSON.stringify(recipeId);
+    
     if (modify) {
       let action;
-      if (this.state.favorites.includes(recipeId)) {
+      if (stringState.includes(stringRecipe)) {
         action = 'remove';
       } else {
         action = 'add';
       }
       if (action === 'add') {
-        this.setState(prevState => ({favorites: [...prevState.favorites, recipeId]}), () => {
+        this.setState(prevState => ({favorites: [...JSON.parse(JSON.stringify(prevState.favorites)), recipeId]}), () => {
         })
       }
 
       if (action === 'remove') {
-        this.setState(prevState => ({favorites: prevState.favorites.filter(id => id !== recipeId)}))
+        this.setState(prevState => ({favorites: prevState.favorites.filter(recipe => JSON.stringify(recipe) !== JSON.stringify(recipeId))}))
       }
-      // // Uncomment when userId works
-      // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
-      // .then(res => {
-      //   this.setState({favorites: res.data});
-      // })
     } else {
       return this.state.favorites;
-
-      // // Uncomment when userId works
-      // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
-      // .then(res => {
-      //   this.setState({favorites: res.data});
-      // })
     }
+
+    // if (modify) {
+    //   let action;
+    //   if (this.state.favorites.includes(recipeId)) {
+    //     action = 'remove';
+    //   } else {
+    //     action = 'add';
+    //   }
+    //   if (action === 'add') {
+    //     this.setState(prevState => ({favorites: [...prevState.favorites, recipeId]}), () => {
+    //     })
+    //   }
+
+    //   if (action === 'remove') {
+    //     this.setState(prevState => ({favorites: prevState.favorites.filter(id => id !== recipeId)}))
+    //   }
+    //   // // Uncomment when userId works
+    //   // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
+    //   // .then(res => {
+    //   //   this.setState({favorites: res.data});
+    //   // })
+    // } else {
+    //   return this.state.favorites;
+
+    //   // // Uncomment when userId works
+    //   // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
+    //   // .then(res => {
+    //   //   this.setState({favorites: res.data});
+    //   // })
+    // }
   }
+
+  signUp(details) {
+
+    let newUserObj = {
+      username: details.name,
+      email: details.email,
+      password: details.password
+    };
+
+    let options = {
+
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+    let that = this;
+    axios.post(`http://ec2-3-225-116-189.compute-1.amazonaws.com:3000/users/new`, newUserObj, options)
+      .then((response) => {
+        console.log(response)
+        that.setState({ user: {
+          email: response.data.userID,
+        }})
+      })
+      .catch((error) => {
+        console.error('new user sign up error:', error);
+      })
+
+  }
+
+  login(details) {
+    let userObj = {
+      email: details.email,
+      password: details.password
+    };
+
+    let options = {
+      credentials: 'include',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'X-XSRF-TOKEN': 'getCookie("XSRF-TOKEN")'
+      }
+    }
+    let that = this;
+    axios.post(`http://ec2-3-225-116-189.compute-1.amazonaws.com:3000/users/login`, userObj, options)
+      .then((response) => {
+        console.log(response)
+        that.setState({ user: {
+          email: response.userID,
+        }})
+        console.log('this is document:', window)
+      })
+      .catch((error) => {
+        console.error('user login error:', error);
+      })
+  }
+
+
 
   captureNavigation(newView) {
     this.setState(prevState => ({ previousView: prevState.currentView }))
@@ -96,6 +185,12 @@ class App extends React.Component {
     this.setState({ currentRecipeId: recipeId});
   }
 
+  captureUsePantry() {
+    const { user } = this.state;
+    user.usePantry = !user.usePantry;
+    this.setState({ user });
+  };
+
   openLogin() {
     this.setState({showLogin: true});
   }
@@ -106,6 +201,10 @@ class App extends React.Component {
 
   closeNav() {
     this.setState({showNav: false});
+  }
+
+  changedLoggedIn() {
+    this.setState({ loggedIn: !this.state.loggedIn});
   }
 
   render() {
@@ -122,7 +221,7 @@ class App extends React.Component {
 
         {showLogin === true ? (
         <SignInModal showLogin={this.state.showLogin} handleClose={this.handleClose}>
-          <SignIn captureUser={this.captureUser} handleClose={this.handleClose}/>
+          <SignIn captureUser={this.captureUser} login={this.login} signUp={this.signUp} handleClose={this.handleClose} changedLoggedIn={this.changedLoggedIn}/>
         </SignInModal>
         ) : ''}
 
@@ -136,11 +235,12 @@ class App extends React.Component {
             captureFavorites={this.captureFavorites}
             captureNavigation={this.captureNavigation}
             captureRecipeId={this.captureRecipeId}
+            captureUsePantry={this.captureUsePantry}
           />
         ) : ''}
         {currentView === 'recipe' ? <SoloRecipeView captureNavigation = {this.captureNavigation} recipeId={currentRecipeId} previousView={previousView} favorites={favorites} captureFavorites={this.captureFavorites}/> : ''}
 
-        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} />) : ''}
+        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation}  loggedIn={this.state.loggedIn}/>) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
       </div>

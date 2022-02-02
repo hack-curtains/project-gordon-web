@@ -4,8 +4,6 @@ import RecipeTile from './RecipeTile.jsx';
 
 const ResultsView = ({ results, captureNavigation, captureRecipeId, favorites, captureFavorites }) => {
 
-
-
   return (
     <div className="resultsContainer">
       <h1 className="unselectable">Recipes</h1>

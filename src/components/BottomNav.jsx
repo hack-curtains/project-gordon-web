@@ -14,15 +14,15 @@ const BottomNav = ({ captureNavigation }) => {
   // for searching results - name search
   return (
       <div className="bottomnav">
-        <div className="bottomnavitem" name="pantry" onClick={e => captureNavigation('pantry')}><img src={pantry} name="pantry" onClick={e => captureNavigation('pantry')}></img></div>
+        <div className="bottomnavitem" onClick={e => captureNavigation('pantry')}><img src={pantry} onClick={e => captureNavigation('pantry')}></img></div>
 
-        <div className="bottomnavitem" name="search" onClick={e => captureNavigation('search')}><img src={search}onClick={e => captureNavigation('search')}></img></div>
+        <div className="bottomnavitem" onClick={e => captureNavigation('search')}><img src={search}onClick={e => captureNavigation('search')}></img></div>
 
-        <div className="bottomnavitem" name="home" onClick={e => captureNavigation('home')}><img src={home}   name="home" onClick={e => captureNavigation('home')}></img></div>
+        <div className="bottomnavitem" onClick={e => captureNavigation('home')}><img src={home} onClick={e => captureNavigation('home')}></img></div>
 
-        <div className="bottomnavitem" name="favorites" onClick={e => captureNavigation('favorites')}><img src={star} name="favorites" onClick={e => captureNavigation('favorites')}></img></div>
+        <div className="bottomnavitem" onClick={e => captureNavigation('favorites')}><img src={star} onClick={e => captureNavigation('favorites')}></img></div>
 
-        <div className="bottomnavitem" name="profile" onClick={e => captureNavigation('profile')}><img src={user} name="profile" onClick={e => captureNavigation('profile')}></img></div>
+        <div className="bottomnavitem" onClick={e => captureNavigation('profile')}><img src={user} onClick={e => captureNavigation('profile')}></img></div>
       </div>
   )
 }
