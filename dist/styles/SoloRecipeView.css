@@ -61,6 +61,14 @@
   margin-left: 15px;
 }
 
+#likeButton:hover {
+  transform: scale(1.05);
+}
+
+#likeButton:active {
+  transform: scale(0.95);
+}
+
 .recipeTagsContainer {
   color: rgb(0, 0, 0);
   display: flex;
