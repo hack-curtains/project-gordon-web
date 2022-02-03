@@ -5,8 +5,8 @@ import upArrow from '../../dist/resources/homeView/up-arrow.png';
 import RecipeTile from './RecipeTile.jsx';
 import PantryItem from './PantryItem.jsx';
 
-const ResultsView = ({ results, mobile, searchTerms, captureNavigation, captureRecipeId, favorites, captureFavorites,
-                       liked, captureLikes, sortOption, captureSortOption, setSearchTerm }) => {
+const ResultsView = ({ ingredients, results, mobile, usePantry, searchTerms, captureNavigation, captureRecipeId, favorites,
+                       captureFavorites, liked, captureLikes, sortOption, captureSortOption, setSearchTerm }) => {
 
 
   const [sortDisplay, setSortDisplay] = useState(false);
@@ -63,17 +63,17 @@ const ResultsView = ({ results, mobile, searchTerms, captureNavigation, captureR
         <div className="inputBar">
           <input
             id="searchResults"
-            placeholder="Find recipes containing..."
-            list="termsList"
+            placeholder={`Find${usePantry ? '' : ' recipes containing'}...`}
+            list={usePantry ? null : 'termsList'}
             value={term}
             onChange={(e) => setTerm(e.target.value)}
           ></input>
-          {termDatalist}
+          {usePantry ? null : termDatalist}
           <button onClick={() => {
             if (setSearchTerm(term, true)) setTerm('');
           }}>Search</button>
         </div>
-        <div id="sort">
+        <div id="sort" style={usePantry ? {display: 'none'} : {}}>
           <div id="sortByText">Sort:</div>
           {sortOption === 'mostPopular' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4> : ''}
           {sortOption === 'highPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4> : ''}
@@ -89,11 +89,11 @@ const ResultsView = ({ results, mobile, searchTerms, captureNavigation, captureR
         </div>
       </div>
       <div>
-      {Object.keys(searchTerms).map((term, i) => (
+      {usePantry ? null : (Object.keys(searchTerms).map((term, i) => (
         <PantryItem key={i} name={term} togglePantryItem={(itemArray) => {
           setSearchTerm(itemArray[0], false);
         }} isActive={true} usePantry={true} />
-      ))}
+      )))}
       </div>
       <div className={`results ${mobile ? '' : 'shadowBox'}`}>
         {results.map((recipe, i) => (
