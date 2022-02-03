@@ -75,58 +75,28 @@ class App extends React.Component {
   }
 
   captureFavorites(recipeId = '', modify = false) {
-    // Tweak for fast favorites rendering
-    let stringState = JSON.stringify(this.state.favorites);
-    let stringRecipe = JSON.stringify(recipeId);
-
-    if (modify) {
-      let action;
-      if (stringState.includes(stringRecipe)) {
-        action = 'remove';
-      } else {
-        action = 'add';
-      }
-      if (action === 'add') {
-        this.setState(prevState => ({favorites: [...JSON.parse(JSON.stringify(prevState.favorites)), recipeId]}), () => {
-        })
-      }
-
-      if (action === 'remove') {
-        this.setState(prevState => ({favorites: prevState.favorites.filter(recipe => JSON.stringify(recipe) !== JSON.stringify(recipeId))}))
-      }
+    if (!this.state.loggedIn) {
+      this.setState({showLogin: true});
     } else {
-      return this.state.favorites;
+      let favoriteRecipeIds = this.state.favorites.map(element => element.id);
+      if (modify) {
+        if (favoriteRecipeIds.includes(recipeId)) {
+          axios.put(`${API_ADDR}/users/${this.state.user.id}/recipes/${recipeId}/remove`)
+          .then(res => {
+            this.setState({favorites: res.data.data});
+          })
+        } else {
+          axios.post(`${API_ADDR}/users/${this.state.user.id}/recipes/${recipeId}/add`)
+          .then(res => {
+            this.setState({favorites: res.data.data});
+          })
+        }
+  
+      } else {
+        return this.state.favorites;
+      }
     }
 
-    // if (modify) {
-    //   let action;
-    //   if (this.state.favorites.includes(recipeId)) {
-    //     action = 'remove';
-    //   } else {
-    //     action = 'add';
-    //   }
-    //   if (action === 'add') {
-    //     this.setState(prevState => ({favorites: [...prevState.favorites, recipeId]}), () => {
-    //     })
-    //   }
-
-    //   if (action === 'remove') {
-    //     this.setState(prevState => ({favorites: prevState.favorites.filter(id => id !== recipeId)}))
-    //   }
-    //   // // Uncomment when userId works
-    //   // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes/${recipeId}/${action}`)
-    //   // .then(res => {
-    //   //   this.setState({favorites: res.data});
-    //   // })
-    // } else {
-    //   return this.state.favorites;
-
-    //   // // Uncomment when userId works
-    //   // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
-    //   // .then(res => {
-    //   //   this.setState({favorites: res.data});
-    //   // })
-    // }
   }
 
   signUp(details) {
@@ -187,7 +157,11 @@ class App extends React.Component {
           email: response.data.email,
           id: response.data.userID
         });
-        console.log('this is document:', window);
+        console.log('this is document:', window)
+        axios.get(`${API_ADDR}/users/${that.state.user.id}/recipes`)
+          .then(res => {
+            that.setState({favorites: res.data});
+          })
       })
       .catch((error) => {
         console.error('user login error:', error);
