@@ -74,29 +74,6 @@ class App extends React.Component {
   }
 
   captureFavorites(recipeId = '', modify = false) {
-    // Tweak for fast favorites rendering
-    // let stringState = JSON.stringify(this.state.favorites);
-    // let stringRecipe = JSON.stringify(recipeId);
-
-    // if (modify) {
-    //   let action;
-    //   if (stringState.includes(stringRecipe)) {
-    //     action = 'remove';
-    //   } else {
-    //     action = 'add';
-    //   }
-    //   if (action === 'add') {
-    //     this.setState(prevState => ({favorites: [...JSON.parse(JSON.stringify(prevState.favorites)), recipeId]}), () => {
-    //     })
-    //   }
-
-    //   if (action === 'remove') {
-    //     this.setState(prevState => ({favorites: prevState.favorites.filter(recipe => JSON.stringify(recipe) !== JSON.stringify(recipeId))}))
-    //   }
-    // } else {
-    //   return this.state.favorites;
-    // }
-
     if (!this.state.loggedIn) {
       this.setState({showLogin: true});
     } else {
@@ -116,12 +93,6 @@ class App extends React.Component {
   
       } else {
         return this.state.favorites;
-  
-        // // Uncomment when userId works
-        // axios.get(`${API_ADDR}/users/${this.state.user.userId}/recipes`)
-        // .then(res => {
-        //   this.setState({favorites: res.data});
-        // })
       }
     }
 

@@ -25,7 +25,7 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
   let favoriteRecipeIds = favorites.map(element => element.id);
-  
+
   useEffect(() => {
     getRecipe(recipeId);
   }, [recipeId])
@@ -43,7 +43,6 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
         </div>}
         {window.innerWidth > 800 && <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>}
         <div className="recipeName">{recipe.title}</div>
-        {/* <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/> */}
         {window.innerWidth > 800 && <img className="favoriteButton" src={favoriteRecipeIds.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/>}
       </div>
       <div className="recipeInformation">

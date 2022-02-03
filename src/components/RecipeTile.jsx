@@ -46,7 +46,6 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
           >
             {recipe.title.substring(0, 40)}{recipe.title.length > 40 ? '...' : ''}
           </div>}
-          {/* <img className="recipeTileFavoriteIcon" src={favorites.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} /> */}
           <img className="recipeTileFavoriteIcon" src={favoriteRecipeIds.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} />
         </div>
 
