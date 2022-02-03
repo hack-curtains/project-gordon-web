@@ -135,7 +135,11 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   }, [pantry, user.usePantry, sortOption, searchTerms, searchTitle])
 
   useEffect(() => {
-    capturePantry(pantry, user.usePantry);
+    capturePantry(
+      Object.keys(pantry)
+        .filter((name) => pantry[name])
+        .map((name) => ingredients[ingredientsMap[name]].id)
+    , user.usePantry);
   }, [pantry])
 
   return (
