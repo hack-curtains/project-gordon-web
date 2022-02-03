@@ -30,6 +30,10 @@
   margin-top: 50px;
 }
 
+#guestMessage {
+  text-align: center;
+}
+
 @media only screen and (max-device-width: 800px) {
   #favoriteTitle {
     height: 10%;

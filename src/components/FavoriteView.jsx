@@ -36,7 +36,7 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
         />
       }) :
       <div id="askToLogin">
-      <div id="guestMessage" >Please click the below image to go to the login page.</div>
+      <div id="guestMessage" >You can save your Favorite Recipes here.<br></br> (Please click the below image to go to the login page)</div>
       <div>
         <img onClick={routeUserToLoginPage} id="chefImage" src={chefImage}></img>
       </div>
