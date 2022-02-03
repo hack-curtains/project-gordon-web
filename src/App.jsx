@@ -6,7 +6,7 @@ import { API_ADDR } from "./config";
 
 import webMenuIcon from '../dist/resources/menu-24.png';
 import chef from '../dist/resources/chef.png';
-import profile30 from '../dist/resources/BottomNav/user.png';
+import profile30 from '../dist/resources/BottomNav/user-white.png';
 
 import NavMenu from './components/NavMenu.jsx';
 import SignIn from './components/SignIn.jsx';
@@ -25,6 +25,7 @@ class App extends React.Component {
     this.state = {
       user: {
         name: null,
+        id: null,
         email: null,
         pantry: [],
         usePantry: true,
@@ -50,6 +51,7 @@ class App extends React.Component {
     this.signUp = this.signUp.bind(this);
     this.changedLoggedIn = this.changedLoggedIn.bind(this);
     this.clearUser = this.clearUser.bind(this);
+    this.checkSession = this.checkSession.bind(this);
   }
 
   captureUser({ name, email, pantry }) {
@@ -135,17 +137,23 @@ class App extends React.Component {
     };
 
     let options = {
-
+      credentials: 'include',
+      mode: 'cors',
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'X-XSRF-TOKEN': 'getCookie("XSRF-TOKEN")'
       }
     }
     let that = this;
-    axios.post(`http://ec2-3-225-116-189.compute-1.amazonaws.com:3000/users/new`, newUserObj, options)
+    axios.post(`${API_ADDR}/users/new`, newUserObj, options)
       .then((response) => {
-        console.log(response.data.userID)
+        console.log(response.data)
         that.setState({ user: {
-          email: response.data.userID,
+          name: response.data.username,
+          email: response.data.userEmail,
+          id: response.data.userID
         }})
       })
       .catch((error) => {
@@ -167,15 +175,16 @@ class App extends React.Component {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'X-XSRF-TOKEN': 'getCookie("XSRF-TOKEN")'
       }
     }
     let that = this;
-    axios.post(`http://ec2-3-225-116-189.compute-1.amazonaws.com:3000/users/login`, userObj, options)
+    axios.post(`${API_ADDR}/users/login`, userObj, options)
       .then((response) => {
-        console.log(response)
+        console.log(response.data)
         that.setState({ user: {
-          email: response.data.userID,
+          name: response.data.username,
+          email: response.data.email,
+          id: response.data.userID
         }})
         console.log('this is document:', window)
       })
@@ -184,7 +193,15 @@ class App extends React.Component {
       })
   }
 
-
+  checkSession() {
+    axios.get(`${API_ADDR}/checkSession`)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.error('check session error:', error)
+      });
+  }
 
   captureNavigation(newView) {
     this.setState(prevState => ({ previousView: prevState.currentView }))
@@ -225,6 +242,9 @@ class App extends React.Component {
   changedLoggedIn() {
     this.setState({ loggedIn: !this.state.loggedIn});
   }
+  componentDidMount() {
+    this.checkSession();
+  }
 
   render() {
     const { user, favorites, currentView, showLogin, currentRecipeId, previousView, liked } = this.state;
@@ -232,7 +252,7 @@ class App extends React.Component {
       <div className="main">
         <div className="navdiv">
             {window.innerWidth > 800 ? (<div className="topnav">
-            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})} ><img src={webMenuIcon}></img></button><div className="logoBar" name="home" onMouseOver={e => {this.closeNav();}}><img className="logoIcon" src={chef} onClick={e => this.captureNavigation('home')}></img><span className="logoTitle" onClick={e => this.captureNavigation('home')}> Pantry Chef</span> <img className="profileIcon" src={profile30} onClick={e => this.captureNavigation('profile')}></img></div>
+            <button className="navButton" onClick={e => this.setState({showNav: !this.state.showNav})} ><img id="navIcon" src={webMenuIcon}></img></button><div className="logoBar" name="home" onMouseOver={e => {this.closeNav();}}><img className="logoIcon" src={chef} onClick={e => this.captureNavigation('home')}></img><span className="logoTitle" onClick={e => this.captureNavigation('home')}> Pantry Chef</span> <img className="profileIcon" src={profile30} onClick={e => this.captureNavigation('profile')}></img></div>
           </div>) : ''}
           {this.state.showNav === true ? ( <NavMenu captureNavigation={this.captureNavigation} closeNav={this.closeNav} />) : ''}
         </div>
@@ -289,7 +309,7 @@ class App extends React.Component {
           />
         ) : ''}
 
-        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} changedLoggedIn={this.changedLoggedIn} userEmail={this.state.user.email} loggedIn={this.state.loggedIn}  clearUser={this.clearUser}/>) : ''}
+        {currentView === 'profile' ? (<ProfileView openLogin={this.openLogin} captureNavigation={this.captureNavigation} changedLoggedIn={this.changedLoggedIn} userObj={this.state.user} loggedIn={this.state.loggedIn}  clearUser={this.clearUser}/>) : ''}
 
         {window.innerWidth < 800 ? (<BottomNav captureNavigation={this.captureNavigation}/>) : '' }
       </div>

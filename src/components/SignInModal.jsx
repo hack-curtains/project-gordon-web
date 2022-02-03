@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const SignInModal = ({ handleClose, showLogin, children, name }) => {
   const showHideClassName = showLogin ? "modal display" : "modal display-none";
@@ -10,11 +10,15 @@ const SignInModal = ({ handleClose, showLogin, children, name }) => {
         <br></br>
         <div className="closeModal">
           <br></br>
-
         </div>
         <div className="modalClose">
-          <button type="button" className="closeModalButton" name={name} onClick={handleClose}> Close
-
+          <button
+            type="button"
+            className="closeModalButton"
+            name={name}
+            onClick={handleClose}
+          >
+            Close
           </button>
         </div>
       </section>
