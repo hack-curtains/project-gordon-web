@@ -91,9 +91,9 @@
   justify-content: center;
 }
 
-.inputBar {
+/* .inputBar {
   height: 20px;
-}
+} */
 
 .resultsContainer {
   display: flex;
