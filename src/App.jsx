@@ -242,20 +242,20 @@ class App extends React.Component {
         ) : ''}
 
         {currentView === 'home' ? (
-          <HomeFeedView 
-            captureNavigation = {this.captureNavigation} 
-            captureRecipeId={this.captureRecipeId} 
-            favorites={favorites} 
+          <HomeFeedView
+            captureNavigation = {this.captureNavigation}
+            captureRecipeId={this.captureRecipeId}
+            favorites={favorites}
             captureFavorites={this.captureFavorites}
             liked={liked}
             captureLikes={this.captureLikes}
           />
         ) : ''}
         {currentView === 'favorites' ? (
-          <FavoriteView 
-            captureNavigation = {this.captureNavigation} 
-            captureRecipeId={this.captureRecipeId} 
-            captureFavorites={this.captureFavorites} 
+          <FavoriteView
+            captureNavigation = {this.captureNavigation}
+            captureRecipeId={this.captureRecipeId}
+            captureFavorites={this.captureFavorites}
             favorites={favorites} user={this.state.user.name}
             liked={liked}
             captureLikes={this.captureLikes}
@@ -275,11 +275,11 @@ class App extends React.Component {
           />
         ) : ''}
         {currentView === 'recipe' ? (
-          <SoloRecipeView 
+          <SoloRecipeView
             captureNavigation = {this.captureNavigation}
-            recipeId={currentRecipeId} 
-            previousView={previousView} 
-            favorites={favorites} 
+            recipeId={currentRecipeId}
+            previousView={previousView}
+            favorites={favorites}
             captureFavorites={this.captureFavorites}
             liked={liked}
             captureLikes={this.captureLikes}

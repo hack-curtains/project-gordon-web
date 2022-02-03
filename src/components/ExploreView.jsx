@@ -12,6 +12,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   const [ingredientsMap, setIngredientsMap] = useState({});
   const [pantry, setPantry] = useState({});
   const [results, setResults] = useState([]);
+  const [sortOption, setSortOption] = useState('mostPopular');
   const [searchTerms, setSearchTerms] = useState({});
 
   if (ingredients.length === 0) {
@@ -67,7 +68,13 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
       );
 
     if (!idString) return;
-    axios.get(`${API_ADDR}/${user.usePantry ? 'match' : 'search'}/ingredients?ids=${idString}`)
+    const [sortString, dirString] = {
+      'mostPopular': ['likes', 'desc'],
+      'highPrice': ['price', 'desc'],
+      'lowPrice': ['price', 'asc'],
+    }[sortOption];
+    if (!(sortString && dirString)) return;
+    axios.get(`${API_ADDR}/${user.usePantry ? 'match' : 'search'}/ingredients?ids=${idString}&sort=${sortString}&direction=${dirString}`)
       .then((response) => {
         setResults(response.data.rows);
       });
@@ -88,6 +95,10 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
     setPantry(newPantry);
   };
 
+  const captureSortOption = (option) => {
+    setSortOption(option);
+  };
+
   const setSearchTerm = (term, active) => {
     if (term in ingredientsMap) {
       const newSearchTerms = {...searchTerms};
@@ -104,7 +115,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
 
   useEffect(() => {
     fetchResults();
-  }, [pantry, user.usePantry])
+  }, [pantry, user.usePantry, sortOption])
 
   return (
     <div className="searchResultsView">
@@ -127,10 +138,12 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
           favorites={favorites}
           mobile={currentView !== 'explore'}
           searchTerms={searchTerms}
+          sortOption={sortOption}
           captureFavorites={captureFavorites}
           captureNavigation={captureNavigation}
           captureRecipeId={captureRecipeId}
           setSearchTerm={setSearchTerm}
+          captureSortOption={captureSortOption}
           liked={liked}
           captureLikes={captureLikes}
         />

@@ -41,7 +41,7 @@ const SearchView = ({ ingredients, ingredientsMap, pantry, mobile, usePantry, to
   return (
     <div className="pantryContainer">
       <h1 className="unselectable">Pantry</h1>
-      <div className="inputBar">
+      <div className="inputHeader pantryView">
         <input id="ingredient" list="ingredientsList" value={ingredient} onChange={handleChange}></input>
         {ingredientDatalist}
         <button onClick={addIngredient}>Add Ingredient</button>

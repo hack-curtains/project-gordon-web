@@ -78,19 +78,21 @@ const SortOption = ({ captureNavigation, captureRecipeId, favorites, captureFavo
 
   return (
     <div id='sortedList'>
-      <div id="sort">
-        <div id="sortByText">Sort:</div>
-        {sortOption === 'mostPopular' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4> : ''}
-        {sortOption === 'highPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4> : ''}
-        {sortOption === 'lowPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: Low-High</h4> : ''}
-        {sortDisplay === false ?
-        <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img> :
-        <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
-          <div id="sortDropDown">
-            <p onClick={handleSortOption} id="mostPopular">Most Popular</p>
-            <p onClick={handleSortOption} id="highPrice">Price: High-Low</p>
-            <p onClick={handleSortOption} id="lowPrice">Price: Low-High</p>
-          </div>
+      <div className="sortContainer">
+        <div id="sort">
+          <div id="sortByText">Sort:</div>
+          {sortOption === 'mostPopular' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4> : ''}
+          {sortOption === 'highPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: High-Low</h4> : ''}
+          {sortOption === 'lowPrice' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Price: Low-High</h4> : ''}
+          {sortDisplay === false ?
+          <img id="sortArrow"  onClick={handleSortDisplay} src={downArrow}></img> :
+          <img id="sortArrow"  onClick={handleSortDisplay} src={upArrow}></img>}
+            <div id="sortDropDown">
+              <p onClick={handleSortOption} id="mostPopular">Most Popular</p>
+              <p onClick={handleSortOption} id="highPrice">Price: High-Low</p>
+              <p onClick={handleSortOption} id="lowPrice">Price: Low-High</p>
+            </div>
+        </div>
       </div>
       <div id="receipeBox">
       {sortedData[0] ? (
