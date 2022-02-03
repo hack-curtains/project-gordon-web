@@ -69,9 +69,25 @@
 .resultsHeader {
   align-self: center;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
+}
+
+.inputHeader {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.inputHeader.resultsView {
+  justify-content: space-evenly;
+}
+
+.inputHeader.pantryView {
+  justify-content: center;
 }
 
 .inputBar {

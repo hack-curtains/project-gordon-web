@@ -4,19 +4,19 @@ import downArrow from '../../dist/resources/homeView/down-arrow.png';
 import upArrow from '../../dist/resources/homeView/up-arrow.png';
 import RecipeTile from './RecipeTile.jsx';
 
-const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favorites, captureFavorites, liked, captureLikes }) => {
+const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favorites, captureFavorites,
+                       liked, captureLikes, sortOption, captureSortOption }) => {
 
 
-  const [sortDisplay, updateSortDisplay] = useState(false);
-  const [sortOption, updateSortOption] = useState('mostPopular');
+  const [sortDisplay, setSortDisplay] = useState(false);
 
   const handleSortDisplay = () => {
     let sortElement = document.getElementById('sortDropDown');
     if (sortDisplay === false) {
-      updateSortDisplay(true);
+      setSortDisplay(true);
       sortElement.style.display = 'block';
     } else {
-      updateSortDisplay(false);
+      setSortDisplay(false);
       sortElement.style.display = 'none';
     }
   }
@@ -26,7 +26,7 @@ const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favo
     selectedSortOption.style.color = 'black';
     selectedSortOption.style.backgroundColor = '#f9f9f9';
 
-    updateSortOption(e.target.id);
+    captureSortOption(e.target.id);
     let sortElement = document.getElementById('sortDropDown');
     sortElement.style.display = 'none';
     handleSortDisplay();
@@ -51,7 +51,7 @@ const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favo
   return (
     <div className="resultsContainer">
       <h1 className="unselectable">Recipes</h1>
-      <div className="resultsHeader">
+      <div className="inputHeader resultsView">
         <div className="inputBar">
           <input id="searchResults" placeholder="Find..."></input>
           <button>Search</button>
