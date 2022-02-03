@@ -32,12 +32,30 @@ const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favo
     handleSortDisplay();
   }
 
+  useEffect (() => {
+    if (sortOption === 'mostPopular') {
+      let selectedSortOption = document.getElementById(sortOption);
+      selectedSortOption.style.color = 'white';
+      selectedSortOption.style.backgroundColor = '#E86D4D';
+    } else if (sortOption === 'highPrice') {
+      let selectedSortOption = document.getElementById(sortOption);
+      selectedSortOption.style.color = 'white';
+      selectedSortOption.style.backgroundColor = '#E86D4D';
+    } else if (sortOption === 'lowPrice') {
+      let selectedSortOption = document.getElementById(sortOption);
+      selectedSortOption.style.color = 'white';
+      selectedSortOption.style.backgroundColor = '#E86D4D';
+    }
+  }, [sortOption]);
+
   return (
     <div className="resultsContainer">
       <h1 className="unselectable">Recipes</h1>
-      <div className="inputBar">
-        <input id="searchResults" placeholder="Find..."></input>
-        <button>Search</button>
+      <div className="resultsHeader">
+        <div className="inputBar">
+          <input id="searchResults" placeholder="Find..."></input>
+          <button>Search</button>
+        </div>
         <div id="sort">
           <div id="sortByText">Sort:</div>
           {sortOption === 'mostPopular' ? <h4 id="sortDescription" onClick={handleSortDisplay}>Most Popular</h4> : ''}

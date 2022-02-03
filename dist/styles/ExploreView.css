@@ -66,8 +66,16 @@
   background-color: white;
 }
 
-.inputBar {
+.resultsHeader {
   align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.inputBar {
+  height: 20px;
 }
 
 .resultsContainer {
