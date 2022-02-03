@@ -42,6 +42,7 @@
   padding: 5px 10px;
   margin: 4px;
   display: inline-block;
+  width: auto;
 }
 
 .pantryItem.active {
@@ -66,8 +67,32 @@
   background-color: white;
 }
 
-.inputBar {
+.resultsHeader {
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.inputHeader {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.inputHeader.resultsView {
+  justify-content: space-evenly;
+}
+
+.inputHeader.pantryView {
+  justify-content: center;
+}
+
+.inputBar {
+  height: 20px;
 }
 
 .resultsContainer {

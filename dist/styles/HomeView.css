@@ -82,11 +82,20 @@
   align-items: center;
 }
 
+.sortContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 64px;
+  width: 60%;
+}
+
 #sort {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-left: 40%;
+  /* margin-left: 40%; */
+  height: 20px;
   font-family: system-ui;
 }
 

@@ -12,6 +12,8 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   const [ingredientsMap, setIngredientsMap] = useState({});
   const [pantry, setPantry] = useState({});
   const [results, setResults] = useState([]);
+  const [sortOption, setSortOption] = useState('mostPopular');
+  const [searchTerms, setSearchTerms] = useState({});
 
   if (ingredients.length === 0) {
     axios.get(`${API_ADDR}/ingredients`)
@@ -45,27 +47,37 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   }
 
   const fetchResults = () => {
-    const idString = Object.keys(pantry)
-      .filter((name) => (
-        pantry[name]
-      ))
-      .map((name) => (
-        ingredients[ingredientsMap[name]].id
-      ))
-      .join(',');
+    const idString = user.usePantry ? (
+      Object.keys(pantry)
+        .filter((name) => (
+          pantry[name]
+        ))
+        .map((name) => (
+          ingredients[ingredientsMap[name]].id
+        ))
+        .join(',')
+      ) : (
+        Object.keys(searchTerms)
+        .filter((name) => (
+          pantry[name]
+        ))
+        .map((name) => (
+          ingredients[ingredientsMap[name]].id
+        ))
+        .join(',')
+      );
 
     if (!idString) return;
-    if (user.usePantry) {
-      axios.get(`${API_ADDR}/match/ingredients?ids=${idString}`)
-        .then((response) => {
-          setResults(response.data.rows);
-        });
-    } else {
-      axios.get(`${API_ADDR}/search/ingredients?ids=2`)
-        .then((response) => {
-          setResults(response.data.rows);
-        });
-    }
+    const [sortString, dirString] = {
+      'mostPopular': ['likes', 'desc'],
+      'highPrice': ['price', 'desc'],
+      'lowPrice': ['price', 'asc'],
+    }[sortOption];
+    if (!(sortString && dirString)) return;
+    axios.get(`${API_ADDR}/${user.usePantry ? 'match' : 'search'}/ingredients?ids=${idString}&sort=${sortString}&direction=${dirString}`)
+      .then((response) => {
+        setResults(response.data.rows);
+      });
   };
 
   const togglePantryItem = (ingredientNames, categoryMode=false) => {
@@ -83,9 +95,27 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
     setPantry(newPantry);
   };
 
+  const captureSortOption = (option) => {
+    setSortOption(option);
+  };
+
+  const setSearchTerm = (term, active) => {
+    if (term in ingredientsMap) {
+      const newSearchTerms = {...searchTerms};
+      if (active) {
+        newSearchTerms[term] = true;
+      } else if (newSearchTerms[term]) {
+        delete newSearchTerms[term];
+      }
+      setSearchTerms(newSearchTerms);
+      return true;
+    }
+    return false;
+  }
+
   useEffect(() => {
     fetchResults();
-  }, [pantry, user.usePantry])
+  }, [pantry, user.usePantry, sortOption])
 
   return (
     <div className="searchResultsView">
@@ -103,12 +133,17 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
 
       {currentView === 'explore' || currentView === 'search' ? (
         <ResultsView
+          ingredients={ingredients}
           results={results}
           favorites={favorites}
           mobile={currentView !== 'explore'}
+          searchTerms={searchTerms}
+          sortOption={sortOption}
           captureFavorites={captureFavorites}
           captureNavigation={captureNavigation}
           captureRecipeId={captureRecipeId}
+          setSearchTerm={setSearchTerm}
+          captureSortOption={captureSortOption}
           liked={liked}
           captureLikes={captureLikes}
         />
