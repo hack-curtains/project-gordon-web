@@ -110,7 +110,7 @@
 
   .recipeTileImage {
     width: 30%;
-    height: 100%;
+    height: 100px;
     object-fit: cover;
     align-self: center;
   }
@@ -121,6 +121,10 @@
 
   .recipeTileStats {
     font-size: 1.4em;
+  }
+
+  .recipeTileStats div {
+    margin-right: 10px;
   }
 
   .recipeTileTags {
