@@ -306,6 +306,7 @@ class App extends React.Component {
             captureFavorites={this.captureFavorites}
             liked={liked}
             captureLikes={this.captureLikes}
+            pantry={user.pantry}
           />
         ) : ''}
 
