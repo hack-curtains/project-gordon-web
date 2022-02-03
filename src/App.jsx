@@ -151,7 +151,9 @@ class App extends React.Component {
       .then((response) => {
         console.log(response.data)
         that.setState({ user: {
-          email: response.data.userID,
+          name: response.data.username,
+          email: response.data.userEmail,
+          id: response.data.userID
         }})
       })
       .catch((error) => {
