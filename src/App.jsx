@@ -31,7 +31,7 @@ class App extends React.Component {
       },
       favorites: [],
       liked: [],
-      currentView: 'explore',
+      currentView: 'home',
       previousView: '',
       showLogin: false,
       currentRecipeId: '',
