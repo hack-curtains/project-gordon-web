@@ -8,8 +8,11 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
 
 
   useEffect (() => {
-    let userFavorite = captureFavorites();
-    updateUserFavoriteList(userFavorite);
+    if (user !== undefined && favorites[0] !== undefined) {
+      updateUserFavoriteList(favorites)
+    }
+    // let userFavorite = captureFavorites();
+    // updateUserFavoriteList(userFavorite);
   }, [favorites])
 
   // -- this will be used when the user data setup. --
@@ -40,7 +43,9 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
         liked={liked}
         captureLikes={captureLikes}
         />
-      }) : ''}
+      }) :
+      <div>Please Login to use this page</div>
+      }
       </div>
     </div>
   );
