@@ -3,12 +3,14 @@ import axios from 'axios';
 import downArrow from '../../dist/resources/homeView/down-arrow.png';
 import upArrow from '../../dist/resources/homeView/up-arrow.png';
 import RecipeTile from './RecipeTile.jsx';
+import PantryItem from './PantryItem.jsx';
 
-const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favorites, captureFavorites,
-                       liked, captureLikes, sortOption, captureSortOption }) => {
+const ResultsView = ({ results, mobile, searchTerms, captureNavigation, captureRecipeId, favorites, captureFavorites,
+                       liked, captureLikes, sortOption, captureSortOption, setSearchTerm }) => {
 
 
   const [sortDisplay, setSortDisplay] = useState(false);
+  const [term, setTerm] = useState('');
 
   const handleSortDisplay = () => {
     let sortElement = document.getElementById('sortDropDown');
@@ -48,13 +50,28 @@ const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favo
     }
   }, [sortOption]);
 
+  const termDatalist = <datalist id="termsList">
+    {ingredients.map((ingredient, i) => (
+      <option value={ingredient.name} key={i}></option>
+    ))}
+  </datalist>;
+
   return (
     <div className="resultsContainer">
       <h1 className="unselectable">Recipes</h1>
       <div className="inputHeader resultsView">
         <div className="inputBar">
-          <input id="searchResults" placeholder="Find..."></input>
-          <button>Search</button>
+          <input
+            id="searchResults"
+            placeholder="Find recipes containing..."
+            list="termsList"
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+          ></input>
+          {termDatalist}
+          <button onClick={() => {
+            if (setSearchTerm(term, true)) setTerm('');
+          }}>Search</button>
         </div>
         <div id="sort">
           <div id="sortByText">Sort:</div>
@@ -70,6 +87,13 @@ const ResultsView = ({ results, mobile, captureNavigation, captureRecipeId, favo
               <p onClick={handleSortOption} id="lowPrice">Price: Low-High</p>
             </div>
         </div>
+      </div>
+      <div>
+      {Object.keys(searchTerms).map((term, i) => (
+        <PantryItem key={i} name={term} togglePantryItem={(itemArray) => {
+          setSearchTerm(itemArray[0], false);
+        }} isActive={true} usePantry={true} />
+      ))}
       </div>
       <div className={`results ${mobile ? '' : 'shadowBox'}`}>
         {results.map((recipe, i) => (

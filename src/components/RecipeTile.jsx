@@ -24,7 +24,7 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
 
       <div className="recipeTileInformationContainer">
         <div className="recipeTileHeader">
-          <div
+          {window.innerWidth > 800 && <div
             className="recipeTileName"
             style={{fontSize: recipe.title.length > 30 ? '80%':'100%'}}
             onClick={(e) => {
@@ -33,7 +33,17 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
             }}
           >
             {recipe.title}
-          </div>
+          </div>}
+          {window.innerWidth <= 800 && <div
+            className="recipeTileName"
+            style={{fontSize: recipe.title.length > 30 ? '80%':'100%'}}
+            onClick={(e) => {
+              captureRecipeId(recipe.id);
+              captureNavigation("recipe");
+            }}
+          >
+            {recipe.title.substring(0, 40)}{recipe.title.length > 40 ? '...' : ''}
+          </div>}
           {/* <img className="recipeTileFavoriteIcon" src={favorites.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} /> */}
           <img className="recipeTileFavoriteIcon" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)} />
         </div>
