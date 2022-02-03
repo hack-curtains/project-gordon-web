@@ -21,7 +21,7 @@
   #favoriteTitle {
     height: 10%;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   #favoriteList {
@@ -29,6 +29,10 @@
     justify-content: center;
     align-items: center;
     height: auto;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
+  }
+
+  #favoriteMain {
+    margin-top: 30px;
   }
 }
