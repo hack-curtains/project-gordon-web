@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_ADDR } from '../config';
-const USER_ID_TODO = 1; // FIX ME
 
 import SearchView from './SearchView.jsx';
 import ResultsView from './ResultsView.jsx';
@@ -29,21 +28,22 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   }
 
   if (Object.keys(ingredientsMap).length !== 0 && Object.keys(pantry).length === 0) {
-    axios.get(`${API_ADDR}/users/${USER_ID_TODO}/ingredients`)
+    axios.get(`${API_ADDR}/users/${user.id}/ingredients`)
       .then((response) => {
-        let newPantry;
         if (response.data.length === 0) {
-          newPantry = {
-            'water': true
-          };
+          togglePantryItem([
+            'water',
+            'salt',
+            'pepper',
+          ]);
         } else {
-          newPantry = {};
+          let newPantry = {};
           for (let i = 0; i < response.data.length; i++) {
             let ingredient = response.data[i];
             newPantry[ingredient.name] = true;
           }
+          setPantry(newPantry);
         }
-        setPantry(newPantry);
       });
   }
 
@@ -94,10 +94,10 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
     for (let ingredient of ingredientNames) {
       if (newPantry[ingredient]) {
         newPantry[ingredient] = false;
-        axios.put(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
+        axios.put(`${API_ADDR}/users/${user.id}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/remove`);
       } else if (!categoryMode || categoryModeIsAllFalse) {
         newPantry[ingredient] = true;
-        axios.post(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
+        axios.post(`${API_ADDR}/users/${user.id}/ingredients/${ingredients[ingredientsMap[ingredient]].id}/add`);
       }
     }
     setPantry(newPantry);
