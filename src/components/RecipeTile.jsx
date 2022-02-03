@@ -11,6 +11,8 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+  let favoriteRecipeIds = favorites.map(element => element.id);
+
   return (
     <div className="recipeTileContainer">
       <img
@@ -45,7 +47,7 @@ const RecipeTile = ({ captureNavigation, recipe, captureRecipeId, favorites, cap
             {recipe.title.substring(0, 40)}{recipe.title.length > 40 ? '...' : ''}
           </div>}
           {/* <img className="recipeTileFavoriteIcon" src={favorites.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} /> */}
-          <img className="recipeTileFavoriteIcon" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)} />
+          <img className="recipeTileFavoriteIcon" src={favoriteRecipeIds.includes(recipe.id) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe.id, true)} />
         </div>
 
         <div className="recipeTileStats">

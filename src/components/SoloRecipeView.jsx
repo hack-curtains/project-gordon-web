@@ -24,6 +24,8 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+  let favoriteRecipeIds = favorites.map(element => element.id);
+  
   useEffect(() => {
     getRecipe(recipeId);
   }, [recipeId])
@@ -37,12 +39,12 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
       <div className="recipeViewHeader">
         {window.innerWidth <= 800 && <div className="mobileBackFavorite">
           <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>
-          <img className="favoriteButton" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)}/>
+          <img className="favoriteButton" src={favoriteRecipeIds.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/>
         </div>}
         {window.innerWidth > 800 && <img className="backButton" src={back} onClick={(e) => captureNavigation(previousView)}/>}
         <div className="recipeName">{recipe.title}</div>
         {/* <img className="favoriteButton" src={favorites.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/> */}
-        {window.innerWidth > 800 && <img className="favoriteButton" src={JSON.stringify(favorites).includes(JSON.stringify(recipe)) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipe, true)}/>}
+        {window.innerWidth > 800 && <img className="favoriteButton" src={favoriteRecipeIds.includes(recipeId) ? fullStar : emptyStar} onClick={(e) => captureFavorites(recipeId, true)}/>}
       </div>
       <div className="recipeInformation">
         <img className="recipeImage" src={recipe.image}/>
