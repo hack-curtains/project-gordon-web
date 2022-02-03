@@ -159,10 +159,21 @@
 
   #receipeBox {
     width: 100%;
-    margin-bottom: 10%;
+    margin-bottom: 13%;
   }
 
   #sortedList {
     width: 100%;
+  }
+
+  #title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+  }
+
+  #homeTopViewMain {
+    height: 320px;
   }
 }

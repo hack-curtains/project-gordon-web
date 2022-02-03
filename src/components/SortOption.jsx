@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import downArrow from '../../dist/resources/homeView/down-arrow.png';
-import upArrow from '../../dist/resources/homeView/up-arrow.png';
+import downArrow from '../../dist/resources/HomeView/down-arrow.png';
+import upArrow from '../../dist/resources/HomeView/up-arrow.png';
 import { API_ADDR } from '../config';
 import RecipeTile from './RecipeTile.jsx';
 
