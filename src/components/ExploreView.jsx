@@ -27,14 +27,14 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
       });
   }
 
-  if (Object.keys(ingredientsMap).length !== 0 && Object.keys(pantry).length === 0) {
+  if (Object.keys(ingredientsMap).length !== 0 && Object.keys(pantry).length === 0 && user.id) {
     axios.get(`${API_ADDR}/users/${user.id}/ingredients`)
       .then((response) => {
         if (response.data.length === 0) {
           togglePantryItem([
             'water',
             'salt',
-            'pepper',
+            'black pepper',
           ]);
         } else {
           let newPantry = {};

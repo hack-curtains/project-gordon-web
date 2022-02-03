@@ -54,15 +54,16 @@ class App extends React.Component {
     this.checkSession = this.checkSession.bind(this);
   }
 
-  captureUser({ name, email, pantry }) {
-    const USER_ID_TODO = 1; // FIX ME
-    if (!pantry) {
-      axios.get(`${API_ADDR}/users/${USER_ID_TODO}/ingredients/`)
-        .then((fetchedPantry) => {
-          pantry = fetchedPantry;
-        });
-    }
-    this.setState({ user: { name, email, pantry } });
+  captureUser({ name, email, id }) {
+    const user = {...this.state.user};
+    user.name = name;
+    user.email = email;
+    user.id = id;
+    axios.get(`${API_ADDR}/users/${user.id}/ingredients`)
+      .then((response) => {
+        console.log(response.data);
+      });
+    this.setState({ user });
   }
 
   captureLikes(recipeId) {
@@ -150,15 +151,15 @@ class App extends React.Component {
     axios.post(`${API_ADDR}/users/new`, newUserObj, options)
       .then((response) => {
         console.log(response.data)
-        that.setState({ user: {
+        this.captureUser({
           name: response.data.username,
           email: response.data.userEmail,
           id: response.data.userID
-        }})
+        });
       })
       .catch((error) => {
         console.error('new user sign up error:', error);
-      })
+      });
 
   }
 
@@ -180,17 +181,17 @@ class App extends React.Component {
     let that = this;
     axios.post(`${API_ADDR}/users/login`, userObj, options)
       .then((response) => {
-        console.log(response.data)
-        that.setState({ user: {
+        console.log(response.data);
+        this.captureUser({
           name: response.data.username,
           email: response.data.email,
           id: response.data.userID
-        }})
-        console.log('this is document:', window)
+        });
+        console.log('this is document:', window);
       })
       .catch((error) => {
         console.error('user login error:', error);
-      })
+      });
   }
 
   checkSession() {
