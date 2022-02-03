@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RecipeTile from './RecipeTile.jsx';
 import SortOption from './SortOption.jsx';
-import downArrow from '../../dist/resources/homeView/down-arrow.png';
-import upArrow from '../../dist/resources/homeView/up-arrow.png';
 import { API_ADDR } from '../config';
-import imageOne from '../../dist/resources/homeView/1.png';
-import imageTwo from '../../dist/resources/homeView/2.png';
-import imageThree from '../../dist/resources/homeView/3.png';
-import imageFour from '../../dist/resources/homeView/4.png';
+import imageOne from '../../dist/resources/HomeView/1.png';
+import imageTwo from '../../dist/resources/HomeView/2.png';
+import imageThree from '../../dist/resources/HomeView/3.png';
+import imageFour from '../../dist/resources/HomeView/4.png';
 
 
 const HomeFeedView = ({captureNavigation, captureRecipeId, favorites, captureFavorites, liked, captureLikes}) => {

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import RecipeTile from './RecipeTile.jsx'
 import axios from 'axios';
 import { API_ADDR } from '../config';
+import chefImage from '../../dist/resources/FavoriteView/chef.png';
+
 
 const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorites, favorites, liked, captureLikes }) => {
   const [userFavoriteList, updateUserFavoriteList] = useState([]);
@@ -11,6 +13,10 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
       updateUserFavoriteList(favorites)
     }
   }, [favorites])
+
+  const routeUserToLoginPage = () => {
+    captureNavigation('profile');
+  }
 
 
   return (
@@ -29,7 +35,12 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
         captureLikes={captureLikes}
         />
       }) :
-      <div>Please Login to use this page.</div>
+      <div id="askToLogin">
+      <div id="guestMessage" >Please click the below image to go to the login page.</div>
+      <div>
+        <img onClick={routeUserToLoginPage} id="chefImage" src={chefImage}></img>
+      </div>
+      </div>
       }
       </div>
     </div>
