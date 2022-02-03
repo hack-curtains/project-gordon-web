@@ -13,9 +13,8 @@ import emptyStar from '../../dist/resources/SoloRecipeView/emptyStar.png';
 import fullStar from '../../dist/resources/SoloRecipeView/fullStar.png';
 
 
-const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, captureFavorites, liked, captureLikes }) => {
+const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, captureFavorites, liked, captureLikes, pantry }) => {
   const [recipe, updateRecipe] = useState('');
-  const pantry = [1, 2, 3, 4, 45];
   const getRecipe = (id) => {
     axios.get(`${API_ADDR}/recipes/${id}`)
       .then ((res) => {
