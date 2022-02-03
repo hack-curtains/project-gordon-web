@@ -6,27 +6,12 @@ import { API_ADDR } from '../config';
 const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorites, favorites, liked, captureLikes }) => {
   const [userFavoriteList, updateUserFavoriteList] = useState([]);
 
-
   useEffect (() => {
     if (user !== undefined && favorites[0] !== undefined) {
       updateUserFavoriteList(favorites)
     }
-    // let userFavorite = captureFavorites();
-    // updateUserFavoriteList(userFavorite);
   }, [favorites])
 
-  // -- this will be used when the user data setup. --
-  // const handleRequestRecipes = (favoriteList) => {
-  //   const userFavoriteListStorage = [];
-
-  //   for (let i = 0; i < favoriteList.length; i++) {
-  //     axios.get(`${API_ADDR}/recipes/${favoriteList[i]}`)
-  //     .then ((res) => {
-  //       userFavoriteListStorage.push(res.data);
-  //     })
-  //   }
-  //   updateUserFavoriteList(userFavoriteListStorage);
-  // }
 
   return (
     <div id="favoriteMain">
@@ -44,7 +29,7 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
         captureLikes={captureLikes}
         />
       }) :
-      <div>Please Login to use this page</div>
+      <div>Please Login to use this page.</div>
       }
       </div>
     </div>
