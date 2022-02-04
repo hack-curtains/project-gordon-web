@@ -152,6 +152,12 @@
   background: rgba(128, 128, 128, 0.377);
 }
 
+@media only screen and (max-width: 1050px) {
+  #receipeBox {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-device-width: 800px) {
   #homeTopView {
     margin-top: 0;
