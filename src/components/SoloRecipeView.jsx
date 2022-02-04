@@ -102,7 +102,7 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
           {recipe.ingredients.map(ingredient => {
             return (
               <div className="ingredientListEntry" key={ingredient.id}>
-                <img src={check} style={{visibility: pantry.includes(ingredient.id) ? 'visible':'hidden'}}/>
+                <img src={check} style={{visibility: pantry && pantry.includes(ingredient.id) ? 'visible':'hidden'}}/>
                 <div>{ingredient.name}</div>
               </div>
             );
