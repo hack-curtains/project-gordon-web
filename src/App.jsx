@@ -198,9 +198,12 @@ class App extends React.Component {
   };
 
   clearUser() {
-    this.setState({user: {
-      email: '',
-    }})
+    this.setState({
+      user: {
+        email: '',
+      },
+      favorites: []
+    })
   }
   openLogin() {
     this.setState({showLogin: true});
