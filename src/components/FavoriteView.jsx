@@ -11,6 +11,8 @@ const FavoriteView = ({ captureNavigation, captureRecipeId, user, captureFavorit
   useEffect (() => {
     if (user !== undefined && favorites[0] !== undefined) {
       updateUserFavoriteList(favorites)
+    } else {
+      updateUserFavoriteList([]);
     }
   }, [favorites])
 
