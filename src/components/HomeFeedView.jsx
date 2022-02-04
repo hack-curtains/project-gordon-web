@@ -15,7 +15,7 @@ const HomeFeedView = ({captureNavigation, captureRecipeId, favorites, captureFav
 
   useEffect (() => {
     updaterandomBackground([imageOne,imageTwo,imageThree,imageFour][Math.floor(Math.random()*4)]);
-  }, [randomBackground])
+  }, [])
 
 
   return (
@@ -23,7 +23,7 @@ const HomeFeedView = ({captureNavigation, captureRecipeId, favorites, captureFav
       <div id="homeTopView">
       <div id="homeTopViewMain">
         <img src={randomBackground} id='mainImg'></img>
-        <button onClick={(e) => captureNavigation('explore')} name="explore" id="exploreButton">EXPLORE</button>
+        {window.innerWidth > 800 ? <button onClick={(e) => captureNavigation('explore')} name="explore" id="exploreButton">EXPLORE</button>: <button onClick={(e) => captureNavigation('search')} name="search" id="exploreButton">EXPLORE</button>}
       </div>
       </div>
       <div id="homeBottomView">
