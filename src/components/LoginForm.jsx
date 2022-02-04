@@ -52,12 +52,12 @@ const LoginForm = ({ login, signUp, handleClose, changedLoggedIn }) => {
                 />
               </div>
               <br></br>
-              <input type="submit" className="loginsubmit" value="Login" />
+              <input type="submit" className="mediumButton blue" value="Login" />
             </div>
           </form>
           <div>
             <br></br>
-            <button onClick={(e) => setNewUser(true)} className="signinbutton">
+            <button onClick={(e) => setNewUser(true)} className="mediumButton blue">
               Sign Up
             </button>
           </div>
@@ -108,7 +108,7 @@ const LoginForm = ({ login, signUp, handleClose, changedLoggedIn }) => {
                 />
               </div>
               <br></br>
-              <input type="submit" className="signupsubmit" value="Sign Up" />
+              <input type="submit" className="mediumButton blue" value="Sign Up" />
             </div>
           </form>
         </>

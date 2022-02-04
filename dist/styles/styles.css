@@ -1,12 +1,11 @@
 @import 'RecipeTile.css';
-
 @import 'ProfileView.css';
-
 @import 'ExploreView.css';
 @import 'HomeView.css';
 @import 'SignIn.css';
 @import 'SoloRecipeView.css';
 @import 'FavoriteView.css';
+@import 'shared.css';
 
 * {
   box-sizing: border-box;

@@ -32,7 +32,7 @@ const ProfileView = ({
             {userObj.email}
           </div>
           <button
-            className="profilefavorites"
+            className="bigButton blue"
             name="favorites"
             onClick={(e) => captureNavigation("favorites")}
           >
@@ -53,12 +53,12 @@ const ProfileView = ({
             changedLoggedIn();
             clearUser();
           }}
-          className="profileSignOut"
+          className="bigButton red"
         >
           Sign Out
         </button>
       ) : (
-        <button onClick={(e) => openLogin()} className="profileSignIn">
+        <button onClick={(e) => openLogin()} className="bigButton blue">
           Sign In
         </button>
       )}

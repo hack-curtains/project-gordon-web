@@ -24,64 +24,17 @@
   margin-top: 20px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
-.profileSignOut {
-  margin-bottom: 20px;
-  border-width: 0px;
-  width: 40%;
-  height: 35px;
-  border-radius: 10px;
-  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
-}
-
-.profileSignOut:hover {
-  background-color: #ff3333;
-  color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  cursor: pointer;
-
-}
-
-.profileSignIn {
-  margin-bottom: 20px;
-  border-width: 0px;
-  width: 40%;
-  height: 35px;
-  border-radius: 10px;
-  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
-}
-
-.profileSignIn:hover {
-  background-color: lightskyblue;
-  color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  cursor: pointer;
-
-}
-.profilefavorites {
-  margin-bottom: 10px;
-  border-width: 0px;
-  width: 50%;
-  height: 35px;
-  border-radius: 10px;
-  /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
-}
-
-.profilefavorites:hover {
-  background-color: lightskyblue;
-  color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  cursor: pointer;
-
-}
 
 .profileuser {
   font-size: x-large;
   font-weight: bold;
   text-align: center;
 }
+
 .profileemail {
   text-align: center;
 }
+
 .profileComment {
   margin-right: 30px;
   margin-left: 30px;

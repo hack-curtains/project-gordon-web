@@ -33,7 +33,6 @@
 
 .modalClose {
   max-width: 100%;
-
 }
 
 .display-block {
@@ -43,6 +42,7 @@
 .display-none {
   display: none;
 }
+
 .modal-main {
   position: fixed;
   background: white;
@@ -61,58 +61,10 @@
   color: white; */
 }
 
-.signupsubmit {
-
-  border-width: 0px;
-  width: 120px;
-  height: 30px;
-  border-radius: 10px;
-}
-
-.signinbutton {
-
-  border-width: 0px;
-  width: 120px;
-  border-radius: 10px;
-  height: 30px;
-}
-
-.loginsubmit {
-
-  border-width: 0px;
-  width: 120px;
-  border-radius: 10px;
-  height: 30px;
-}
-
-
-.loginsubmit:hover {
-  background-color: lightskyblue;
-  color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  cursor: pointer;
-
-}
-
-.signinbutton:hover {
-  background-color: lightskyblue;
-  color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  cursor: pointer;
-
-}
-
-.signupsubmit:hover {
-  background-color: lightskyblue;
-  color: white;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  cursor: pointer;
-
-}
-
 .signinform {
   width: 80%;
 }
+
 .formgroup {
   width: 80%;
   height: 100%;
@@ -145,16 +97,4 @@
   cursor: pointer;
   background-color: black;
   color: white;
-}
-
-input#email {
-  border-color: lightgray;
-}
-
-input#password {
-  border-color: lightgray;
-}
-
-input#name {
-  border-color: lightgray;
 }

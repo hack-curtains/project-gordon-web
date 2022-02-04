@@ -57,10 +57,10 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
             <div className="recipeStat">${numberWithCommas((Math.floor((recipe.price/100) * 100) / 100).toFixed(2))} per serving</div>
           </div>
           <div className="recipeStats">
-            <img 
+            <img
               id="likeButton"
-              className="recipeStatIcon" 
-              src={liked.includes(recipeId) ? fullHeart : emptyHeart} 
+              className="recipeStatIcon"
+              src={liked.includes(recipeId) ? fullHeart : emptyHeart}
               onClick={(e) => {
                 liked.includes(recipeId) ? recipe.likes-- : recipe.likes++;
                 captureLikes(recipeId)
@@ -69,21 +69,21 @@ const SoloRecipeView = ({ captureNavigation, recipeId, previousView, favorites, 
             <div className="recipeStat">{numberWithCommas(recipe.likes)} {recipe.likes > 1 ? 'users like':'user likes'} this recipe</div>
           </div>
           <div className="recipeTagsContainer">
-            <div className="dietTagsContainer">
+            <div className="tagsContainer dietTags">
               {recipe.tags.map(tag => {
                 if (tag.category === 'diets') {
                   return <div key={tag.id}>{tag.name}</div>
                 }
               })}
             </div>
-            <div className="cuisineTagsContainer">
+            <div className="tagsContainer cuisineTags">
               {recipe.tags.map(tag => {
                 if (tag.category === 'cuisines') {
                   return <div key={tag.id}>{tag.name}</div>
                 }
               })}
             </div>
-            <div className="dishTagsContainer">
+            <div className="tagsContainer dishTags">
               {recipe.tags.map(tag => {
                 if (tag.category === 'dish') {
                   return <div key={tag.id}>{tag.name}</div>
