@@ -15,7 +15,7 @@ const HomeFeedView = ({captureNavigation, captureRecipeId, favorites, captureFav
 
   useEffect (() => {
     updaterandomBackground([imageOne,imageTwo,imageThree,imageFour][Math.floor(Math.random()*4)]);
-  }, [randomBackground])
+  }, [])
 
 
   return (
