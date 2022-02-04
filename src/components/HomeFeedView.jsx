@@ -3,10 +3,10 @@ import axios from 'axios';
 import RecipeTile from './RecipeTile.jsx';
 import SortOption from './SortOption.jsx';
 import { API_ADDR } from '../config';
-import imageOne from '../../dist/resources/HomeView/1.png';
-import imageTwo from '../../dist/resources/HomeView/2.png';
-import imageThree from '../../dist/resources/HomeView/3.png';
-import imageFour from '../../dist/resources/HomeView/4.png';
+import imageOne from '../../dist/resources/HomeFeedView/1.png';
+import imageTwo from '../../dist/resources/HomeFeedView/2.png';
+import imageThree from '../../dist/resources/HomeFeedView/3.png';
+import imageFour from '../../dist/resources/HomeFeedView/4.png';
 
 
 const HomeFeedView = ({captureNavigation, captureRecipeId, favorites, captureFavorites, liked, captureLikes}) => {
