@@ -48,7 +48,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   }
 
   const fetchResults = () => {
-    if (user.usePantry) {
+    if (user.usePantry && user.id !== null) {
       const idString = Object.keys(pantry)
         .filter((name) => (
           pantry[name]
@@ -108,7 +108,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   };
 
   const setSearchTerm = (term, active) => {
-    if (user.usePantry) {
+    if (user.usePantry && user.id !== null) {
       setSearchTitle(term);
       return false;
     } else {
@@ -127,7 +127,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
   }
 
   const togglePantry = () => {
-    capturePantry(null, !user.usePantry);
+    capturePantry(null, !user.usePantry && user.id !== null);
   }
 
   useEffect(() => {
@@ -150,7 +150,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
           ingredientsMap={ingredientsMap}
           pantry={pantry}
           mobile={currentView !== 'explore'}
-          usePantry={user.usePantry}
+          usePantry={user.usePantry && user.id !== null}
           togglePantry={togglePantry}
           togglePantryItem={togglePantryItem}
         />
@@ -162,7 +162,7 @@ const ExploreView = ({ user, favorites, currentView, captureFavorites, captureNa
           results={results}
           favorites={favorites}
           mobile={currentView !== 'explore'}
-          usePantry={user.usePantry}
+          usePantry={user.usePantry && user.id !== null}
           searchTerms={searchTerms}
           sortOption={sortOption}
           captureFavorites={captureFavorites}
