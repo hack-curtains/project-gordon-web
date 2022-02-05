@@ -6,37 +6,35 @@
 
 <div>
 
-| [Scope](#scope) |
+| [Demo](#demo) |
 | [Module Detail](#module-detail) |
 | [Technologies](#technologies) |
 | [Getting Started](#getting-started) |
 
 </div>
 
-## Scope
-
-(Description)
-
 <div align="center">
 
 #### **Team Curtain's Full-Stack Project Members**
 
-
-| Authentication and Profile | Search View & Result View | Home View & Favorite View | Solo Recipe View & Recipe Tile |
-| ------------- | ---------------- | ------------------- | --------- |
-|[Winston Pantelakos][wp] | [Johannes Niemelä][jn] | [ByungChan Lee][bl] | [Leonardo Deutsch][ld] |
-
-[wp]:https://github.com/winstonthep
-[jn]:https://github.com/Heine574
-[bl]:https://github.com/lbc1013
-[ld]:https://github.com/leonardodeutsch
+<table align="center">
+    <th colspan="6">Team Members</th>
+  <tr>
+      <td align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/4070885?v=4" width="300px" alt=""/><sub><b>Alex Sieke</b></sub></a><br/></td>
+      <td align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/26636748?v=4" width="100px" alt=""/><sub><b>Johannes Niemelä</b></sub></a<br/></td>
+      <td align="center"><a href="https://github.com/FullStackEidolon"><img src="https://ca.slack-edge.com/T01J1BRG8E4-U02LEUYHDV3-08fca025c853-512" width="100px" alt=""/><sub><b>Ian McGahren</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/lbc1013"><img src="https://avatars.githubusercontent.com/u/65844592?v=4" width="100px" alt=""/><sub><b>ByungChan Lee</b></sub></a><br/></td>
+      <td align="center"><a href="https://github.com/leonardodeutsch"><img src="https://avatars.githubusercontent.com/u/90005014?v=4" width="100px" alt=""/><sub><b>Leonardo Deutsch</b></sub></a><br/></td>
+      <td align="center"><a href="https://github.com/winstonthep"><img src="https://avatars.githubusercontent.com/u/91493090?v=4" width="100px" alt=""/><sub><b>Winston Pantelakos</b></sub></a><br/></td>
+  </tr>
+</table>
 
 </div>
 *Our project management / ticketing system : <a href='https://trello.com/b/z8nnOpaT/project-gordon-web'>https://trello.com/b/z8nnOpaT/project-gordon-web</a>
 
+## Demo
+(demo video)
 ## Module Detail
-(Demo Full video)
-
 ### 1. Authentication and Profile
 
 (Description)
