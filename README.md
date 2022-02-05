@@ -1,7 +1,6 @@
-# Pantry Chef
-<img display="center" heigh="150px" src="dist/resources/chef-logo.png"></img>
+<img display="center" src="dist/resources/chef-logo.png"></img>
 
-# Project Overview
+## Project Overview
 (Description)
 
 
@@ -14,13 +13,13 @@
 
 </div>
 
-# Scope
+## Scope
 
 (Description)
 
 <div align="center">
 
-### **Team Curtain's Full-Stack Project Members**
+#### **Team Curtain's Full-Stack Project Members**
 
 
 | Authentication and Profile | Search View & Result View | Home View & Favorite View | Solo Recipe View & Recipe Tile |
@@ -35,30 +34,30 @@
 </div>
 *Our project management / ticketing system : <a href='https://trello.com/b/z8nnOpaT/project-gordon-web'>https://trello.com/b/z8nnOpaT/project-gordon-web</a>
 
-# Module Detail
+## Module Detail
 (Demo Full video)
 
-## 1. Authentication and Profile
+### 1. Authentication and Profile
 
 (Description)
 
-## 2. Search View & Result View
+### 2. Search View & Result View
 
 (Description)
 
-## 3. Home View & Favorite View
+### 3. Home View & Favorite View
 
 (Description)
-## 4. Solo Recipe View & Recipe Tile
-
-(Description)
-
-# Technologies
+### 4. Solo Recipe View & Recipe Tile
 
 (Description)
 
+## Technologies
 
-# Getting Started
+(Description)
+
+
+## Getting Started
 To run the app on your local machine:
 
 (Description)
