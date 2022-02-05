@@ -20,12 +20,12 @@
 <table align="center">
     <th colspan="6">Team Members</th>
   <tr>
-      <td align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/4070885?v=4" width="300px" alt=""/><sub><b>Alex Sieke</b></sub></a><br/></td>
-      <td align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/26636748?v=4" width="100px" alt=""/><sub><b>Johannes Niemelä</b></sub></a<br/></td>
-      <td align="center"><a href="https://github.com/FullStackEidolon"><img src="https://ca.slack-edge.com/T01J1BRG8E4-U02LEUYHDV3-08fca025c853-512" width="100px" alt=""/><sub><b>Ian McGahren</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/lbc1013"><img src="https://avatars.githubusercontent.com/u/65844592?v=4" width="100px" alt=""/><sub><b>ByungChan Lee</b></sub></a><br/></td>
-      <td align="center"><a href="https://github.com/leonardodeutsch"><img src="https://avatars.githubusercontent.com/u/90005014?v=4" width="100px" alt=""/><sub><b>Leonardo Deutsch</b></sub></a><br/></td>
-      <td align="center"><a href="https://github.com/winstonthep"><img src="https://avatars.githubusercontent.com/u/91493090?v=4" width="100px" alt=""/><sub><b>Winston Pantelakos</b></sub></a><br/></td>
+      <td align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/4070885?v=4" height="70px" width="70px" alt=""/><sub><b>Alex<br>Sieke</b></sub></a><br/></td>
+      <td align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/26636748?v=4" height="70px" width="70px" alt=""/><sub><b>Johannes<br>Niemelä</b></sub></a<br/></td>
+      <td align="center"><a href="https://github.com/FullStackEidolon"><img src="https://ca.slack-edge.com/T01J1BRG8E4-U02LEUYHDV3-08fca025c853-512" height="70px" width="70px" alt=""/><sub><b>Ian<br>McGahren</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/lbc1013"><img src="https://avatars.githubusercontent.com/u/65844592?v=4" height="70px" width="70px" alt=""/><sub><b>ByungChan<br>Lee</b></sub></a><br/></td>
+      <td align="center"><a href="https://github.com/leonardodeutsch"><img src="https://avatars.githubusercontent.com/u/90005014?v=4" height="70px" width="70px" alt=""/><sub><b>Leonardo<br>Deutsch</b></sub></a><br/></td>
+      <td align="center"><a href="https://github.com/winstonthep"><img src="https://avatars.githubusercontent.com/u/91493090?v=4" height="70px" width="70px" alt=""/><sub><b>Winston<br>Pantelakos</b></sub></a><br/></td>
   </tr>
 </table>
 
