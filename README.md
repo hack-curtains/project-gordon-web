@@ -47,7 +47,10 @@
 
 ### 3. Home View & Favorite View
 
-(Description)
+- Display the main homepage image that gets changed everytime the user enters.
+- List out the Recommend Recipes for the guest and provide the sort options such as the most popular, price:high-low, price:low-high.
+- For the favorite View, display the Favorited Recipes list for the logged-in user.
+
 ### 4. Solo Recipe View & Recipe Tile
 
 (Description)
