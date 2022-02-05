@@ -57,7 +57,11 @@
 
 ## Technologies
 
-(Description)
+####  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width="10%" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"> <img width="10%" src="https://www.vectorlogo.zone/logos/w3_css/w3_css-ar21.svg">
+####  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width="10%" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"> <img width="10%" src="https://www.vectorlogo.zone/logos/nodemonio/nodemonio-ar21.svg"> <img width="10%" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"> <img width="10%" src="https://user-images.githubusercontent.com/8939680/57233884-20344080-6fe5-11e9-8df3-0df1282e1574.png"> <img width="10%" src="https://www.vectorlogo.zone/logos/postgresql/postgresql-ar21.svg"><img width="10%" src="https://www.vectorlogo.zone/logos/npmjs/npmjs-ar21.svg">
+####  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width="15%" src="https://www.vectorlogo.zone/logos/js_webpack/js_webpack-ar21.svg"> <img width="10%" src="https://www.vectorlogo.zone/logos/babeljs/babeljs-ar21.svg">
+####   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img width="10%" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"><img width="10%" src="https://www.vectorlogo.zone/logos/docker/docker-ar21.svg">
+####   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <img width="10%" src="https://www.vectorlogo.zone/logos/trello/trello-ar21.svg">
 
 
 ## Getting Started
