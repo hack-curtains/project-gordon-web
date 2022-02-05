@@ -1,5 +1,5 @@
 # Pantry Chef
-<img display="center" width="100px" heigh="100px" src="dist/resources/FavoriteView/chef.png"></img>
+<img display="center" heigh="150px" src="dist/resources/chef-logo.png"></img>
 
 # Project Overview
 (Description)
