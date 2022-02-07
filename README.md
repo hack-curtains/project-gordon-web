@@ -20,7 +20,7 @@
 <table align="center">
     <th colspan="6">Team Members</th>
   <tr>
-      <td width="100px" align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/4070885?v=4" height="85px" width="85px" alt=""/><sub><b>Alex<br>Sieke</b></sub></a><br/></td>
+      <td width="100px" align="center"><a href="https://github.com/asieke"><img src="https://avatars.githubusercontent.com/u/4070885?v=4" height="85px" width="85px" alt=""/><sub><b>Alex<br>Sieke</b></sub></a><br/></td>
       <td width="100px" align="center"><a href="https://github.com/Heine574"><img src="https://avatars.githubusercontent.com/u/26636748?v=4" height="85px" width="85px" alt=""/><sub><b>Johannes<br>Niemelä</b></sub></a<br/></td>
       <td width="100px" align="center"><a href="https://github.com/FullStackEidolon"><img src="https://ca.slack-edge.com/T01J1BRG8E4-U02LEUYHDV3-08fca025c853-512" height="85px" width="85px" alt=""/><sub><b>Ian<br>McGahren</b></sub></a><br /></td>
       <td width="100px" align="center"><a href="https://github.com/lbc1013"><img src="https://avatars.githubusercontent.com/u/65844592?v=4" height="85px" width="85px" alt=""/><sub><b>ByungChan<br>Lee</b></sub></a><br/></td>
