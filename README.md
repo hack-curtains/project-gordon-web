@@ -35,7 +35,12 @@
 
 
 ## Demo
-(demo video)
+##### 1. Website View
+![demo gif](dist/resources/Pantry-Chef.gif)
+
+
+##### 2. Mobile View
+![demo gif](dist/resources/Pantry-Chef-Mobile.gif)
 ## Module Detail
 ### 1. Authentication and Profile
 
@@ -54,6 +59,9 @@
 ### 4. Solo Recipe View & Recipe Tile
 
 (Description)
+
+### 5. Pantry Chef api
+https://github.com/hack-curtains/project-gordon-api
 
 ## Technologies
 
