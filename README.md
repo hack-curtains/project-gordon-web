@@ -35,7 +35,8 @@
 
 
 ## Demo
-(demo video)
+### - website View
+![demo gif](dist/resources/Pantry-Chef.gif)
 ## Module Detail
 ### 1. Authentication and Profile
 
