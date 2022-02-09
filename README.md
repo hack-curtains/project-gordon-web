@@ -35,8 +35,12 @@
 
 
 ## Demo
-### - website View
+##### 1. Website View
 ![demo gif](dist/resources/Pantry-Chef.gif)
+
+
+##### 2. Mobile View
+![demo gif](dist/resources/Pantry-Chef-Mobile.gif)
 ## Module Detail
 ### 1. Authentication and Profile
 
