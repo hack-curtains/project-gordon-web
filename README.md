@@ -44,7 +44,8 @@
 ## Module Detail
 ### 1. Authentication and Profile
 
-(Description)
+- Users are able to sign up to create a profile or sign into an existing profile from a sign in modal. User emails are validated in this modal with native HTML email validation.
+- Upon signing in, user information populates all aspects of the app. Users are then able to access their favorited recipes and pantry items, which persist across login sessions.
 
 ### 2. Search View & Result View
 
