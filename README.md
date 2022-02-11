@@ -59,7 +59,9 @@
 
 ### 4. Solo Recipe View & Recipe Tile
 
-(Description)
+- Reusable Recipe Tile component used in different components throughout the app, also dynamic in size and information based on platform (desktop/mobile).
+- Solo Recipe View with more detailed information of a specific recipe, including a dynamic ingredient list that shows the user which ingredients they currently have in their pantry based on the user's input.
+- Liking and Favoriting functionality in both tiles and full recipe view which persist through user logins.
 
 ### 5. Pantry Chef api
 https://github.com/hack-curtains/project-gordon-api
