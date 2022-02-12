@@ -1,7 +1,6 @@
 <img display="center" src="dist/resources/chef-logo.png"></img>
 
-## Project Overview
-(Description)
+#### Pantry Chef is a recipe search app that lets user search by ingredients user has at home. User can find thousands of recipes that user can cook now and also save as a favorite recipes.
 
 
 <div align="center">
